@@ -50,6 +50,14 @@
     }
   </style>
   
+  <script src="//cdn1.lncld.net/static/js/3.4.2/av-min.js"></script>
+  <script>
+    AV.init({
+      appId: 'W2ku69yN9SKf3epFkbiNxPKM-gzGzoHsz',
+      appKey: 'r7h4cIu0z8FMOdzVfYKFd9M2'
+    })
+  </script>
+  
   <script type="text/javascript">
     if (document.images) {
       var avatar = new Image();
@@ -152,7 +160,7 @@
                         
                         
                         <li>
-                            <a href="/categories/hello/">hello</a>
+                            <a href="/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">基础知识</a>
                         </li>
                         
                         
@@ -174,7 +182,7 @@
                         
                         
                         <li>
-                            <a href="/tags/world/">world</a>
+                            <a href="/tags/JavaScript/">JavaScript</a>
                         </li>
                         
                         
@@ -217,15 +225,15 @@
      <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
     
     <div class="data-article hidden-xs">
-        <span class="month">12月</span>
-        <span class="day">10</span>
+        <span class="month">09月</span>
+        <span class="day">13</span>
     </div>
     <!-- 大型设备文章 -->
     <section class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/2019/12/10/hello-world/">
-                    <span>Hello World</span>
+                <a href="/2019/09/13/JavaScript%E5%9F%BA%E7%A1%80-1/">
+                    <span>JavaScript基础 - 数据类型及类型转换</span>
                 </a>
             </h1>
         </div>
@@ -234,23 +242,27 @@
             <span class="label label-gal">
                 <i class="fa fa-tags"></i>
                 
-                <a href="/tags/world/">world</a>
+                <a href="/tags/JavaScript/">JavaScript</a>
                 
             </span>
             
             
+            <span class="label label-gal">
+                <i class="fa fa-eye"></i>
+            </span>
+            
             <!-- TODO 添加评论统计 -->
             <!--<span class="label label-gal">
                 <i class="fa fa-comments"></i>
-                <a href="/2019/12/10/hello-world/#comments">739</a>
+                <a href="/2019/09/13/JavaScript%E5%9F%BA%E7%A1%80-1/#comments">739</a>
             </span>-->
         </div>
         <div class="alert alert-gal article-body content-article">
             <div class="item">
-                <a href="/2019/12/10/hello-world/">
+                <a href="/2019/09/13/JavaScript%E5%9F%BA%E7%A1%80-1/">
                     <div class="img">
                         
-                        <img src="http://img.netbian.com/file/2019/1129/30d0db11e8ee1973e50799103388a1d4.jpg" alt="Hello World">
+                        <img src="http://img.netbian.com/file/2019/0527/6b351528fb75f737f606a235498e2a9a.jpg" alt="JavaScript基础 - 数据类型及类型转换">
                     </div>
                     <div class="info">
                         
@@ -263,15 +275,15 @@
         <div class="title-article">
             <center>
                 <h4>
-                    <a href="/2019/12/10/hello-world/">
-                        <span>Hello World</span>
+                    <a href="/2019/09/13/JavaScript%E5%9F%BA%E7%A1%80-1/">
+                        <span>JavaScript基础 - 数据类型及类型转换</span>
                     </a>
                 </h4>
             </center>
         </div>
         <p></p>
         <center>
-            <i class="fa fa-calendar"></i> 2019-12-10
+            <i class="fa fa-calendar"></i> 2019-09-13
         </center>
         <p></p>
         <p></p>
@@ -279,22 +291,24 @@
             
             <i class="fa fa-tags"></i>
             
-            <a href="/tags/world/">world</a>
+            <a href="/tags/JavaScript/">JavaScript</a>
             
             
+            
+            <i class="fa fa-eye"></i>
             
         </center>
         <p></p>
         <div class="alert alert-gal article-body content-article">
             <p style="text-align: center;">
-                <a href="/2019/12/10/hello-world/">
+                <a href="/2019/09/13/JavaScript%E5%9F%BA%E7%A1%80-1/">
                     
-                    <img src="http://img.netbian.com/file/2019/0806/d422ec90522c5b81c8d27d8e478fd728.jpg" alt="Hello World">
+                    <img src="http://img.netbian.com/file/2019/1116/86cc490738933ccf0a257b84f46ff147.jpg" alt="JavaScript基础 - 数据类型及类型转换">
                 </a>
             </p>
         </div>
         
-        <a class="btn btn-danger pull-right read-more btn-block" href="/2019/12/10/hello-world/">
+        <a class="btn btn-danger pull-right read-more btn-block" href="/2019/09/13/JavaScript%E5%9F%BA%E7%A1%80-1/">
             阅读全文
             <!--<span class="badge">739</span>-->
         </a>
@@ -327,6 +341,8 @@
 </div>
 
 <!-- 加上这段代码原因： gitment在首页加载时, 如果找不到对应的控件会报错，此处加上，同时设置为none，防止报错 -->   
+  
+    <div id="comments-template" style="display:none"></div> 
 
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
@@ -372,6 +388,18 @@
     
     <!-- 要配置好leancloud才能开启此小工具 -->
     
+    <aside id="sidebar-hot_posts">
+    <div class="panel panel-gal hot hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-fire"></i>
+            最热文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
     
     <aside id="sidebar-recent_posts">
     <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
@@ -385,7 +413,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/12/10/hello-world/">Hello World</a>
+                    <a href="/2019/09/13/JavaScript%E5%9F%BA%E7%A1%80-1/">JavaScript基础 - 数据类型及类型转换</a>
                 </span>
             </li>
             
@@ -407,7 +435,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/12/10/hello-world/">Hello World</a>
+                    <a href="/2019/09/13/JavaScript%E5%9F%BA%E7%A1%80-1/">JavaScript基础 - 数据类型及类型转换</a>
                 </span>
             </li>
             
@@ -440,7 +468,7 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/world/" style="font-size: 11.22895664642174px;" class="tag-cloud-link">world</a>
+    <a href="/tags/JavaScript/" style="font-size: 11.514011870488236px;" class="tag-cloud-link">JavaScript</a>
     
 </div>
                 
@@ -552,6 +580,38 @@
 <script src="/js/oni.js"></script>
 
 
+
+<script>
+    window.hot_posts_count = '10'
+    // window.use_leancloud = 'true'
+</script>
+
+<script src="/js/comment/leancloud.js"></script>
+
+
+
+<script src="https://myau.moe/js/comment/gitment.browser.js"></script>
+<script>
+    if(window.commentConfig) {
+      window.commentConfig.id = ''
+      window.commentConfig.owner = 'king-loong'
+      window.commentConfig.repo = 'https://github.com/king-loong/king-loong.github.io.git'
+      window.commentConfig.client_id = '87e97981971f7b59029e'
+      window.commentConfig.client_secret = '550b0512c250d55deefb06baab8561dc28f8b93c'
+      window.commentConfig.redirect_uri = ''
+    } else {
+      window.commentConfig = {
+      	id: '',
+        owner: 'king-loong',
+        repo: 'https://github.com/king-loong/king-loong.github.io.git',
+        client_id: '87e97981971f7b59029e',
+        client_secret: '550b0512c250d55deefb06baab8561dc28f8b93c',
+        redirect_uri: ''
+      }
+    }
+</script>
+
+<script src="/js/comment/gitment.js"></script>
 
 
 </html>

@@ -50,6 +50,14 @@
     }
   </style>
   
+  <script src="//cdn1.lncld.net/static/js/3.4.2/av-min.js"></script>
+  <script>
+    AV.init({
+      appId: 'W2ku69yN9SKf3epFkbiNxPKM-gzGzoHsz',
+      appKey: 'r7h4cIu0z8FMOdzVfYKFd9M2'
+    })
+  </script>
+  
   <script type="text/javascript">
     if (document.images) {
       var avatar = new Image();
@@ -152,7 +160,7 @@
                         
                         
                         <li>
-                            <a href="/categories/hello/">hello</a>
+                            <a href="/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">基础知识</a>
                         </li>
                         
                         
@@ -174,7 +182,7 @@
                         
                         
                         <li>
-                            <a href="/tags/world/">world</a>
+                            <a href="/tags/JavaScript/">JavaScript</a>
                         </li>
                         
                         
@@ -231,8 +239,8 @@
     var p = query.length > 1 ? query[1].split('=')[1] : 1
     // 获取每页的页码数
     var pageSize = '10'
-    var useLeancloud = ''
-    var useComment = ('false' === 'true')
+    var useLeancloud = 'r7h4cIu0z8FMOdzVfYKFd9M2'
+    var useComment = ('true' === 'true')
     $.getJSON('/content.json', function (json) {
       $('#search-breadcrumb').append(`搜索'${s}'的结果`)
       var result = getArticles(s, 'posts', json).concat(getArticles(s, 'pages', json))
@@ -256,7 +264,7 @@
       	var [month, day] = article.date.split('-')
         ''
         ''
-        var defaultPreview = 'http://img.netbian.com/file/2019/1127/faa3728c8a225f771e19c586e9172ab4.jpg'
+        var defaultPreview = 'http://img.netbian.com/file/2019/0527/6b351528fb75f737f606a235498e2a9a.jpg'
         var preview = article.preview ? article.preview : defaultPreview
         var path = '/' + article.path
         resultList.append(`<div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
@@ -454,6 +462,18 @@
     
     <!-- 要配置好leancloud才能开启此小工具 -->
     
+    <aside id="sidebar-hot_posts">
+    <div class="panel panel-gal hot hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-fire"></i>
+            最热文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
     
     <aside id="sidebar-recent_posts">
     <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
@@ -467,7 +487,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/12/10/hello-world/">Hello World</a>
+                    <a href="/2019/09/13/JavaScript%E5%9F%BA%E7%A1%80-1/">JavaScript基础 - 数据类型及类型转换</a>
                 </span>
             </li>
             
@@ -489,7 +509,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/12/10/hello-world/">Hello World</a>
+                    <a href="/2019/09/13/JavaScript%E5%9F%BA%E7%A1%80-1/">JavaScript基础 - 数据类型及类型转换</a>
                 </span>
             </li>
             
@@ -522,7 +542,7 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/world/" style="font-size: 14.552029057747683px;" class="tag-cloud-link">world</a>
+    <a href="/tags/JavaScript/" style="font-size: 13.337074387085046px;" class="tag-cloud-link">JavaScript</a>
     
 </div>
                 
@@ -634,6 +654,38 @@
 <script src="/js/oni.js"></script>
 
 
+
+<script>
+    window.hot_posts_count = '10'
+    // window.use_leancloud = 'true'
+</script>
+
+<script src="/js/comment/leancloud.js"></script>
+
+
+
+<script src="https://myau.moe/js/comment/gitment.browser.js"></script>
+<script>
+    if(window.commentConfig) {
+      window.commentConfig.id = 'Wed Dec 11 2019 20:45:35 GMT+0800'
+      window.commentConfig.owner = 'king-loong'
+      window.commentConfig.repo = 'https://github.com/king-loong/king-loong.github.io.git'
+      window.commentConfig.client_id = '87e97981971f7b59029e'
+      window.commentConfig.client_secret = '550b0512c250d55deefb06baab8561dc28f8b93c'
+      window.commentConfig.redirect_uri = ''
+    } else {
+      window.commentConfig = {
+      	id: 'Wed Dec 11 2019 20:45:35 GMT+0800',
+        owner: 'king-loong',
+        repo: 'https://github.com/king-loong/king-loong.github.io.git',
+        client_id: '87e97981971f7b59029e',
+        client_secret: '550b0512c250d55deefb06baab8561dc28f8b93c',
+        redirect_uri: ''
+      }
+    }
+</script>
+
+<script src="/js/comment/gitment.js"></script>
 
 
 </html>

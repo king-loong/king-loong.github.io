@@ -13,7 +13,7 @@
   
   
   
-  <title>archive_a | Loong</title>
+  <title>JavaScript基础 - 数据类型及类型转换 | Loong</title>
   <link href="https://xiao-long.club" rel="prefetch" />
 
 
@@ -49,6 +49,14 @@
       }
     }
   </style>
+  
+  <script src="//cdn1.lncld.net/static/js/3.4.2/av-min.js"></script>
+  <script>
+    AV.init({
+      appId: 'W2ku69yN9SKf3epFkbiNxPKM-gzGzoHsz',
+      appKey: 'r7h4cIu0z8FMOdzVfYKFd9M2'
+    })
+  </script>
   
   <script type="text/javascript">
     if (document.images) {
@@ -133,7 +141,7 @@
                 
                 
                 
-                <li class="current">
+                <li class="">
                     <a href="/archives">
                         <i class="fa fa-archive"></i>归档
                     </a>
@@ -152,7 +160,7 @@
                         
                         
                         <li>
-                            <a href="/categories/hello/">hello</a>
+                            <a href="/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">基础知识</a>
                         </li>
                         
                         
@@ -174,7 +182,7 @@
                         
                         
                         <li>
-                            <a href="/tags/world/">world</a>
+                            <a href="/tags/JavaScript/">JavaScript</a>
                         </li>
                         
                         
@@ -200,19 +208,38 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    <article class="article well article-body" id="article-archive">
+                    
+<article class="article well article-body" id="article">
     <div class="breadcrumb">
         <i class="fa fa-home"></i>
         <a href="https://xiao-long.club">Loong</a>
         >
-        <span>归档</span>
+        <span>JavaScript基础 - 数据类型及类型转换</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/archives">归档</a>
+                <a href="/2019/09/13/JavaScript%E5%9F%BA%E7%A1%80-1/">JavaScript基础 - 数据类型及类型转换</a>
             </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/JavaScript/">JavaScript</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2019-09-13
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-eye"></i>
+            </span>
+            
         </div>
     </div>
     <!-- 小型设备详细文章 -->
@@ -220,27 +247,82 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/archives">归档</a>
+                    <a href="/2019/09/13/JavaScript%E5%9F%BA%E7%A1%80-1/">JavaScript基础 - 数据类型及类型转换</a>
                 </h4>
             </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2019-09-13
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/JavaScript/">JavaScript</a>
+                
+                
+                
+                <i class="fa fa-eye"></i>
+                
+            </p>
         </center>
     </div>
-    <div class="content-article" style="margin-top: 30px;">
-        
-        
-            <h1 style="font-size: 24px; margin-top: 40px;">2019年</h1>
-            
-        <div class="alert alert-info" style="font-size: 14px; line-height: 2; font-weight: bold;">
-            
-             
-             
-                        <a href="/2019/12/10/hello-world/">Hello World</a>
-                        <br>
-            
-                    </div>
-        
+    <div class="content-article">
+        <p>[TOC]</p>
+<h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><ul>
+<li><p>简单数据类型（值类型）：</p>
+<ul>
+<li>String</li>
+<li>Number</li>
+<li>Boolean</li>
+</ul>
+</li>
+<li><p>特殊数据类型</p>
+<ul>
+<li>Null （type of 出来是 Object）</li>
+<li>Undefined</li>
+</ul>
+</li>
+<li><p>引用数据类型</p>
+<ul>
+<li>Object</li>
+<li>Array</li>
+<li>Function</li>
+</ul>
+</li>
+</ul>
+<h1 id="二、数据类型介绍"><a href="#二、数据类型介绍" class="headerlink" title="二、数据类型介绍"></a>二、数据类型介绍</h1><h2 id="2-1-String（字符串类型）"><a href="#2-1-String（字符串类型）" class="headerlink" title="2.1 String（字符串类型）"></a>2.1 String（字符串类型）</h2><ul>
+<li><p>在 <code>JavaScript</code> 中字符串需要使用单引号/双引号 <code>&quot;&quot; / &#39;&#39;</code> 引起来使用（不可以讲单双引号混合使用）</p>
+</li>
+<li><p>引号内不能嵌套使用，如：双引号内继续使用双引号</p>
+</li>
+<li><p>在字符串内可以使用 <code>\</code> 反斜杠进行特殊字符转义</p>
+</li>
+<li><p>ES6 新增模板语法 <code></code> 反引号</p>
+<ul>
+<li><p>在反引号内可以调用变量</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">'Jerry'</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">`hello <span class="subst">$&#123;name&#125;</span>`</span></span><br><span class="line"><span class="built_in">console</span>.log(str) -&gt; hello Jerry</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-2-Number-数值类型"><a href="#2-2-Number-数值类型" class="headerlink" title="2.2 Number (数值类型)"></a>2.2 Number (数值类型)</h2><ul>
+<li>JavaScript 中所有数值到时 Number 类型，包括整数和浮点</li>
+</ul>
+
     </div>
 </article>
+
+
+<div id="comments-template"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script>
+	if(!window.commentConfig) {
+      window.commentConfig = {}
+      window.commentConfig.title = 'JavaScript基础 - 数据类型及类型转换'
+    }
+</script>
+
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
     <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
@@ -285,6 +367,18 @@
     
     <!-- 要配置好leancloud才能开启此小工具 -->
     
+    <aside id="sidebar-hot_posts">
+    <div class="panel panel-gal hot hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-fire"></i>
+            最热文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
     
     <aside id="sidebar-recent_posts">
     <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
@@ -298,7 +392,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/12/10/hello-world/">Hello World</a>
+                    <a href="/2019/09/13/JavaScript%E5%9F%BA%E7%A1%80-1/">JavaScript基础 - 数据类型及类型转换</a>
                 </span>
             </li>
             
@@ -320,7 +414,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/12/10/hello-world/">Hello World</a>
+                    <a href="/2019/09/13/JavaScript%E5%9F%BA%E7%A1%80-1/">JavaScript基础 - 数据类型及类型转换</a>
                 </span>
             </li>
             
@@ -335,17 +429,17 @@
 
                 
                 <li>
-                    <a href="/archives/2019/12/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2019/09/13/JavaScript%E5%9F%BA%E7%A1%80-1/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/archives/2019/12/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/2019/09/13/JavaScript%E5%9F%BA%E7%A1%80-1/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/archives/2019/12/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2019/09/13/JavaScript%E5%9F%BA%E7%A1%80-1/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -353,7 +447,7 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/world/" style="font-size: 18.677315944722466px;" class="tag-cloud-link">world</a>
+    <a href="/tags/JavaScript/" style="font-size: 12.768659351136364px;" class="tag-cloud-link">JavaScript</a>
     
 </div>
                 
@@ -465,6 +559,38 @@
 <script src="/js/oni.js"></script>
 
 
+
+<script>
+    window.hot_posts_count = '10'
+    // window.use_leancloud = 'true'
+</script>
+
+<script src="/js/comment/leancloud.js"></script>
+
+
+
+<script src="https://myau.moe/js/comment/gitment.browser.js"></script>
+<script>
+    if(window.commentConfig) {
+      window.commentConfig.id = 'Fri Sep 13 2019 11:35:43 GMT+0800'
+      window.commentConfig.owner = 'king-loong'
+      window.commentConfig.repo = 'https://github.com/king-loong/king-loong.github.io.git'
+      window.commentConfig.client_id = '87e97981971f7b59029e'
+      window.commentConfig.client_secret = '550b0512c250d55deefb06baab8561dc28f8b93c'
+      window.commentConfig.redirect_uri = ''
+    } else {
+      window.commentConfig = {
+      	id: 'Fri Sep 13 2019 11:35:43 GMT+0800',
+        owner: 'king-loong',
+        repo: 'https://github.com/king-loong/king-loong.github.io.git',
+        client_id: '87e97981971f7b59029e',
+        client_secret: '550b0512c250d55deefb06baab8561dc28f8b93c',
+        redirect_uri: ''
+      }
+    }
+</script>
+
+<script src="/js/comment/gitment.js"></script>
 
 
 </html>

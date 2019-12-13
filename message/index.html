@@ -13,7 +13,7 @@
   
   
   
-  <title>tags: world | Loong</title>
+  <title>message | Loong</title>
   <link href="https://xiao-long.club" rel="prefetch" />
 
 
@@ -49,6 +49,14 @@
       }
     }
   </style>
+  
+  <script src="//cdn1.lncld.net/static/js/3.4.2/av-min.js"></script>
+  <script>
+    AV.init({
+      appId: 'W2ku69yN9SKf3epFkbiNxPKM-gzGzoHsz',
+      appKey: 'r7h4cIu0z8FMOdzVfYKFd9M2'
+    })
+  </script>
   
   <script type="text/javascript">
     if (document.images) {
@@ -152,7 +160,7 @@
                         
                         
                         <li>
-                            <a href="/categories/hello/">hello</a>
+                            <a href="/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">基础知识</a>
                         </li>
                         
                         
@@ -174,7 +182,7 @@
                         
                         
                         <li>
-                            <a href="/tags/world/">world</a>
+                            <a href="/tags/JavaScript/">JavaScript</a>
                         </li>
                         
                         
@@ -200,19 +208,21 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    <article class="article well article-body" id="article-tag">
-    <div class="breadcrumb">
-        <i class="fa fa-home"></i>
-        <a href="https://xiao-long.club">Loong</a>
-        >
-        <span>标签</span>
-    </div>
+                    <!-- 搜索页面(尽可能接近ZanBlog搜索功能) -->
+
+
+<article class="article well article-body" id="article">
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/tags/world/index.html">world</a>
+                <a href="/message/index.html">message</a>
             </h1>
+        </div>
+        <div class="tag-article">
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2019-12-13
+            </span>
         </div>
     </div>
     <!-- 小型设备详细文章 -->
@@ -220,21 +230,30 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/tags/world/index.html">world</a>
+                    <a href="/message/index.html">message</a>
                 </h4>
             </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2019-12-13
+            </p>
         </center>
     </div>
-    <div class="content-article" style="margin-top: 30px;">
-        <div class="alert alert-info" style="font-size: 14px; line-height: 2; font-weight: bold;">
-            
-            <a href="/2019/12/10/hello-world/">Hello World</a>
-            <br>
-            
-            
-        </div>
+    <div class="content-article">
+        
     </div>
 </article>
+
+
+<div id="comments-template"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script>
+	if(!window.commentConfig) {
+      window.commentConfig = {}
+      window.commentConfig.title = 'message'
+    }
+</script>
+
+
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
     <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
@@ -279,6 +298,18 @@
     
     <!-- 要配置好leancloud才能开启此小工具 -->
     
+    <aside id="sidebar-hot_posts">
+    <div class="panel panel-gal hot hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-fire"></i>
+            最热文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
     
     <aside id="sidebar-recent_posts">
     <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
@@ -292,7 +323,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/12/10/hello-world/">Hello World</a>
+                    <a href="/2019/09/13/JavaScript%E5%9F%BA%E7%A1%80-1/">JavaScript基础 - 数据类型及类型转换</a>
                 </span>
             </li>
             
@@ -314,7 +345,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/12/10/hello-world/">Hello World</a>
+                    <a href="/2019/09/13/JavaScript%E5%9F%BA%E7%A1%80-1/">JavaScript基础 - 数据类型及类型转换</a>
                 </span>
             </li>
             
@@ -329,17 +360,17 @@
 
                 
                 <li>
-                    <a href="/tags/world/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/message/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/tags/world/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/message/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/tags/world/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/message/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -347,7 +378,7 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/world/" style="font-size: 15.566193369124331px;" class="tag-cloud-link">world</a>
+    <a href="/tags/JavaScript/" style="font-size: 18.553896092674904px;" class="tag-cloud-link">JavaScript</a>
     
 </div>
                 
@@ -459,6 +490,38 @@
 <script src="/js/oni.js"></script>
 
 
+
+<script>
+    window.hot_posts_count = '10'
+    // window.use_leancloud = 'true'
+</script>
+
+<script src="/js/comment/leancloud.js"></script>
+
+
+
+<script src="https://myau.moe/js/comment/gitment.browser.js"></script>
+<script>
+    if(window.commentConfig) {
+      window.commentConfig.id = 'Fri Dec 13 2019 13:26:09 GMT+0800'
+      window.commentConfig.owner = 'king-loong'
+      window.commentConfig.repo = 'https://github.com/king-loong/king-loong.github.io.git'
+      window.commentConfig.client_id = '87e97981971f7b59029e'
+      window.commentConfig.client_secret = '550b0512c250d55deefb06baab8561dc28f8b93c'
+      window.commentConfig.redirect_uri = ''
+    } else {
+      window.commentConfig = {
+      	id: 'Fri Dec 13 2019 13:26:09 GMT+0800',
+        owner: 'king-loong',
+        repo: 'https://github.com/king-loong/king-loong.github.io.git',
+        client_id: '87e97981971f7b59029e',
+        client_secret: '550b0512c250d55deefb06baab8561dc28f8b93c',
+        redirect_uri: ''
+      }
+    }
+</script>
+
+<script src="/js/comment/gitment.js"></script>
 
 
 </html>
