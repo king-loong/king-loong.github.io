@@ -75,12 +75,12 @@
     <!-- 背景轮播图功能 -->
     <section class="hidden-xs">
     <ul class="cb-slideshow">
-        <li><span>天若</span></li>
-        <li><span>有情</span></li>
-        <li><span>天亦老</span></li>
-        <li><span>我为</span></li>
-        <li><span>长者</span></li>
-        <li><span>续一秒</span></li>
+        <li><span>大</span></li>
+        <li><span>隐</span></li>
+        <li><span>隐</span></li>
+        <li><span>于</span></li>
+        <li><span>世</span></li>
+        <li><span>！</span></li>
     </ul>
 </section>
     <!-- 欧尼酱功能, 谁用谁知道 -->
@@ -267,28 +267,22 @@
         </center>
     </div>
     <div class="content-article">
-        <p>[TOC]</p>
-<h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><ul>
-<li><p>简单数据类型（值类型）：</p>
+        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>简单数据类型（值类型）：</p>
 <ul>
 <li>String</li>
 <li>Number</li>
 <li>Boolean</li>
 </ul>
-</li>
-<li><p>特殊数据类型</p>
+<p>特殊数据类型</p>
 <ul>
 <li>Null （type of 出来是 Object）</li>
 <li>Undefined</li>
 </ul>
-</li>
-<li><p>引用数据类型</p>
+<p>引用数据类型</p>
 <ul>
 <li>Object</li>
 <li>Array</li>
 <li>Function</li>
-</ul>
-</li>
 </ul>
 <h1 id="二、数据类型介绍"><a href="#二、数据类型介绍" class="headerlink" title="二、数据类型介绍"></a>二、数据类型介绍</h1><h2 id="2-1-String（字符串类型）"><a href="#2-1-String（字符串类型）" class="headerlink" title="2.1 String（字符串类型）"></a>2.1 String（字符串类型）</h2><ul>
 <li><p>在 <code>JavaScript</code> 中字符串需要使用单引号/双引号 <code>&quot;&quot; / &#39;&#39;</code> 引起来使用（不可以讲单双引号混合使用）</p>
@@ -306,22 +300,118 @@
 </ul>
 </li>
 </ul>
-<h2 id="2-2-Number-数值类型"><a href="#2-2-Number-数值类型" class="headerlink" title="2.2 Number (数值类型)"></a>2.2 Number (数值类型)</h2><ul>
-<li>JavaScript 中所有数值到时 Number 类型，包括整数和浮点</li>
+<h2 id="2-2-Number-数值类型"><a href="#2-2-Number-数值类型" class="headerlink" title="2.2 Number (数值类型)"></a>2.2 Number (数值类型)</h2><p>JavaScript 中所有数值都是Number类型，包括整数和浮点（小数）<br>    *  可以使用 “语法 ： typeof 变量” 来检查数据类型<br>        <em>typeof只能检查基础数据类型</em><br>    *  使用 typeof 来检查Infinity 和 NaN  返回的都是Number</p>
+<p>JS 中可以表示的最大值 Number.MAX_VSLUE<br>    * 如果使用的Number的数字超过最大值，输出 Infinity 表示正无穷大</p>
+<p>JS 中可以表示的最小值 Number.MIN_VSLUE<br>JS 中整数的运算基本可以保证精确<br>JS 进行浮点数（小数）进行运算可能得到一个不精确的结果 </p>
+<h2 id="1-3-Boolean（布尔）"><a href="#1-3-Boolean（布尔）" class="headerlink" title="1.3 Boolean（布尔）"></a>1.3 Boolean（布尔）</h2><p>Boolean 布尔值只有两个</p>
+<ul>
+<li>true - 表示“ 真 ” 。  <em>计算机中存值为：1</em></li>
+<li>false - 表示“ 假 ”。  <em>计算机中存值为：0</em></li>
 </ul>
+<h2 id="1-4-Null（空值）"><a href="#1-4-Null（空值）" class="headerlink" title="1.4 Null（空值）"></a>1.4 Null（空值）</h2><p>Null 类型的值只有一个，就是 null</p>
+<ul>
+<li>null 专门用来表示一个为空的对象</li>
+<li>用 typeof 检查 null 值时，会返回一个object （Bug）</li>
+</ul>
+<h2 id="1-5-Undefined（未定义）"><a href="#1-5-Undefined（未定义）" class="headerlink" title="1.5 Undefined（未定义）"></a>1.5 Undefined（未定义）</h2><p>类型只有一个，就是undefined</p>
+<ul>
+<li>当一个变量声明了，但并没有给这个变量赋值 ，它的值就是undefined</li>
+<li>用 typeof 检查 undefined 时也会返回一个 undefined</li>
+</ul>
+<h1 id="二、类型转换"><a href="#二、类型转换" class="headerlink" title="二、类型转换"></a>二、类型转换</h1><p>强制类型转换</p>
+<ul>
+<li>指讲一个数据类型强制转换为其他数据类型</li>
+<li>类型转主要指 将其他数据类型转化为：String/Number/Boolean</li>
+</ul>
+<h2 id="2-1-将其他数据类型转化为-String（字符串）"><a href="#2-1-将其他数据类型转化为-String（字符串）" class="headerlink" title="2.1 将其他数据类型转化为 String（字符串）"></a>2.1 将其他数据类型转化为 String（字符串）</h2><hr>
+<ol>
+<li><strong>转换方法一 ：调用被转换数据类型的 .toString() 方法</strong>  </li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>;  </span><br><span class="line">a = a.toString()  </span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> a) <span class="comment">//打印出来的属性类型就是 string（字符串）</span></span><br><span class="line">   </span><br><span class="line">  * 该方法不会影响到原变量，它会将转换的结果返回</span><br><span class="line">  * ！注意 ！：<span class="literal">null</span> 和 <span class="literal">undefined</span> 这两个值都没有 .toString()  方法</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><strong>转换方法二 ：调用 String（）函数，并将被转换的数据作为参数传递给函数</strong>  </li>
+</ol>
+<p>对于Number 和 Boolean 实际上就是调用的 .toString()的方法<br>但是对于 null 和 undefined ，就不会调用 .toString()的方法，它会直接将null转换为“null”（字符串null）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">调用<span class="built_in">String</span>（）函数来进行转化为字符串  </span><br><span class="line"><span class="keyword">var</span> a = <span class="number">123</span>    </span><br><span class="line">    <span class="built_in">String</span>(a) ;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-2-将其他数据类型转化为-Number（数字）"><a href="#2-2-将其他数据类型转化为-Number（数字）" class="headerlink" title="2.2 将其他数据类型转化为 Number（数字）"></a>2.2 将其他数据类型转化为 Number（数字）</h2><ol>
+<li><strong>转换方法一 ：使用Number（）函数</strong> </li>
+</ol>
+<p><strong>– 字符串 —&gt; 数字</strong></p>
+<ol>
+<li><p>如果是纯数字的字符串，则直接将其转换为数字</p>
+</li>
+<li><p>如果字符串中有非数字的内容 ， 则会转换为 NaN   </p>
+</li>
+<li><p>如果字符串是个空字符串或者全是空格的字符串，则转为“ 0 ”</p>
+<p>纯数字字符串：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">  <span class="keyword">var</span> a = <span class="string">"456"</span>   </span><br><span class="line">  a = <span class="built_in">Number</span>(a)    </span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">typeof</span> a)  <span class="comment">// 打印类型为 number   </span></span><br><span class="line"><span class="string">``</span><span class="string">`js</span></span><br><span class="line"><span class="string">  含有非数字类型：   </span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>js</span><br><span class="line">  <span class="keyword">var</span> a = <span class="string">"456asd"</span>   </span><br><span class="line">      a = <span class="built_in">Number</span>(a)    </span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">typeof</span> a)  <span class="comment">// 打印类型为 NaN </span></span><br><span class="line"><span class="string">``</span><span class="string">`        </span></span><br><span class="line"><span class="string">  含有非数字类型：  </span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>js</span><br><span class="line">  <span class="keyword">var</span> a = <span class="string">"456asd"</span>   </span><br><span class="line">      a = <span class="built_in">Number</span>(a)    </span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">typeof</span> a)  <span class="comment">// 打印类型为 NaN</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p><strong>– 布尔 —&gt; 数字</strong></p>
+<ol>
+<li>true 转成 ：1 ；</li>
+<li>false 转出 ： 0 ；</li>
+</ol>
+<p><strong>– null —&gt; 数字</strong></p>
+<ol>
+<li>null 转成 ： 0 ；</li>
+</ol>
+<p><strong>– undefined —&gt; 数字</strong><br>        1. undefined 转成 ： NaN ；</p>
+<ol start="2">
+<li><p><strong>转换方法二 ：使用函数【parseInt（）—整形】和【parseFloat（）—浮点】</strong>  </p>
+<p> <em>— 这种方式专门用来对付字符串</em><br> <em>— parseInt() 把一个字符串转换为一个整数</em><br> <em>— parseFloat（）把一个字符串转换为一个浮点数</em>   </p>
+<ul>
+<li>调用parseInt()函数将 a 转化为Number<ul>
+<li>parseInt()函数可以将一个字符串中有效的整数内容取出来 ,然后转换为Number。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">"120px"</span>    </span><br><span class="line">    a =  <span class="built_in">parseInt</span>( a );</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">typeof</span> a)  <span class="comment">// 打印类型为 Number     </span></span><br><span class="line">    <span class="built_in">console</span>.log( a )    <span class="comment">// 120</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>调用parseFloat（）函数将 a 转化为Number</strong></p>
+<p>parseFloat（）和parseInt()类似，不同的是他可以获取到有效的小数    </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">"120.12512px"</span>    </span><br><span class="line">    a =  <span class="built_in">parseInt</span>( a );</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">typeof</span> a)  <span class="comment">// 打印类型为 Number     </span></span><br><span class="line">    <span class="built_in">console</span>.log( a )    <span class="comment">// 120.12512</span></span><br></pre></td></tr></table></figure>
+
+<p><em>如果对非String使用parseInt（）和parseFloat（），会先将其转换为String ，再进行数据类型的转化</em></p>
+<ol start="3">
+<li><p><strong>其他进制的数字</strong></p>
+<p>在 JS 中，如果需要表示 16 进制的数字，则需要以 0x 开头 ；<br>输出的时候都会转化为十进制</p>
+<ul>
+<li>如果需要表示八进制的数字 ， 则需要以 0 开头 ；    </li>
+<li>如果需要表示二进制的数字 ， 则需要以 ob 开头。（存在不兼容）       <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 像“ 070 ”这样的字符串，有些浏览器会当做八进制进行解析，有些当做十进制解析   </span></span><br><span class="line"><span class="comment">// 可以在parseInt（）中传递第二个参数，来指定数字的 进制类型</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="string">"070"</span> ;</span><br><span class="line">    a =  <span class="built_in">parseInt</span>( a ， <span class="number">10</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">typeof</span> a)  <span class="comment">// 打印类型为 Number     </span></span><br><span class="line">    <span class="built_in">console</span>.log( a )    <span class="comment">// 70</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="2-3-将其他数据类型转化为-Boolean（布尔）"><a href="#2-3-将其他数据类型转化为-Boolean（布尔）" class="headerlink" title="2.3 将其他数据类型转化为  Boolean（布尔）"></a>2.3 将其他数据类型转化为  Boolean（布尔）</h2><ol>
+<li><p><strong>转换方法一 ：使用Boolean（）函数</strong> </p>
+<ul>
+<li><p>– 数字 —&gt; 布尔     </p>
+<pre><code>除了 0 和 NaN ，其余的全是 true</code></pre></li>
+<li><p>– 字符串 —&gt; 布尔     </p>
+<pre><code>除了空字符串，其余都是 true</code></pre></li>
+<li><p>– null 和 undefined —&gt; 布尔     </p>
+<pre><code>null 和 undefined 转换为布尔全是 false</code></pre></li>
+<li><p>– object —&gt; 布尔     </p>
+<pre><code>Object（对象）转换为布尔全是 true </code></pre></li>
+</ul>
+</li>
+</ol>
+<h2 id="三、栈区与堆区"><a href="#三、栈区与堆区" class="headerlink" title="三、栈区与堆区"></a>三、栈区与堆区</h2><hr>
+<ol>
+<li>值类型存放在栈区</li>
+<li>复杂数据类型存放在堆区，栈中存堆的地址</li>
+</ol>
 
     </div>
 </article>
 
-
-<div id="comments-template"></div>
-<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-<script>
-	if(!window.commentConfig) {
-      window.commentConfig = {}
-      window.commentConfig.title = 'JavaScript基础 - 数据类型及类型转换'
-    }
-</script>
 
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
@@ -353,18 +443,6 @@
     </div>
 </aside>
     
-    <aside id="sidebar-recent_comments">
-    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-        <div class="panel-heading">
-            <i class="fa fa-comments"></i>
-            最新评论
-            <i class="fa fa-times-circle panel-remove"></i>
-            <i class="fa fa-chevron-circle-up panel-toggle"></i>
-        </div>
-        <ul class="list-group list-group-flush"></ul>
-    </div>
-</aside>
-    
     <!-- 要配置好leancloud才能开启此小工具 -->
     
     <aside id="sidebar-hot_posts">
@@ -392,6 +470,24 @@
             
             <li class="list-group-item">
                 <span class="post-title">
+                    <a href="/2019/09/28/JavaScript%E5%9F%BA%E7%A1%80-4/">JavaScript基础 - 对象</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/09/15/JavaScript%E5%9F%BA%E7%A1%80-3/">JavaScript基础 - 流程控制语句</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/09/14/JavaScript%E5%9F%BA%E7%A1%80-2/">JavaScript基础 - 运算符</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
                     <a href="/2019/09/13/JavaScript%E5%9F%BA%E7%A1%80-1/">JavaScript基础 - 数据类型及类型转换</a>
                 </span>
             </li>
@@ -415,6 +511,24 @@
             <li class="list-group-item">
                 <span class="post-title">
                     <a href="/2019/09/13/JavaScript%E5%9F%BA%E7%A1%80-1/">JavaScript基础 - 数据类型及类型转换</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/09/14/JavaScript%E5%9F%BA%E7%A1%80-2/">JavaScript基础 - 运算符</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/09/15/JavaScript%E5%9F%BA%E7%A1%80-3/">JavaScript基础 - 流程控制语句</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/09/28/JavaScript%E5%9F%BA%E7%A1%80-4/">JavaScript基础 - 对象</a>
                 </span>
             </li>
             
@@ -447,7 +561,7 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/JavaScript/" style="font-size: 12.768659351136364px;" class="tag-cloud-link">JavaScript</a>
+    <a href="/tags/JavaScript/" style="font-size: 18.68883687540237px;" class="tag-cloud-link">JavaScript</a>
     
 </div>
                 
@@ -492,7 +606,7 @@
     <footer id="gal-footer">
     <div class="container">
         Copyright © 2019 Loong Powered by <a href="https://hexo.io/"
-            target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">Loong</a>
+            target="_blank">Hexo</a>.&nbsp;Theme by <a href="/" target="_blank">Loong</a>
     </div>
 </footer>
 
@@ -567,30 +681,6 @@
 
 <script src="/js/comment/leancloud.js"></script>
 
-
-
-<script src="https://myau.moe/js/comment/gitment.browser.js"></script>
-<script>
-    if(window.commentConfig) {
-      window.commentConfig.id = 'Fri Sep 13 2019 11:35:43 GMT+0800'
-      window.commentConfig.owner = 'king-loong'
-      window.commentConfig.repo = 'https://github.com/king-loong/king-loong.github.io.git'
-      window.commentConfig.client_id = '87e97981971f7b59029e'
-      window.commentConfig.client_secret = '550b0512c250d55deefb06baab8561dc28f8b93c'
-      window.commentConfig.redirect_uri = ''
-    } else {
-      window.commentConfig = {
-      	id: 'Fri Sep 13 2019 11:35:43 GMT+0800',
-        owner: 'king-loong',
-        repo: 'https://github.com/king-loong/king-loong.github.io.git',
-        client_id: '87e97981971f7b59029e',
-        client_secret: '550b0512c250d55deefb06baab8561dc28f8b93c',
-        redirect_uri: ''
-      }
-    }
-</script>
-
-<script src="/js/comment/gitment.js"></script>
 
 
 </html>

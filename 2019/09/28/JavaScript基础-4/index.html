@@ -13,7 +13,7 @@
   
   
   
-  <title>categories: 基础知识 | Loong</title>
+  <title>JavaScript基础 - 对象 | Loong</title>
   <link href="https://xiao-long.club" rel="prefetch" />
 
 
@@ -208,19 +208,38 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    <article class="article well article-body" id="article-category">
+                    
+<article class="article well article-body" id="article">
     <div class="breadcrumb">
         <i class="fa fa-home"></i>
         <a href="https://xiao-long.club">Loong</a>
         >
-        <span>目录</span>
+        <span>JavaScript基础 - 对象</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/index.html">基础知识</a>
+                <a href="/2019/09/28/JavaScript%E5%9F%BA%E7%A1%80-4/">JavaScript基础 - 对象</a>
             </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/JavaScript/">JavaScript</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2019-09-28
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-eye"></i>
+            </span>
+            
         </div>
     </div>
     <!-- 小型设备详细文章 -->
@@ -228,30 +247,211 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/index.html">基础知识</a>
+                    <a href="/2019/09/28/JavaScript%E5%9F%BA%E7%A1%80-4/">JavaScript基础 - 对象</a>
                 </h4>
             </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2019-09-28
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/JavaScript/">JavaScript</a>
+                
+                
+                
+                <i class="fa fa-eye"></i>
+                
+            </p>
         </center>
     </div>
-    <div class="content-article" style="margin-top: 30px;">
-        <div class="alert alert-info" style="font-size: 14px; line-height: 2; font-weight: bold;">
-            
-            <a href="/2019/09/28/JavaScript%E5%9F%BA%E7%A1%80-4/">JavaScript基础 - 对象</a>
-            <br>
-            
-            <a href="/2019/09/15/JavaScript%E5%9F%BA%E7%A1%80-3/">JavaScript基础 - 流程控制语句</a>
-            <br>
-            
-            <a href="/2019/09/14/JavaScript%E5%9F%BA%E7%A1%80-2/">JavaScript基础 - 运算符</a>
-            <br>
-            
-            <a href="/2019/09/13/JavaScript%E5%9F%BA%E7%A1%80-1/">JavaScript基础 - 数据类型及类型转换</a>
-            <br>
-            
-            
-        </div>
+    <div class="content-article">
+        <ul>
+<li>JavaScript 中的数据类型</li>
+</ul>
+<ol>
+<li>— string —- 字符串</li>
+<li>— Number —- 数值</li>
+<li>— Boolean —- 布尔值</li>
+<li>— null —– 空值</li>
+<li>— Undefined —- 未定义<br>———— 以上五种数据类型属于基础数据类型，只要不是以上五种，全部都是对象。</li>
+</ol>
+<h1 id="Object-对象"><a href="#Object-对象" class="headerlink" title="Object 对象"></a>Object 对象</h1><p>—— 对象属于一种复合的数据类型，在对象中可以保存多个不同数据类型的属性。    </p>
+<h3 id="一-、对象的分类"><a href="#一-、对象的分类" class="headerlink" title="一 、对象的分类"></a>一 、对象的分类</h3><ol>
+<li><p>内建对象 ：      </p>
+<ul>
+<li>在ES标准定义的对象，在任何的ES的实现中都可以使用     </li>
+<li><ul>
+<li>比如 ： Math   String  Number  Boolean  Function</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>宿主对象 ：   </p>
+<ul>
+<li>由 JavaScript 的运行环境提供的对象，目前来讲主要指又浏览器提供的对象      </li>
+<li><ul>
+<li>比如 ： Bom  DOM </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>自定义对象 ：</p>
+<ul>
+<li>由开发人员自己创建的对象。 </li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="二-、对象的基本操作"><a href="#二-、对象的基本操作" class="headerlink" title="二 、对象的基本操作"></a>二 、对象的基本操作</h3><h4 id="2-1-创建对象及调用"><a href="#2-1-创建对象及调用" class="headerlink" title="2.1 创建对象及调用"></a>2.1 创建对象及调用</h4><ul>
+<li><p>使用 new 关键字调用的函数，是构造函数 construction ；<br>  – 构造函数是专门用来创建对象的函数  </p>
+</li>
+<li><p>使用 typeof 检查一个对象时 ，返回 object 。   </p>
+</li>
+<li><p>在对象中保存的值称之为属性 </p>
+<pre><code>var obj = new Object( );
+
+// 给 obj 添加属性
+obj.name =&quot;孙悟空&quot;；
+obj.age =&quot;18&quot;
+
+//读取对象中的属性
+console.log (obj.age)  // 18
+
+//修改对象中的属性
+obj.age = &quot;20&quot;
+console.log (obj.age)  // 20
+
+//删除对象属性 
+delete obj.age
+console.log (obj.age)  // undefined</code></pre></li>
+</ul>
+<h5 id="2-1-1-向对象中添加属性-——-语法如下-："><a href="#2-1-1-向对象中添加属性-——-语法如下-：" class="headerlink" title="2.1.1 向对象中添加属性 —— 语法如下 ："></a>2.1.1 向对象中添加属性 —— 语法如下 ：</h5><h6 id="语法-：-对象-属性名-属性值"><a href="#语法-：-对象-属性名-属性值" class="headerlink" title="语法 ： 对象 . 属性名 = 属性值"></a>语法 ： 对象 . 属性名 = 属性值</h6><p><strong>属性名 ：</strong>    </p>
+<ol>
+<li><p>对象的属性名不强制要求遵循标识符的规范（但使用时尽量按照标识符的规范去做）</p>
+</li>
+<li><p>如果要使用特殊的属性名，不能采用 . 的方式来操作。  </p>
+<pre><code>需要使用另一种方式 ：       
+    语法 ：[ “ 属性名 ” ] = 属性值    
+
+    读取时也要采取这种方式 </code></pre></li>
+<li><p>使用 [ ] 这种方式操作属性，更加灵活。     </p>
+<ul>
+<li>在 [ ] 中可以直接传递一个变量，这样变量是多少，就会读取到多少。</li>
+</ul>
+</li>
+</ol>
+<h5 id="2-1-2-读取对象中的属性-——-语法如下-："><a href="#2-1-2-读取对象中的属性-——-语法如下-：" class="headerlink" title="2.1.2 读取对象中的属性 —— 语法如下 ："></a>2.1.2 读取对象中的属性 —— 语法如下 ：</h5><h6 id="语法-：-对象-属性名"><a href="#语法-：-对象-属性名" class="headerlink" title="语法 ： 对象 . 属性名"></a>语法 ： 对象 . 属性名</h6><ul>
+<li>如果读取对象中没有的属性，不会报错而是返回 undefined     </li>
+</ul>
+<h5 id="2-1-3-修改对象中的属性值-——-语法如下："><a href="#2-1-3-修改对象中的属性值-——-语法如下：" class="headerlink" title="2.1.3 修改对象中的属性值 —— 语法如下："></a>2.1.3 修改对象中的属性值 —— 语法如下：</h5><h6 id="语法-：-对象-属性名-新值"><a href="#语法-：-对象-属性名-新值" class="headerlink" title="语法 ： 对象 . 属性名 = 新值"></a>语法 ： 对象 . 属性名 = 新值</h6><p><strong>属性值 ：</strong></p>
+<ol>
+<li>JavaScript 对象的属性值，可以是任意的数据类型     <ul>
+<li>甚至可以是一个对象（ object ）</li>
+</ul>
+</li>
+</ol>
+<h5 id="2-1-4-删除对象的属性-——-语法如下-："><a href="#2-1-4-删除对象的属性-——-语法如下-：" class="headerlink" title="2.1.4 删除对象的属性 —— 语法如下 ："></a>2.1.4 删除对象的属性 —— 语法如下 ：</h5><h6 id="语法-：-delete-对象-属性名"><a href="#语法-：-delete-对象-属性名" class="headerlink" title="语法 ： delete 对象 . 属性名"></a>语法 ： delete 对象 . 属性名</h6><h4 id="2-2-in-运算符"><a href="#2-2-in-运算符" class="headerlink" title="2.2 in 运算符"></a>2.2 in 运算符</h4><p><em>通过该运算符可以检查一个对象中是否含有指定的属性</em><br>—— 如果有值则返回 true ，没有则返回 false </p>
+<h6 id="语法-："><a href="#语法-：" class="headerlink" title="语法 ："></a>语法 ：</h6><pre><code>“ 属性名 ” in 对象</code></pre><hr>
+<h3 id="三-、基础数据类型和引用数据类型"><a href="#三-、基础数据类型和引用数据类型" class="headerlink" title="三 、基础数据类型和引用数据类型"></a>三 、基础数据类型和引用数据类型</h3><p><strong>基本数据类型</strong></p>
+<ol>
+<li>— string —- 字符串</li>
+<li>— Number —- 数值</li>
+<li>— Boolean —- 布尔值</li>
+<li>— null —– 空值</li>
+<li>— Undefined —- 未定义</li>
+</ol>
+<p><strong>引用数据类型</strong></p>
+<ol>
+<li>— Object —- 对象  </li>
+</ol>
+<h5 id="JavaScript-的变量都是保存在栈内存中。"><a href="#JavaScript-的变量都是保存在栈内存中。" class="headerlink" title="JavaScript 的变量都是保存在栈内存中。"></a>JavaScript 的变量都是保存在栈内存中。</h5><ul>
+<li>基础数据类型直接在 栈内存 中存储 。    </li>
+</ul>
+<p><em>值与值之间相互独立 ，修改一个变量，不会影响另外一个值</em>    </p>
+<ul>
+<li>对象是保存在 堆内存 中，每创建一个新的对象，就会在堆内存中开辟出一个新空间     </li>
+</ul>
+<p><em>而变量保存的是对象的内存地址（对象的引用）。如果两个对象保存的是同一个对象的引用，当其中一个通过变量修改值以后，另外一个也会受到影响</em><br><strong>其中一个赋值为 null 后 ，将断开与对象的 引用地址 断开链接关系</strong></p>
+<ul>
+<li>当比较两个基础数据类型的值时，就是单纯的 值 之间的比较  </li>
+<li>当比较两个引用数据类型（ Object ）时，它比较的是对象的 内存地址     </li>
+</ul>
+<p><em>如果两个对象时一模一样的，但地址不同，它也会返回 false</em>     </p>
+<hr>
+<h3 id="四-、对象字面量"><a href="#四-、对象字面量" class="headerlink" title="四 、对象字面量"></a>四 、对象字面量</h3><ul>
+<li><p>使用对象字面量创建对象  </p>
+<h6 id="语法-：-1"><a href="#语法-：-1" class="headerlink" title="语法 ："></a>语法 ：</h6><p>  var obj = { } </p>
+</li>
+<li><p>使用对象字面量，可以在创建时直接指定对象的属性    </p>
+<ul>
+<li>对象字面量的属性名可以加引号，也可以不加；建议不加    </li>
+<li>如果使用一些特殊的名字，则必须加引号<h6 id="语法-：-2"><a href="#语法-：-2" class="headerlink" title="语法 ："></a>语法 ：</h6>var object = {name : “猪八戒”，<pre><code>  age : &quot;29&quot;, 
+  sex :&quot;男&quot;
+}；</code></pre></li>
+</ul>
+</li>
+<li><p>属性名和属性值时一组成对的结构</p>
+<ul>
+<li>名和值之间使用 ： 链接 </li>
+<li>多个值之间使用 ， 隔开</li>
+<li>如果一个属性之后没有其他属性了，就不用接 ， </li>
+<li><h3 id="五-、对象的方法"><a href="#五-、对象的方法" class="headerlink" title="五 、对象的方法"></a>五 、对象的方法</h3></li>
+</ul>
+</li>
+<li><p>对象的属性可以是任何数据类型，也可以是函数        </p>
+</li>
+<li><p>函数也可以称为对象的属性    </p>
+<ul>
+<li><p>如果一个函数作为对象的属性保存</p>
+</li>
+<li><p>那么此时函数就是这个对象的方法      </p>
+</li>
+<li><p>调用这个函数就是调用这个对象的方法 （method）   </p>
+</li>
+<li><p>方法与函数只是名称上面的区别，没有本质上的区别。     </p>
+<pre><code>var obj = {
+    name : &quot;孙悟空&quot;，
+    age ： “600”，
+    sayName ： function（）{
+        console.log(obj.name)
+    }
+}
+
+//调用方法
+obj.sayName()；     </code></pre></li>
+</ul>
+</li>
+</ul>
+<h5 id="枚举对象中的属性"><a href="#枚举对象中的属性" class="headerlink" title="枚举对象中的属性"></a>枚举对象中的属性</h5><pre><code>使用 for ... in 语句  
+/*
+* 语法 ： 
+*       for （var  变量  in  对象）{
+*          
+*       } 
+*/
+
+
+for(var n in obj){
+    console.log(n)  // obj 中的属性名称
+    console.log( obj[n] )   //取出 obj 中对应属性名的值
+}</code></pre><ul>
+<li>for … in 语句，对象中有几个属性，循环体就执行几次  </li>
+<li>每次执行时会将属性名赋值给变量     </li>
+</ul>
+<hr>
+<h3 id="九-、垃圾回收"><a href="#九-、垃圾回收" class="headerlink" title="九 、垃圾回收"></a>九 、垃圾回收</h3><ul>
+<li>程序运行过程中会产生垃圾；这些垃圾积攒过多了以后，会导致程序运行速度过慢。所以必须要有一个垃圾回收的机制，来处理程序运行过程中产生的垃圾。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line"></span><br><span class="line">obj = <span class="literal">null</span>   <span class="comment">//这时就产生了无法操作的对象，并且存在在内存中，无法使用</span></span><br></pre></td></tr></table></figure></li>
+<li>当一个对象没有任何的变量或者属性对它进行引用时，此时将永远无法操作该对象<br>—— 此时这种对象就是个垃圾，这种对象多了以后就会占用大量内存；从而导致程序运行变慢。<br>—— 所以这种垃圾必须进行清理。      </li>
+<li>在 JavaScript 中拥有自动的垃圾回收机制，会自动将这些垃圾对象从内存中销毁！<br>—— 我们不需要也不能进行垃圾回收的操作        </li>
+<li>我们需要做的只是将不再使用的对象设置为 null 。</li>
+</ul>
+
     </div>
 </article>
+
+
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
     <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
@@ -382,17 +582,17 @@
 
                 
                 <li>
-                    <a href="/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2019/09/28/JavaScript%E5%9F%BA%E7%A1%80-4/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/2019/09/28/JavaScript%E5%9F%BA%E7%A1%80-4/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2019/09/28/JavaScript%E5%9F%BA%E7%A1%80-4/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -400,7 +600,7 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/JavaScript/" style="font-size: 13.632146265429675px;" class="tag-cloud-link">JavaScript</a>
+    <a href="/tags/JavaScript/" style="font-size: 16.50782558067273px;" class="tag-cloud-link">JavaScript</a>
     
 </div>
                 

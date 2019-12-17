@@ -13,7 +13,7 @@
   
   
   
-  <title>categories: 基础知识 | Loong</title>
+  <title>JavaScript基础 - 流程控制语句 | Loong</title>
   <link href="https://xiao-long.club" rel="prefetch" />
 
 
@@ -208,19 +208,38 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    <article class="article well article-body" id="article-category">
+                    
+<article class="article well article-body" id="article">
     <div class="breadcrumb">
         <i class="fa fa-home"></i>
         <a href="https://xiao-long.club">Loong</a>
         >
-        <span>目录</span>
+        <span>JavaScript基础 - 流程控制语句</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/index.html">基础知识</a>
+                <a href="/2019/09/15/JavaScript%E5%9F%BA%E7%A1%80-3/">JavaScript基础 - 流程控制语句</a>
             </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/JavaScript/">JavaScript</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2019-09-15
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-eye"></i>
+            </span>
+            
         </div>
     </div>
     <!-- 小型设备详细文章 -->
@@ -228,30 +247,244 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/index.html">基础知识</a>
+                    <a href="/2019/09/15/JavaScript%E5%9F%BA%E7%A1%80-3/">JavaScript基础 - 流程控制语句</a>
                 </h4>
             </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2019-09-15
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/JavaScript/">JavaScript</a>
+                
+                
+                
+                <i class="fa fa-eye"></i>
+                
+            </p>
         </center>
     </div>
-    <div class="content-article" style="margin-top: 30px;">
-        <div class="alert alert-info" style="font-size: 14px; line-height: 2; font-weight: bold;">
-            
-            <a href="/2019/09/28/JavaScript%E5%9F%BA%E7%A1%80-4/">JavaScript基础 - 对象</a>
-            <br>
-            
-            <a href="/2019/09/15/JavaScript%E5%9F%BA%E7%A1%80-3/">JavaScript基础 - 流程控制语句</a>
-            <br>
-            
-            <a href="/2019/09/14/JavaScript%E5%9F%BA%E7%A1%80-2/">JavaScript基础 - 运算符</a>
-            <br>
-            
-            <a href="/2019/09/13/JavaScript%E5%9F%BA%E7%A1%80-1/">JavaScript基础 - 数据类型及类型转换</a>
-            <br>
-            
-            
-        </div>
+    <div class="content-article">
+        <ul>
+<li>程序是由一条一条语句构成</li>
+<li>语句是按照 自上向下、自左往右 的顺序一条一条执行</li>
+<li>在 JavaScript 中可以使用 { } 来为语句进行分组</li>
+<li>同一个 { } 中的语句称为 一组语句；要么一起执行，要么都不执行</li>
+<li>一个 { } 中的语句称为 代码块</li>
+<li>代码块后面就不用写 ；  ，为了提高可读性建议写上。</li>
+<li>JavaScript 的代码块 ，只具有分组的作用，没有其他作用；代码块内部的内容在外部完全可见。</li>
+<li>通过流程控制语句可以控制程序执行流程<ul>
+<li>使程序可以根据一定的条件来选择执行</li>
+</ul>
+</li>
+<li>语句的分类<ul>
+<li>条件判断语句</li>
+<li>条件分支语句</li>
+<li>循环语句</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="一-、-条件判断语句"><a href="#一-、-条件判断语句" class="headerlink" title="一 、 条件判断语句"></a>一 、 条件判断语句</h1><h6 id="使用条件判断语句可以在执行某个语句前进行判断"><a href="#使用条件判断语句可以在执行某个语句前进行判断" class="headerlink" title="使用条件判断语句可以在执行某个语句前进行判断"></a>使用条件判断语句可以在执行某个语句前进行判断</h6><pre><code>如果该条件执行语句，条件不成立则不执行。</code></pre><hr>
+<h2 id="JavaScript-判断语句-——-if-语句"><a href="#JavaScript-判断语句-——-if-语句" class="headerlink" title="JavaScript 判断语句 —— if 语句"></a>JavaScript 判断语句 —— if 语句</h2><h6 id="语法-一-："><a href="#语法-一-：" class="headerlink" title="语法 一 ："></a>语法 一 ：</h6><pre><code>if（条件表达式）{
+    代码块
+}
+
+if 语句在执行时，会先对表达式进行判断，
+如果表达条件为 true ，则 if 后的代码块执行；
+如果表达条件为 false ，则 if 后的代码块不执行；
+
+    if 语句只能控制紧随其后的语句
+        如果希望 if 语句可以控制多条语句，可以将这些语句放在 { } 中组成代码块。</code></pre><h6 id="语法-二-："><a href="#语法-二-：" class="headerlink" title="语法 二 ："></a>语法 二 ：</h6><pre><code>if（条件表达式）{
+    代码块
+}else {
+    代码块
+}
+
+if .... else ....语句
+    当该语句执行时，先对 if 后的条件表达式进行判断；
+    如果值为 true 执行 if 后的语句；
+    如果值为 false 执行 else 后的语句。</code></pre><h6 id="语法-三-："><a href="#语法-三-：" class="headerlink" title="语法 三 ："></a>语法 三 ：</h6><pre><code>if（条件表达式）{
+    代码块 1
+}else if（）{
+    代码块 2
+}else if（）{
+    代码块 3
+}else {
+    代码块 4
+}
+
+if ... else if ... else
+    当语句执行时，会从上到下依次对表达式进行求值判断
+        如果值为 true 则执行当前语句；
+        如果值为 false 则继续往下判断；
+        如果所有的条件都不满足，则执行最后的 else 。
+
+    该语句中只会有一个代码块被执行，一旦满足一个剩下的代码都不执行。 </code></pre><h2 id="JavaScript-条件分支语句-——-switch-语句"><a href="#JavaScript-条件分支语句-——-switch-语句" class="headerlink" title="JavaScript 条件分支语句 —— switch 语句"></a>JavaScript 条件分支语句 —— switch 语句</h2><h6 id="语法-一-：-1"><a href="#语法-一-：-1" class="headerlink" title="语法 一 ："></a>语法 一 ：</h6><pre><code>switch （条件表达式）{
+    case 表达式 ：
+        代码块 ；
+        break；
+    case 表达式 ：
+        代码块 ；
+        break；
+    default ：
+        代码块 ；
+        break；
+}  </code></pre><ul>
+<li><p>执行流程</p>
+<ul>
+<li>在执行时会依次将 case 后表达式的值和 switch 后的条件值 进行全等比较。<ol>
+<li>如果比较结果为 true ，则从当前 case 开始执行代码块<ul>
+<li>当前这个 case 后面的所有代码都将执行；必须在代码最后添加一个 break 跳出执行代码块，不继续执行当前 case 之后的代码。</li>
+</ul>
+</li>
+<li>如果比较结果为 false ，则继续比较</li>
+<li>如果所有比较都为 false ，则执行 default 之后的代码块</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>switch 语句和 if 语句在功能实际有重复 ，使用 switch 可以实现 if 的工程</p>
+</li>
+<li><p>同样 if 也可以实现 switch 的功能。</p>
+<pre><code>如果判断 “ 范围 ” 使用___________[  if  ]
+如果判断 “ 具体的值 ” 使用___________[  switch  ]</code></pre></li>
+</ul>
+<hr>
+<h1 id="二-、-循环语句"><a href="#二-、-循环语句" class="headerlink" title="二 、 循环语句"></a>二 、 循环语句</h1><h6 id="循环语句"><a href="#循环语句" class="headerlink" title="循环语句"></a>循环语句</h6><pre><code>通过循环语句可以反复执行一段代码多次</code></pre><ul>
+<li>条件表达式写死 true 的循环，叫做 死循环</li>
+<li>该循环不会停止，除非浏览器关闭，死循环在开发中慎用！！！！</li>
+<li>可以使用 break ，来终止循环。</li>
+</ul>
+<h6 id="创建循环的步骤-："><a href="#创建循环的步骤-：" class="headerlink" title="创建循环的步骤 ："></a>创建循环的步骤 ：</h6><ol>
+<li>创建一个初始化的变量</li>
+<li>在循环中设置一个条件表达式</li>
+<li>定义一个更新表达式，每次更新初始化变量</li>
+</ol>
+<hr>
+<h2 id="JavaScript-循环语句-——-while-语句"><a href="#JavaScript-循环语句-——-while-语句" class="headerlink" title="JavaScript 循环语句 —— while 语句"></a>JavaScript 循环语句 —— while 语句</h2><h6 id="语法-一-：-2"><a href="#语法-一-：-2" class="headerlink" title="语法 一 ："></a>语法 一 ：</h6><pre><code>while（条件表达式）{
+    代码块 ；
+}
+
+- while 语句执行时 ：
+    先对条件表达式进行求值判断 ；
+        如果值为 true ，则执行循环体；
+            循环体执行结束后，继续对表达式进行判断
+        如果值为 true ，则继续执行；依此类推。
+        直到对 条件表达式 求值 为 false 停止循环。</code></pre><h2 id="JavaScript-循环语句-——-do-…-while-语句"><a href="#JavaScript-循环语句-——-do-…-while-语句" class="headerlink" title="JavaScript 循环语句 —— do … while 语句"></a>JavaScript 循环语句 —— do … while 语句</h2><h6 id="语法-一-：-3"><a href="#语法-一-：-3" class="headerlink" title="语法 一 ："></a>语法 一 ：</h6><pre><code>do {
+    代码块 ；
+}while（条件表达式）
+
+- while 语句执行时 ：
+
+    do ... while 语句在执行时，会先执行循环体，
+        循环体执行完毕后，在对 while 后的条件表达式进行判断，
+        如果为 true 则继续执行循环体，执行完毕后继续判断以此类推；
+        如果结果为 false ，则终止循环。
+
+实际上 do ... while 和 while 功能类似，不同的是 while 是先判断后执行，
+    而 do ... while 是先执行后判断
+
+do ... while 可以保证循环体只是执行一次，
+    而 while 不能。</code></pre><hr>
+<h2 id="JavaScript-循环语句-——-for-语句"><a href="#JavaScript-循环语句-——-for-语句" class="headerlink" title="JavaScript 循环语句 —— for 语句"></a>JavaScript 循环语句 —— for 语句</h2><p>在 for 循环中，为我们提供给了专门的位置来放三个表达式；<br>&nbsp;&nbsp;&nbsp;    1、初始化表达式<br>&nbsp;&nbsp;&nbsp;    2、条件表达式<br>&nbsp;&nbsp;&nbsp;    3、更新表达式        </p>
+<h6 id="语法-一-：-4"><a href="#语法-一-：-4" class="headerlink" title="语法 一 ："></a>语法 一 ：</h6><pre><code>for（初始化表达式；条件表达式；更新表达式）{
+    代码块
+}
+
+for循环执行流程：
+    1、 执行初始化表达式，初始化变量 （初始化表达式只会执行一次）
+    2、 执行条件表达式，判断是否执行循环
+            如果为true ，则执行更新表达式
+            如果为 false ，终止循环
+    3、 执行更新表达式，更新表达式执行完毕继续执行 条件表达式
+
+for 循环三个部分都可以省略，也可以写在外面
+    如果 for 循环中不谢任何表达式，只写两个分好；
+    此时循环是一个死循环会一直执行下去，慎用 ！！！！！
+        for（ ；；）{
+            alert（“hello Word”）
+        }</code></pre><h4 id="1、嵌套的-for-循环"><a href="#1、嵌套的-for-循环" class="headerlink" title="1、嵌套的 for 循环"></a>1、嵌套的 for 循环</h4><pre><code>******
+******
+******
+******
+****** </code></pre><p><em>通过 for 循环来输出图像</em><br><em>这个 for 循环执行几次，图形的高度就是多少</em><br><em>它可以用来控制图形的高度</em>    </p>
+<pre><code>for(var i=0;i&lt;5;i++){
+    /* 
+        在循环内部在创建一个循环，用来控制图形的宽度
+        外部 for 循环执行一次，内部 for 执行 5 次
+        内层循环决定图形宽度，执行几次图形的宽度就是多少
+
+    */
+
+    for（var j=0 ; j&lt;5 ;j++){
+    document.write(&quot; * &quot;);
+    }
+    document.write(&quot; &lt;br /&gt; &quot;);
+}</code></pre><p><strong>输出如下图形 1 ：</strong></p>
+<pre><code>*
+**
+***
+****
+*****
+
+for（var i=0;i&lt;5;i++){
+    for(var j=0 ; j&lt;i+1;j++){
+        document.write( &quot;*&quot;)
+    }
+    document.write(&quot;&lt;br /&gt;&quot;)
+}</code></pre><p><strong>输出如下图形 2 ：</strong></p>
+<pre><code>*****   
+****
+***
+**
+*
+
+for（var i=0;i&lt;5;i++){
+    for(var j=0 ; j &lt; 5 - i ; j++){
+        document.write( &quot;*&quot;)
+    }
+    document.write(&quot;&lt;br /&gt;&quot;)
+}</code></pre><p><strong>打印九九乘法表：</strong></p>
+<pre><code>for (var i = 1; i &lt; 10; i++) {
+    for (var j = 1; j &lt;= i; j++) {
+        document.write(j + &quot;*&quot; + i + &quot;=&quot; + i * j + &quot;&amp;nbsp;&amp;nbsp;&amp;nbsp;&quot;)
+    }
+    document.write(&quot;&lt;br /&gt;&quot;)
+}</code></pre><h4 id="2、break-和-continue"><a href="#2、break-和-continue" class="headerlink" title="2、break 和 continue"></a>2、break 和 continue</h4><p><strong>break—关键字</strong>   </p>
+<pre><code>break 可以用来退出 switch 或者 循环语句 
+break 和 continue 不能用于 if 判断
+break 会立即终止离他最近的循环语句
+
+//可以为循环语句创建一个 label 用来标识当前循环语句
+
+
+label：
+for(var i=0 ;i&lt;5;i++){
+    for(var j=0;j&lt;10;j++){
+        break label;  //结束外层循环
+    }
+}</code></pre><p><strong>continue—关键字</strong>   </p>
+<pre><code>continue 跳出当次循环（只跳过一次）
+continue 默认只会对离他最近的循环起作用
+
+//可以为循环语句创建一个 label 用来标识当前循环语句
+
+for( var i=0 ;i&lt;10 ;i++){
+    if( i===3){
+        continue 
+    }
+}</code></pre><h4 id="3、测试程序的性能"><a href="#3、测试程序的性能" class="headerlink" title="3、测试程序的性能"></a>3、测试程序的性能</h4><ol>
+<li>程序执行前 — 开启计时器  &nbsp;&nbsp;&nbsp;&nbsp;     //console.time（）<br>&nbsp;&nbsp;&nbsp;&nbsp; 它需要一个字符串作为参数，这个字符串将会作为计数器的标识</li>
+<li>测试程序执行完后执行 — 终止计数器  &nbsp;&nbsp;&nbsp;&nbsp;     //console.timeEnd（）<br> &nbsp;&nbsp;&nbsp;&nbsp; 它需要一个字符串作为参数，这个字符串将会作为计数器的标识</li>
+</ol>
+
     </div>
 </article>
+
+
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
     <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
@@ -382,17 +615,17 @@
 
                 
                 <li>
-                    <a href="/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2019/09/15/JavaScript%E5%9F%BA%E7%A1%80-3/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/2019/09/15/JavaScript%E5%9F%BA%E7%A1%80-3/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2019/09/15/JavaScript%E5%9F%BA%E7%A1%80-3/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -400,7 +633,7 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/JavaScript/" style="font-size: 13.632146265429675px;" class="tag-cloud-link">JavaScript</a>
+    <a href="/tags/JavaScript/" style="font-size: 11.931178239512185px;" class="tag-cloud-link">JavaScript</a>
     
 </div>
                 
