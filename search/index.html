@@ -240,7 +240,7 @@
     // 获取每页的页码数
     var pageSize = '10'
     var useLeancloud = 'r7h4cIu0z8FMOdzVfYKFd9M2'
-    var useComment = ('false' === 'true')
+    var useComment = ('true' === 'true')
     $.getJSON('/content.json', function (json) {
       $('#search-breadcrumb').append(`搜索'${s}'的结果`)
       var result = getArticles(s, 'posts', json).concat(getArticles(s, 'pages', json))
@@ -264,7 +264,7 @@
       	var [month, day] = article.date.split('-')
         ''
         ''
-        var defaultPreview = 'http://img.netbian.com/file/2019/0808/93edf31ea97515998a66c64b48dd1d7a.jpg'
+        var defaultPreview = 'http://img.netbian.com/file/2019/1103/1d9396fcbfdb116c8d454d8a23738cf4.jpg'
         var preview = article.preview ? article.preview : defaultPreview
         var path = '/' + article.path
         resultList.append(`<div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
@@ -448,6 +448,18 @@
     </div>
 </aside>
     
+    <aside id="sidebar-recent_comments">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-comments"></i>
+            最新评论
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
     <!-- 要配置好leancloud才能开启此小工具 -->
     
     <aside id="sidebar-hot_posts">
@@ -566,7 +578,7 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/JavaScript/" style="font-size: 14.56845248238815px;" class="tag-cloud-link">JavaScript</a>
+    <a href="/tags/JavaScript/" style="font-size: 14.042835289380983px;" class="tag-cloud-link">JavaScript</a>
     
 </div>
                 
@@ -665,8 +677,8 @@
 <script>
     window.slideConfig = {
       prefix: '/imgs/slide/background',
-      ext: 'jpg',
-      maxCount: '10'
+      ext: 'png',
+      maxCount: '11'
     }
 </script>
 
@@ -686,6 +698,30 @@
 
 <script src="/js/comment/leancloud.js"></script>
 
+
+
+<script src="https://myau.moe/js/comment/gitment.browser.js"></script>
+<script>
+    if(window.commentConfig) {
+      window.commentConfig.id = 'Wed Dec 11 2019 20:45:35 GMT+0800'
+      window.commentConfig.owner = 'king-loong'
+      window.commentConfig.repo = 'https://github.com/king-loong/comment.git'
+      window.commentConfig.client_id = '87e97981971f7b59029e'
+      window.commentConfig.client_secret = '550b0512c250d55deefb06baab8561dc28f8b93c'
+      window.commentConfig.redirect_uri = ''
+    } else {
+      window.commentConfig = {
+      	id: 'Wed Dec 11 2019 20:45:35 GMT+0800',
+        owner: 'king-loong',
+        repo: 'https://github.com/king-loong/comment.git',
+        client_id: '87e97981971f7b59029e',
+        client_secret: '550b0512c250d55deefb06baab8561dc28f8b93c',
+        redirect_uri: ''
+      }
+    }
+</script>
+
+<script src="/js/comment/gitment.js"></script>
 
 
 </html>

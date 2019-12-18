@@ -254,6 +254,15 @@
 </article>
 
 
+<div id="comments-template"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script>
+	if(!window.commentConfig) {
+      window.commentConfig = {}
+      window.commentConfig.title = ''
+    }
+</script>
+
 
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
@@ -282,6 +291,18 @@
             <p class="author-description"><p>This is Loong’s blog</p>
 </p>
         </div>
+    </div>
+</aside>
+    
+    <aside id="sidebar-recent_comments">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-comments"></i>
+            最新评论
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
     </div>
 </aside>
     
@@ -403,7 +424,7 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/JavaScript/" style="font-size: 17.316529767019382px;" class="tag-cloud-link">JavaScript</a>
+    <a href="/tags/JavaScript/" style="font-size: 16.648734807275062px;" class="tag-cloud-link">JavaScript</a>
     
 </div>
                 
@@ -502,8 +523,8 @@
 <script>
     window.slideConfig = {
       prefix: '/imgs/slide/background',
-      ext: 'jpg',
-      maxCount: '10'
+      ext: 'png',
+      maxCount: '11'
     }
 </script>
 
@@ -523,6 +544,30 @@
 
 <script src="/js/comment/leancloud.js"></script>
 
+
+
+<script src="https://myau.moe/js/comment/gitment.browser.js"></script>
+<script>
+    if(window.commentConfig) {
+      window.commentConfig.id = 'Wed Dec 11 2019 20:47:17 GMT+0800'
+      window.commentConfig.owner = 'king-loong'
+      window.commentConfig.repo = 'https://github.com/king-loong/comment.git'
+      window.commentConfig.client_id = '87e97981971f7b59029e'
+      window.commentConfig.client_secret = '550b0512c250d55deefb06baab8561dc28f8b93c'
+      window.commentConfig.redirect_uri = ''
+    } else {
+      window.commentConfig = {
+      	id: 'Wed Dec 11 2019 20:47:17 GMT+0800',
+        owner: 'king-loong',
+        repo: 'https://github.com/king-loong/comment.git',
+        client_id: '87e97981971f7b59029e',
+        client_secret: '550b0512c250d55deefb06baab8561dc28f8b93c',
+        redirect_uri: ''
+      }
+    }
+</script>
+
+<script src="/js/comment/gitment.js"></script>
 
 
 </html>
