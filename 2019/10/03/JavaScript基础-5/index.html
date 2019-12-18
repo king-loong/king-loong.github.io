@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="author" content="Loong">
+  
+  <meta name="description" content="This is Loong&#39;s blog">
+  
+  
+  
+  
+  
+  
+  <title>JavaScript基础 - 数组 | Loong</title>
+  <link href="https://xiao-long.club" rel="prefetch" />
+
+
+  <link rel="icon" href="/img/favicon.ico">
+
+
+  
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<script src="/js/jquery.min.js"></script>
+
+  
+<script src="/js/bootstrap.min.js"></script>
+
+  
+<script src="/js/aos.js"></script>
+
+  
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+  
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+  <style type="text/css">
+    @media (max-width: 768px) {
+      body {
+        background-color: #f0f0f0;
+        background: url('/imgs/xsbg.gif');
+        background-attachment: fixed;
+      }
+    }
+  </style>
+  
+  <script src="//cdn1.lncld.net/static/js/3.4.2/av-min.js"></script>
+  <script>
+    AV.init({
+      appId: 'W2ku69yN9SKf3epFkbiNxPKM-gzGzoHsz',
+      appKey: 'r7h4cIu0z8FMOdzVfYKFd9M2'
+    })
+  </script>
+  
+  <script type="text/javascript">
+    if (document.images) {
+      var avatar = new Image();
+      avatar.src = '/imgs%20/%20head.png'
+      var previews = 'http://img.netbian.com/file/2019/1129/30d0db11e8ee1973e50799103388a1d4.jpg,http://img.netbian.com/file/2019/1127/faa3728c8a225f771e19c586e9172ab4.jpg,http://img.netbian.com/file/2019/1121/5e4911c7c44d251ee030cfafe3660394.jpg,http://img.netbian.com/file/2019/1116/86cc490738933ccf0a257b84f46ff147.jpg,http://img.netbian.com/file/2019/1114/56ce022d46a49e1feefec0a068b4fd1a.jpg,http://img.netbian.com/file/2019/1103/1d9396fcbfdb116c8d454d8a23738cf4.jpg,http://img.netbian.com/file/2019/1009/126c8c3e5fb96ee24c08cbf85f032f20.jpg,http://img.netbian.com/file/2019/0808/806ae4d57d34e7439f8c3750ac6152f7.jpg,http://img.netbian.com/file/2019/0808/4122714ca71cbb6d15be63d48613c9c7.jpg,http://img.netbian.com/file/2019/0808/93edf31ea97515998a66c64b48dd1d7a.jpg,http://img.netbian.com/file/2019/0806/d422ec90522c5b81c8d27d8e478fd728.jpg,http://img.netbian.com/file/2019/0802/8deb6aee66ceab43b4d51622f2eac79a.jpg,http://img.netbian.com/file/2019/0722/f8698935e8986b33669141d92ce33639.jpg,http://img.netbian.com/file/2019/0601/157c575065bd500f406c5236f7bbe5a5.jpg,http://img.netbian.com/file/2019/0418/4e3b73418a72771cd7d9dd744918d8c8.jpg,http://img.netbian.com/file/2019/0529/c7f3778a6fd8bfb157d3cb6ada90646a.jpg,http://img.netbian.com/file/2019/0527/6b351528fb75f737f606a235498e2a9a.jpg,http://img.netbian.com/file/2018/0315/1b43a2d12152d91d2053f32e1c73ef3c.jpg'.split(',')
+      var previewsPreLoad = []
+      for (var i = 0; i < length; i++) {
+        previewsPreLoad.push(new Image())
+        previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs%20/%20preview' + previews[i]
+      }
+    }
+  </script>
+<meta name="generator" content="Hexo 4.1.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>大</span></li>
+        <li><span>隐</span></li>
+        <li><span>隐</span></li>
+        <li><span>于</span></li>
+        <li><span>世</span></li>
+        <li><span>！</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <div class="gal-menu gal-dropdown">
+    <div class="circle" id="gal">
+        <div class="ring">
+            <a href="https://xiao-long.club" class="menuItem" style="left: 50%; top: 15%;">首页</a>
+            
+            <a class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
+            
+            <a href="/archives" class="menuItem" style="left: 80.3109%; top: 67.5%;">归档</a>
+            <a href="/about" class="menuItem" style="left: 50%; top: 85%;">关于</a>
+            <a href="/message" class="menuItem" style="left: 19.6891%; top: 67.5%;">留言板</a>
+
+            
+            <a class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
+            
+        </div>
+        <audio id="audio" src="/imgs/oni.mp3"></audio>
+    </div>
+</div>
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="https://xiao-long.club">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">Loong&#39;s blog</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">基础知识</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/">工具使用</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/">框架学习</a>
+                        </li>
+                        
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/JavaScript/">JavaScript</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/WebStorm/">WebStorm</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/Git/">Git</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/VsCode/">VsCode</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/Vue/">Vue</a>
+                        </li>
+                        
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="https://xiao-long.club">Loong</a>
+        >
+        <span>JavaScript基础 - 数组</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2019/10/03/JavaScript%E5%9F%BA%E7%A1%80-5/">JavaScript基础 - 数组</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/JavaScript/">JavaScript</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2019-10-03
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-eye"></i>
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2019/10/03/JavaScript%E5%9F%BA%E7%A1%80-5/">JavaScript基础 - 数组</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2019-10-03
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/JavaScript/">JavaScript</a>
+                
+                
+                
+                <i class="fa fa-eye"></i>
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <ul>
+<li>数组（Array）</li>
+<li>数组也是个对象</li>
+<li>它和普通对象功能类型，也是用来存值的</li>
+<li>不同的是：普通对象是使用字符串作为属性名；而数组是使用数字来作为索引操作元素。    </li>
+<li>索引（index）：<br>—— 从 0 开始的整数就是索引   </li>
+<li>数组的存储性能比普通对象要好，在开发中经常使用数组来存储一些数据</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>() ;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> arr) <span class="comment">//object</span></span><br><span class="line">arr[<span class="number">0</span>] = <span class="number">10</span>;</span><br><span class="line">arr[<span class="number">1</span>] = <span class="number">20</span>;  <span class="comment">//向数组中添加元素</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(arr[<span class="number">0</span>])  <span class="comment">//10</span></span><br><span class="line"><span class="built_in">console</span>.log(arr[<span class="number">3</span>])  <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+<p><strong>向数组中添加元素</strong></p>
+<h6 id="语法-："><a href="#语法-：" class="headerlink" title="语法 ："></a>语法 ：</h6><pre><code>数组[索引] = 值</code></pre><h2 id="一、获取数组对象"><a href="#一、获取数组对象" class="headerlink" title="一、获取数组对象"></a>一、获取数组对象</h2><ul>
+<li>使用 length 获取数组长度  </li>
+<li>对于非连续的数组，使用 length 获取到数组长度为最大值+1<br>—— 尽量不要写非连续数组<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>() ;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> arr) <span class="comment">//object</span></span><br><span class="line">arr[<span class="number">0</span>] = <span class="number">10</span>;</span><br><span class="line">arr[<span class="number">1</span>] = <span class="number">20</span>;  <span class="comment">//向数组中添加元素  </span></span><br><span class="line"><span class="built_in">console</span>.log(arr.length) <span class="comment">//2</span></span><br></pre></td></tr></table></figure></li>
+<li>如果修改 length 大于原长度，则多出来的部分会空出来 </li>
+<li>如果修改 length 小于原长度，则多出的元素会被删除    </li>
+<li>向数组最后添加元素<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">语法 ：</span><br><span class="line">    arr[arr.length]=<span class="number">70</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h2 id="二、数组字面量"><a href="#二、数组字面量" class="headerlink" title="二、数组字面量"></a>二、数组字面量</h2><pre><code>语法：
+    var arr = [];
+    console.log(typeof arr) //object</code></pre><ul>
+<li>使用字面量创建数组时，可以在创建时就指定数组中的元素  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]  </span><br><span class="line"><span class="built_in">console</span>.log(arr)<span class="comment">//"1,2,3,4,5,6" </span></span><br><span class="line"><span class="built_in">console</span>.log(arr[<span class="number">2</span>]) <span class="comment">//3</span></span><br></pre></td></tr></table></figure></li>
+<li>使用构造函数创建数组时，也可以同时添加元素；将要添加的元素作为构造函数的参数进行传递；元素之间使用 ， 隔开<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>);</span><br><span class="line"><span class="built_in">console</span>.log(arr) <span class="comment">//"1,2,3,4,5"</span></span><br></pre></td></tr></table></figure></li>
+<li>当只为数组中传入一个数值时；<br>—— 数组字面量返回的是一个元素   <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">10</span>]</span><br><span class="line"><span class="built_in">console</span>.log(arr) <span class="comment">// "10"</span></span><br></pre></td></tr></table></figure>
+—— 构造函数返回的是数组长度  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">10</span>);</span><br><span class="line"><span class="built_in">console</span>.log(arr) <span class="comment">// ",,,,,,,,,"</span></span><br><span class="line"><span class="built_in">console</span>.log(arr.length) <span class="comment">//10</span></span><br></pre></td></tr></table></figure></li>
+<li>数组中的元素可以是任意类型的数据</li>
+<li>也可以是对象和函数</li>
+</ul>
+<hr>
+<h2 id="二、数组的方法"><a href="#二、数组的方法" class="headerlink" title="二、数组的方法"></a>二、数组的方法</h2><h6 id="push-方法"><a href="#push-方法" class="headerlink" title="push( ) 方法"></a>push( ) 方法</h6><ul>
+<li>（在数组结尾处）向数组添加一个或多个新的元素；并且返回数组的新长度；</li>
+<li>可以将要添加的元素作为方法的参数传递；这些元素将会自动添加到数组的末尾  </li>
+<li>该方法会将新的数组长度进行返回<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">"Banana"</span>, <span class="string">"Orange"</span>, <span class="string">"Apple"</span>, <span class="string">"Mango"</span>];</span><br><span class="line"><span class="keyword">var</span> receive = arr.push(<span class="string">"Kiwi"</span>);       <span class="comment">//  向 arr 结尾添加一个新元素</span></span><br><span class="line">    <span class="built_in">console</span>.log(arr)      <span class="comment">//"Banana, Orange, Apple, Mango,Kiwi"</span></span><br><span class="line">    <span class="built_in">console</span>.log(receive);    <span class="comment">//5</span></span><br></pre></td></tr></table></figure>
+<h6 id="pop-方法"><a href="#pop-方法" class="headerlink" title="pop( ) 方法"></a>pop( ) 方法</h6></li>
+<li>从数组中删除最后一个元素：</li>
+<li>返回值为被删除元素<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">"Banana"</span>, <span class="string">"Orange"</span>, <span class="string">"Apple"</span>, <span class="string">"Mango"</span>];</span><br><span class="line">    <span class="keyword">var</span> receive = arr.pop();       <span class="comment">//  从 arr 删除最后一个元素（"Mango"）</span></span><br><span class="line">    <span class="built_in">console</span>.log(arr) <span class="comment">//"Banana, Orange, Apple, "</span></span><br><span class="line">    <span class="built_in">console</span>.log(receive) <span class="comment">//"Mango"  返回被删除的元素</span></span><br></pre></td></tr></table></figure>
+<h6 id="unshift-方法"><a href="#unshift-方法" class="headerlink" title="unshift( ) 方法"></a>unshift( ) 方法</h6></li>
+<li>（在开头）向数组添加新元素，并“反向位移”旧元素：</li>
+<li>插入元素以后，其他元素的索引会依次调整</li>
+<li>返回值为新数组的长度。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">"Banana"</span>, <span class="string">"Orange"</span>, <span class="string">"Apple"</span>, <span class="string">"Mango"</span>];</span><br><span class="line">    <span class="keyword">var</span> receive = arr.unshift(<span class="string">"Lemon"</span>);       <span class="comment">//  向 arr 开头添加一个新元素</span></span><br><span class="line">    <span class="built_in">console</span>.log(arr) <span class="comment">//"Orange,Apple,Mango "</span></span><br><span class="line">    <span class="built_in">console</span>.log(receive) <span class="comment">//"Banana"  </span></span><br><span class="line"><span class="string">``</span><span class="string">` </span></span><br><span class="line"><span class="string">###### shift( ) 方法</span></span><br><span class="line"><span class="string">- 删除首个数组元素，并把所有其他元素“位移”到更低的索引 </span></span><br><span class="line"><span class="string">- 返回值为被删除元素</span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>js</span><br><span class="line"><span class="keyword">var</span> arr = [<span class="string">"Banana"</span>, <span class="string">"Orange"</span>, <span class="string">"Apple"</span>, <span class="string">"Mango"</span>];</span><br><span class="line">    <span class="keyword">var</span> receive = arr.shift();       <span class="comment">//  从 arr 删除最后一个元素（"Mango"）</span></span><br><span class="line">    <span class="built_in">console</span>.log(arr) <span class="comment">//"Orange,Apple,Mango "</span></span><br><span class="line">    <span class="built_in">console</span>.log(receive) <span class="comment">//"Banana"  返回被删除的元素</span></span><br><span class="line"><span class="string">``</span><span class="string">` </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">###### concat( ) 方法</span></span><br><span class="line"><span class="string">- 通过合并（连接）现有数组来创建一个新数组：</span></span><br><span class="line"><span class="string">- 该方法不会对原数组参数影响</span></span><br><span class="line"><span class="string">- 返回一个新的数组</span></span><br><span class="line"><span class="string">- 该方法不仅可以传数组，还可以传入当个元素</span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>js</span><br><span class="line"><span class="keyword">var</span> arr1 = [<span class="string">"Cecilie"</span>, <span class="string">"Lone"</span>];</span><br><span class="line"><span class="keyword">var</span> arr2 = [<span class="string">"Emil"</span>, <span class="string">"Tobias"</span>, <span class="string">"Linus"</span>];</span><br><span class="line"><span class="keyword">var</span> name = arr1.concat(arr2);   <span class="comment">// 连接 arr1 和 arr2</span></span><br></pre></td></tr></table></figure></li>
+<li>concat( ) 方法不会更改现有数组。它总是返回一个新数组。</li>
+<li>concat( ) 方法可以使用任意数量的数组参数</li>
+</ul>
+<h6 id="slice-方法"><a href="#slice-方法" class="headerlink" title="slice( ) 方法"></a>slice( ) 方法</h6><ul>
+<li><p>裁剪数组的某个片段切出新数组  </p>
+</li>
+<li><p>从数组中提取指定元素</p>
+<ul>
+<li>第一个参数，截取开始的位置索引（截取内容包括开始索引的元素）</li>
+<li>第二个参数，截取结束的位置索引（截取内容不包括结束索引的元素）</li>
+</ul>
+</li>
+<li><p>索引可以传递一个负值</p>
+<ul>
+<li>如果传递一个负值，则从后往前计算</li>
+<li>碰到负数加 length 计算</li>
+</ul>
+</li>
+<li><p>返回一个新数组，原数组保持不变</p>
+</li>
+<li><p>从数组元素 （”Orange”）开始切出一段数组 </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">"Banana"</span>, <span class="string">"Orange"</span>, <span class="string">"Lemon"</span>, <span class="string">"Apple"</span>, <span class="string">"Mango"</span>];</span><br><span class="line"><span class="keyword">var</span> newArr = arr.slice(<span class="number">1</span>);  </span><br><span class="line"><span class="built_in">console</span>.log(newArr)  <span class="comment">//[ 'Orange', 'Lemon', 'Apple', 'Mango' ]</span></span><br></pre></td></tr></table></figure></li>
+<li><p>slice() 可接受两个参数，比如 (1, 3)</p>
+<ul>
+<li>从开始参数选取元素，直到结束参数（不包括）为止 </li>
+<li>如果结束参数被省略，比如第一个例子，则 slice() 会切出数组的剩余部分。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//索引 1 开始 索引 3 结束</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="string">"Banana"</span>, <span class="string">"Orange"</span>, <span class="string">"Lemon"</span>, <span class="string">"Apple"</span>, <span class="string">"Mango"</span>];</span><br><span class="line"><span class="keyword">var</span> newArr = arr.slice(<span class="number">1</span>, <span class="number">3</span>); </span><br><span class="line"><span class="built_in">console</span>.log(newArr);     <span class="comment">//[ 'Orange', 'Lemon' ]</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//索引 2 开始 </span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="string">"Banana"</span>, <span class="string">"Orange"</span>, <span class="string">"Lemon"</span>, <span class="string">"Apple"</span>, <span class="string">"Mango"</span>];</span><br><span class="line"><span class="keyword">var</span> newArr = arr.slice(<span class="number">2</span>); </span><br><span class="line"><span class="built_in">console</span>.log(newArr);     <span class="comment">//[ 'Orange', 'Lemon' ，"Apple", "Mango"]</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+<h6 id="splice-方法"><a href="#splice-方法" class="headerlink" title="splice( ) 方法"></a>splice( ) 方法</h6><ul>
+<li>可用于删除数组中的指定元素或者替换某个索引上的元素</li>
+<li>第一个参数（2）定义了应添加新元素的位置（拼接）。</li>
+<li>第二个参数（0）定义应删除多少元素。</li>
+<li>其余参数（“Lemon”，“Kiwi”）定义要添加的新元素 </li>
+<li>返回一个包含已删除项的数组</li>
+<li>原数组也会受影响<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">"Banana"</span>, <span class="string">"Orange"</span>, <span class="string">"Apple"</span>, <span class="string">"Mango"</span>];</span><br><span class="line">arr.splice(<span class="number">2</span>, <span class="number">0</span>, <span class="string">"Lemon"</span>, <span class="string">"Kiwi"</span>);</span><br><span class="line"><span class="string">``</span><span class="string">` </span></span><br><span class="line"><span class="string">- 使用 splice() 来删除元素 </span></span><br><span class="line"><span class="string">1. 第一个参数（0）定义开始的位置索引。</span></span><br><span class="line"><span class="string">2. 第二个参数（1）定义应该删除多个元素。</span></span><br><span class="line"><span class="string">3. 其余参数被省略。没有新元素将被添加</span></span><br><span class="line"><span class="string">    1. 如果想实现 push 操作 length + 1 ； </span></span><br><span class="line"><span class="string">4. 并将被删除的值作为返回值</span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>js</span><br><span class="line"><span class="keyword">var</span> arr = [<span class="string">"Banana"</span>, <span class="string">"Orange"</span>, <span class="string">"Apple"</span>, <span class="string">"Mango"</span>];</span><br><span class="line">arr.splice(<span class="number">0</span>, <span class="number">1</span>);        <span class="comment">// 删除 fruits 中的第一个元素</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h6 id="sort-方法"><a href="#sort-方法" class="headerlink" title="sort( ) 方法"></a>sort( ) 方法</h6><ul>
+<li>该方法对数字中的元素进行排序</li>
+<li>该方法会直接在原数组上进行修改</li>
+<li>默认按照 Unicode 编码进行排序（数字也会才去该编码进行排序）</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr=[f, e, d, c, b, a];</span><br><span class="line">arr.sort();</span><br><span class="line"><span class="built_in">console</span>.log(arr)   <span class="comment">// [a, b, c, d, e, f]</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>当对数组中的数字进行排序时，需要自己指定规则</p>
+<ul>
+<li>在sort（）中添加一个回调函数，指定排序规则</li>
+<li>回调函数中需要指定两个形参</li>
+<li>浏览器会分别使用数组中的元素作为实参去调用回调函数</li>
+<li>使用哪个元素调用不确定，但肯定的是数组中 a 一定在 b 前面 </li>
+</ul>
+</li>
+<li><p>浏览器会根据回调函数的返回值来决定元素的位置  </p>
+<ul>
+<li>返回一个大于 0 的值，则元素会交换位置</li>
+<li>返回一个小于 0 的值，则元素位置不变</li>
+<li>返回一个等于 0 的值，则说明两个元素相等，也不交换位置</li>
+</ul>
+</li>
+<li><p>如果需要升序排列（return a - b）；</p>
+</li>
+<li><p>如果需要降序排列（return b - a）；</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr=[<span class="number">6</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">11</span>];</span><br><span class="line">arr.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">&lt;!--        </span><br><span class="line">    <span class="keyword">if</span>(a &gt; b)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(a &lt; b)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">    --&gt;</span><br><span class="line">    <span class="comment">//升序排列</span></span><br><span class="line">    <span class="keyword">return</span> a - b</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//降序排列</span></span><br><span class="line">    <span class="keyword">return</span> b - a</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(arr)   <span class="comment">// [ 2, 3, 4, 5, 6, 11]</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h6 id="join-方法"><a href="#join-方法" class="headerlink" title="join( ) 方法"></a>join( ) 方法</h6><ul>
+<li>该方法可以将数组转换为一个字符串</li>
+<li>变换字符串中间的连接符 （中间的隔开东西） </li>
+<li>返回一个新数组，原数组无变化</li>
+<li><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">"Banana"</span>, <span class="string">"Orange"</span>,<span class="string">"Apple"</span>, <span class="string">"Mango"</span>];</span><br><span class="line"><span class="keyword">var</span> receive =  arr.join(<span class="string">" * "</span>); </span><br><span class="line"><span class="built_in">console</span>.log(arr)  <span class="comment">//Banana,Orange,Apple,Mango</span></span><br><span class="line"><span class="built_in">console</span>.log(receive); <span class="comment">//Banana * Orange * Apple * Mango</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h6 id="revenue-方法"><a href="#revenue-方法" class="headerlink" title="revenue( ) 方法"></a>revenue( ) 方法</h6><ul>
+<li>该方法用于翻转数组（后面的去前面，前面的去后面） </li>
+<li>该方法会直接修改原数组<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr=[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>];</span><br><span class="line">arr.reverse();</span><br><span class="line"><span class="built_in">console</span>.log(arr)   <span class="comment">// [6, 5, 4, 3, 2, 1]</span></span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<hr>
+<h2 id="三、数组的遍历"><a href="#三、数组的遍历" class="headerlink" title="三、数组的遍历"></a>三、数组的遍历</h2><ul>
+<li>遍历数组就是把数组中所有元素取出来  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">"Banana"</span>, <span class="string">"Orange"</span>, <span class="string">"Lemon"</span>, <span class="string">"Apple"</span>, <span class="string">"Mango"</span>];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span> ; i &lt; arr.length ; i++)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(arr[i]) <span class="comment">//Banana Orange Lemon Apple Mango</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>一般都使用 for 循环遍历数组</li>
+</ul>
+<p><strong>forEach（）方法遍历数组</strong></p>
+<ul>
+<li>该方法只支持 IE8 以上的浏览器</li>
+<li>forEach（）方法需要一个函数作为参数；像这杨由我们创建但不由我们调用的函数，称之为“回调函数”</li>
+<li>数组中有几个元素函数就会被执行几次，每次执行浏览器会将遍历到的元素以实参的形式传递进来，需要定义形参来读取这些元素</li>
+<li>浏览器会在回调函数中传递三个参数<ul>
+<li>第一个参数，当前正在遍历的元素（value）</li>
+<li>第二个参数，当前正在遍历元素的索引（index）</li>
+<li>第三个参数，当前正在遍历的数组（Array）<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">"Banana"</span>, <span class="string">"Orange"</span>, <span class="string">"Lemon"</span>, <span class="string">"Apple"</span>, <span class="string">"Mango"</span>];</span><br><span class="line"></span><br><span class="line">arr.forEach(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="去掉数组中重复的元素-："><a href="#去掉数组中重复的元素-：" class="headerlink" title="去掉数组中重复的元素 ："></a>去掉数组中重复的元素 ：</h4></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>];</span><br><span class="line"><span class="comment">//遍历当前数组</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">    <span class="comment">//获取当前元素后的所有元素</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> j = i+<span class="number">1</span>; j &lt; arr.length; j++) &#123;</span><br><span class="line">        <span class="comment">//判断两个元素是否相等</span></span><br><span class="line">        <span class="keyword">if</span> (arr[i] === arr[j]) &#123;</span><br><span class="line">            <span class="comment">//如果相等说明出现重复，删除后面获取到的 j 对应的元素</span></span><br><span class="line">            arr.splice(j,<span class="number">1</span>);</span><br><span class="line">            <span class="comment">//当删除 j 索引上的元素以后，后面的元素会自动补位</span></span><br><span class="line">            <span class="comment">//此时为了不让补位上来的元素被跳过，使用 j-- 的自减来还原该索引</span></span><br><span class="line">            j--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(arr)   <span class="comment">// [1, 2, 3, 4, 5, 6]</span></span><br></pre></td></tr></table></figure>
+    </div>
+</article>
+
+
+<div id="comments-template"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script>
+	if(!window.commentConfig) {
+      window.commentConfig = {}
+      window.commentConfig.title = 'JavaScript基础 - 数组'
+    }
+</script>
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            Loong
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/head.png" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"><p>This is Loong’s blog</p>
+</p>
+        </div>
+    </div>
+</aside>
+    
+    <aside id="sidebar-recent_comments">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-comments"></i>
+            最新评论
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    <aside id="sidebar-hot_posts">
+    <div class="panel panel-gal hot hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-fire"></i>
+            最热文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/10/04/JavaScript%E5%9F%BA%E7%A1%80-6/">JavaScript基础 - 作用域</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/10/03/JavaScript%E5%9F%BA%E7%A1%80-5/">JavaScript基础 - 数组</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/10/01/Vue%20%E5%9F%BA%E7%A1%80-1/">Vue基础</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/09/28/%E5%B8%B8%E7%94%A8%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7-2/">Git 相关指令</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/09/28/JavaScript%E5%9F%BA%E7%A1%80-4/">JavaScript基础 - 对象</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/09/26/%E5%B8%B8%E7%94%A8%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7-1/">常用工具配置 eslintrc.js</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/09/15/JavaScript%E5%9F%BA%E7%A1%80-3/">JavaScript基础 - 流程控制语句</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/09/14/JavaScript%E5%9F%BA%E7%A1%80-2/">JavaScript基础 - 运算符</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/09/13/JavaScript%E5%9F%BA%E7%A1%80-1/">JavaScript基础 - 数据类型及类型转换</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-rand_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            随机文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/09/13/JavaScript%E5%9F%BA%E7%A1%80-1/">JavaScript基础 - 数据类型及类型转换</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/09/14/JavaScript%E5%9F%BA%E7%A1%80-2/">JavaScript基础 - 运算符</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/09/15/JavaScript%E5%9F%BA%E7%A1%80-3/">JavaScript基础 - 流程控制语句</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/09/28/JavaScript%E5%9F%BA%E7%A1%80-4/">JavaScript基础 - 对象</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/09/26/%E5%B8%B8%E7%94%A8%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7-1/">常用工具配置 eslintrc.js</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/09/28/%E5%B8%B8%E7%94%A8%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7-2/">Git 相关指令</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/10/01/Vue%20%E5%9F%BA%E7%A1%80-1/">Vue基础</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/10/03/JavaScript%E5%9F%BA%E7%A1%80-5/">JavaScript基础 - 数组</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/10/04/JavaScript%E5%9F%BA%E7%A1%80-6/">JavaScript基础 - 作用域</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2019/10/03/JavaScript%E5%9F%BA%E7%A1%80-5/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2019/10/03/JavaScript%E5%9F%BA%E7%A1%80-5/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2019/10/03/JavaScript%E5%9F%BA%E7%A1%80-5/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/JavaScript/" style="font-size: 11.603172021614357px;" class="tag-cloud-link">JavaScript</a>
+    
+    <a href="/tags/WebStorm/" style="font-size: 14.84758082482255px;" class="tag-cloud-link">WebStorm</a>
+    
+    <a href="/tags/Git/" style="font-size: 17.7760997615711px;" class="tag-cloud-link">Git</a>
+    
+    <a href="/tags/VsCode/" style="font-size: 19.982478722334687px;" class="tag-cloud-link">VsCode</a>
+    
+    <a href="/tags/Vue/" style="font-size: 9.337212374378794px;" class="tag-cloud-link">Vue</a>
+    
+</div>
+                
+                
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="http://www.ruanyifeng.com/blog/" target="_blank">阮一峰博客</a>
+    </li>
+    
+    <li>
+        <a href="https://developer.mozilla.org/zh-CN/" target="_blank">MDN官网♂</a>
+    </li>
+    
+</div>
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="/" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="/" target="_blank">Coding</a>
+    </li>
+    
+    <li>
+        <a href="/" target="_blank">知乎</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2019 Loong Powered by <a href="https://hexo.io/"
+            target="_blank">Hexo</a>.&nbsp;Theme by <a href="/" target="_blank">Loong</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'png',
+      maxCount: '11'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+<script src="/js/oni.js"></script>
+
+
+
+<script>
+    window.hot_posts_count = '10'
+    // window.use_leancloud = 'true'
+</script>
+
+<script src="/js/comment/leancloud.js"></script>
+
+
+
+<script src="https://myau.moe/js/comment/gitment.browser.js"></script>
+<script>
+    if(window.commentConfig) {
+      window.commentConfig.id = 'Thu Oct 03 2019 19:46:12 GMT+0800'
+      window.commentConfig.owner = 'king-loong'
+      window.commentConfig.repo = 'https://github.com/king-loong/comment.git'
+      window.commentConfig.client_id = '87e97981971f7b59029e'
+      window.commentConfig.client_secret = '550b0512c250d55deefb06baab8561dc28f8b93c'
+      window.commentConfig.redirect_uri = ''
+    } else {
+      window.commentConfig = {
+      	id: 'Thu Oct 03 2019 19:46:12 GMT+0800',
+        owner: 'king-loong',
+        repo: 'https://github.com/king-loong/comment.git',
+        client_id: '87e97981971f7b59029e',
+        client_secret: '550b0512c250d55deefb06baab8561dc28f8b93c',
+        redirect_uri: ''
+      }
+    }
+</script>
+
+<script src="/js/comment/gitment.js"></script>
+
+
+</html>
