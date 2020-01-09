@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="author" content="Loong">
+  
+  <meta name="description" content="This is Loong&#39;s blog">
+  
+  
+  
+  
+  
+  
+  <title>TypeScript 基础 - 基础数据类型 | Loong</title>
+  <link href="https://xiao-long.club" rel="prefetch" />
+
+
+  <link rel="icon" href="/img/favicon.ico">
+
+
+  
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<script src="/js/jquery.min.js"></script>
+
+  
+<script src="/js/bootstrap.min.js"></script>
+
+  
+<script src="/js/aos.js"></script>
+
+  
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+  
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+  <style type="text/css">
+    @media (max-width: 768px) {
+      body {
+        background-color: #f0f0f0;
+        background: url('/imgs/0.gif');
+        background-attachment: fixed;
+      }
+    }
+  </style>
+  
+  <script src="//cdn1.lncld.net/static/js/3.4.2/av-min.js"></script>
+  <script>
+    AV.init({
+      appId: 'W2ku69yN9SKf3epFkbiNxPKM-gzGzoHsz',
+      appKey: 'r7h4cIu0z8FMOdzVfYKFd9M2'
+    })
+  </script>
+  
+  <script type="text/javascript">
+    if (document.images) {
+      var avatar = new Image();
+      avatar.src = '/imgs%20/%20head.png'
+      var previews = 'http://img.netbian.com/file/2019/1129/30d0db11e8ee1973e50799103388a1d4.jpg,http://img.netbian.com/file/2019/1127/faa3728c8a225f771e19c586e9172ab4.jpg,http://img.netbian.com/file/2019/1121/5e4911c7c44d251ee030cfafe3660394.jpg,http://img.netbian.com/file/2019/1116/86cc490738933ccf0a257b84f46ff147.jpg,http://img.netbian.com/file/2019/1114/56ce022d46a49e1feefec0a068b4fd1a.jpg,http://img.netbian.com/file/2019/1103/1d9396fcbfdb116c8d454d8a23738cf4.jpg,http://img.netbian.com/file/2019/1009/126c8c3e5fb96ee24c08cbf85f032f20.jpg,http://img.netbian.com/file/2019/0808/806ae4d57d34e7439f8c3750ac6152f7.jpg,http://img.netbian.com/file/2019/0808/4122714ca71cbb6d15be63d48613c9c7.jpg,http://img.netbian.com/file/2019/0808/93edf31ea97515998a66c64b48dd1d7a.jpg,http://img.netbian.com/file/2019/0806/d422ec90522c5b81c8d27d8e478fd728.jpg,http://img.netbian.com/file/2019/0802/8deb6aee66ceab43b4d51622f2eac79a.jpg,http://img.netbian.com/file/2019/0722/f8698935e8986b33669141d92ce33639.jpg,http://img.netbian.com/file/2019/0601/157c575065bd500f406c5236f7bbe5a5.jpg,http://img.netbian.com/file/2019/0418/4e3b73418a72771cd7d9dd744918d8c8.jpg,http://img.netbian.com/file/2019/0529/c7f3778a6fd8bfb157d3cb6ada90646a.jpg,http://img.netbian.com/file/2019/0527/6b351528fb75f737f606a235498e2a9a.jpg,http://img.netbian.com/file/2018/0315/1b43a2d12152d91d2053f32e1c73ef3c.jpg'.split(',')
+      var previewsPreLoad = []
+      for (var i = 0; i < length; i++) {
+        previewsPreLoad.push(new Image())
+        previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs%20/%20preview' + previews[i]
+      }
+    }
+  </script>
+<meta name="generator" content="Hexo 4.1.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>大</span></li>
+        <li><span>隐</span></li>
+        <li><span>隐</span></li>
+        <li><span>于</span></li>
+        <li><span>世</span></li>
+        <li><span>！</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <div class="gal-menu gal-dropdown">
+    <div class="circle" id="gal">
+        <div class="ring">
+            <a href="https://xiao-long.club" class="menuItem" style="left: 50%; top: 15%;">首页</a>
+            
+            <a class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
+            
+            <a href="/archives" class="menuItem" style="left: 80.3109%; top: 67.5%;">归档</a>
+            <a href="/about" class="menuItem" style="left: 50%; top: 85%;">关于</a>
+            <a href="/message" class="menuItem" style="left: 19.6891%; top: 67.5%;">留言板</a>
+
+            
+            <a class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
+            
+        </div>
+        <audio id="audio" src="/imgs/oni.mp3"></audio>
+    </div>
+</div>
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="https://xiao-long.club">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">Loong&#39;s blog</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">基础知识</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/">工具使用</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/">框架学习</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/">基础学习</a>
+                        </li>
+                        
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/JavaScript/">JavaScript</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/WebStorm/">WebStorm</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/Git/">Git</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/VsCode/">VsCode</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/Vue/">Vue</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/TypeScript/">TypeScript</a>
+                        </li>
+                        
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="https://xiao-long.club">Loong</a>
+        >
+        <span>TypeScript 基础 - 基础数据类型</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2019/12/08/TypeScript%E5%9F%BA%E7%A1%80-2/">TypeScript 基础 - 基础数据类型</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/TypeScript/">TypeScript</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2019-12-08
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-eye"></i>
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2019/12/08/TypeScript%E5%9F%BA%E7%A1%80-2/">TypeScript 基础 - 基础数据类型</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2019-12-08
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/TypeScript/">TypeScript</a>
+                
+                
+                
+                <i class="fa fa-eye"></i>
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <font size="3">
+<font color="blue">
+
+
+<h1 id="字面量"><a href="#字面量" class="headerlink" title="字面量"></a><font size="4" color="skyblue">字面量</font></h1><p>介绍类型前,有一个前置知识点就是字面量, 字面量的意思就是直接声明, 而非new关键词实例化出来的数据:</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 字面量</span></span><br><span class="line"><span class="keyword">const</span> n:<span class="built_in">number</span> = <span class="number">123</span>;</span><br><span class="line"><span class="keyword">const</span> s:<span class="built_in">string</span> = <span class="string">'456'</span>;</span><br><span class="line"><span class="keyword">const</span> o:object = &#123;a:<span class="number">1</span>,b:<span class="string">'2'</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 非字面量</span></span><br><span class="line"><span class="keyword">const</span> n:<span class="built_in">Number</span> = <span class="keyword">new</span> <span class="built_in">Number</span>(<span class="number">123</span>);</span><br><span class="line"><span class="keyword">const</span> s:<span class="built_in">String</span> = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'456'</span>);</span><br><span class="line"><span class="keyword">const</span> o:<span class="built_in">Object</span> = <span class="keyword">new</span> <span class="built_in">Object</span>(&#123;a:<span class="number">1</span>,b:<span class="string">'2'</span>&#125;);</span><br></pre></td></tr></table></figure>
+
+<h1 id="一-、Boolean-类型"><a href="#一-、Boolean-类型" class="headerlink" title="一 、Boolean 类型"></a><font size="4" color="skyblue">一 、Boolean 类型</font></h1><p><strong>布尔类型</strong> ，取值只有 <code>true</code> / <code>false</code></p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> isFlag : <span class="built_in">Boolean</span> = <span class="literal">true</span></span><br><span class="line"><span class="keyword">const</span> isShow : <span class="built_in">Boolean</span> = <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="二-、Number-类型"><a href="#二-、Number-类型" class="headerlink" title="二 、Number 类型"></a><font size="4" color="skyblue">二 、Number 类型</font></h1><p><strong>数字类型</strong> ，整形 / 浮点数都包括内 ，同时支持 2/8/10/16 进制 ==字面量==</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> decLiteral: <span class="built_in">number</span> = <span class="number">6</span>;  <span class="comment">// 十进制</span></span><br><span class="line"><span class="keyword">let</span> hexLiteral: <span class="built_in">number</span> = <span class="number">0xf00d</span>;</span><br><span class="line"><span class="keyword">let</span> binaryLiteral: <span class="built_in">number</span> = <span class="number">0b1010</span>;</span><br><span class="line"><span class="keyword">let</span> octalLiteral: <span class="built_in">number</span> = <span class="number">0o744</span>;</span><br></pre></td></tr></table></figure>
+
+<h1 id="三-、String-类型"><a href="#三-、String-类型" class="headerlink" title="三 、String 类型"></a><font size="4" color="skyblue">三 、String 类型</font></h1><p><strong>字符串类型</strong> </p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str1:<span class="built_in">String</span> = <span class="string">'hello world'</span></span><br><span class="line"><span class="keyword">let</span> str2:<span class="built_in">String</span> = <span class="string">'hello $&#123;name&#125;'</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="四-、数组（Array）-类型"><a href="#四-、数组（Array）-类型" class="headerlink" title="四 、数组（Array） 类型"></a><font size="4" color="skyblue">四 、数组（Array） 类型</font></h1><p>数组有两种表达方式 ：</p>
+<p>第 ==一== 种 ，通过在 <strong>指定类型</strong> 后面增加 <code>[]</code> ，表示该数组内的元素都是该 <strong>指定类型：</strong></p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> numbers:<span class="built_in">Number</span>[] = [ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span> ];</span><br><span class="line"></span><br><span class="line"><span class="comment">// Number|String 代表联合类型 ，属于高级类型</span></span><br><span class="line"><span class="keyword">let</span> numbers:(<span class="built_in">Number</span>|<span class="built_in">String</span>)[] = [ <span class="number">1</span>, <span class="number">2</span>, <span class="string">'321'</span>, <span class="string">'123'</span> ]</span><br></pre></td></tr></table></figure>
+
+<p>第 ==二== 种 ，通过泛型表示 ，<code>Array&lt;元素类型&gt;</code> ：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> numbers:<span class="built_in">Array</span>&lt;<span class="built_in">number</span>&gt; = [ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span> ]</span><br></pre></td></tr></table></figure>
+
+<h1 id="五-、元组（Tuple）-类型"><a href="#五-、元组（Tuple）-类型" class="headerlink" title="五 、元组（Tuple） 类型"></a><font size="4" color="skyblue">五 、元组（Tuple） 类型</font></h1><p><strong>元组类型</strong> 表示一个已知 <strong>元素数量</strong> 和 <strong>类型</strong> 的数组 ，各元素的类型不必相同 ：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> list1:[<span class="built_in">number</span>, <span class="built_in">string</span>] = [<span class="number">1</span>, <span class="string">'2'</span>, <span class="number">3</span>];  <span class="comment">// 错误, 数量不对, 元组中只声明有2个元素</span></span><br><span class="line"><span class="keyword">let</span> list2:[<span class="built_in">number</span>, <span class="built_in">string</span>] = [<span class="number">1</span>, <span class="number">2</span>];  <span class="comment">// 错误, 第二个元素类型不对, 应该是字符串'2'</span></span><br><span class="line"><span class="keyword">let</span> list3:[<span class="built_in">number</span>, <span class="built_in">string</span>] = [<span class="string">'1'</span>, <span class="number">2</span>]; <span class="comment">// 错误, 2个元素的类型颠倒了</span></span><br><span class="line"><span class="keyword">let</span> list4:[<span class="built_in">number</span>, <span class="built_in">string</span>] = [<span class="number">1</span>, <span class="string">'2'</span>]; <span class="comment">// 正确</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="六-、枚举（enum）-类型"><a href="#六-、枚举（enum）-类型" class="headerlink" title="六 、枚举（enum） 类型"></a><font size="4" color="skyblue">六 、枚举（enum） 类型</font></h1><p><strong>枚举是 ==ts== 中有而 ==js== 中没有的类型</strong> ，编译后会被转换为对象，默认元素的值是从零开始 ，如下面的 <code>Color.Red</code> 的值为 0 ，以此类推 <code>Color.Green</code> 为 1 ，<code>Color.Blue</code> 为 2 。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> Color &#123; Red, Green, Blue &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等价</span></span><br><span class="line"><span class="keyword">enum</span> Color &#123; Red = <span class="number">0</span>, Green = <span class="number">1</span>, Blue = <span class="number">2</span> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>当然也可以手动赋值 ：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> Color &#123; Red = <span class="number">1</span>, Green = <span class="number">3</span>, Blue = <span class="number">4</span> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>并且可以反向通过值得到键 ：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">enum Color &#123; Red &#x3D; 1, Green &#x3D; 3, Blue &#x3D; 4 &#125;</span><br><span class="line">console.log( Color[3] &#x3D;&#x3D;&#x3D; &#39;Green&#39; )  &#x2F;&#x2F; true</span><br></pre></td></tr></table></figure>
+
+<p>编译后的枚举代码，有助于理解为什么可以反向取值 ：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Color;</span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">Color</span>) </span>&#123;</span><br><span class="line">    Color[Color[<span class="string">"Red"</span>] = <span class="number">0</span>] = <span class="string">"Red"</span>;</span><br><span class="line">    Color[Color[<span class="string">"Green"</span>] = <span class="number">1</span>] = <span class="string">"Green"</span>;</span><br><span class="line">    Color[Color[<span class="string">"Blue"</span>] = <span class="number">2</span>] = <span class="string">"Blue"</span>;</span><br><span class="line">&#125;)(Color || (Color = &#123;&#125;));</span><br><span class="line"></span><br><span class="line"><span class="comment">// Color的值为: &#123;0: "Red", 1: "Green", 2: "Blue", Red: 0, Green: 1, Blue: 2&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="七-、any-类型（任意类型）"><a href="#七-、any-类型（任意类型）" class="headerlink" title="七 、any 类型（任意类型）"></a><font size="4" color="skyblue">七 、any 类型（任意类型）</font></h1><p><code>any</code>代表任意数据类型，这个类型特别适合 ts 学习的新手， 初期有些类型不知道如何表达时， 暂时可以使用， 待熟悉 ts 后在标注精准的数据类型。</p>
+<p>==任何地方都使用 any , 那么 TS 也就没有意义了==</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> n: <span class="built_in">Number</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(i &lt;= <span class="number">5</span>)&#123;</span><br><span class="line">        n=<span class="number">10</span></span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        n = <span class="string">'100'</span></span><br><span class="line">    &#125;</span><br><span class="line">   </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// ts提示: 不能将类型“"100"”分配给类型“number”</span></span><br></pre></td></tr></table></figure>
+
+<p>作为新手如果初期你不知道”联合类型”这个概念, 你就可以直接把n标记为any:</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 熟练之后是这么标记</span></span><br><span class="line"><span class="comment">    let n: Number|String</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> n: <span class="built_in">any</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i =<span class="number">0</span>; i &lt;= <span class="number">10</span>; i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(i &lt;= <span class="number">5</span>)&#123;</span><br><span class="line">        n = <span class="number">10</span></span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        n = <span class="string">'100'</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj:<span class="built_in">any</span> = &#123; &#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ts 自己推导不出来 forEach 中给 obj 增加了 'a' 和 'b' 字段</span></span><br><span class="line">[ <span class="string">'a'</span>, <span class="string">'b'</span> ].forEach( <span class="function"><span class="params">letter</span> =&gt;</span>&#123;</span><br><span class="line">    obj[ letter ] = letter;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 但是因为标记了 any ，所以 ts 认为 a 可能存在</span></span><br><span class="line">obj.a = <span class="number">123</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="八-、void-类型（不是任何类型）"><a href="#八-、void-类型（不是任何类型）" class="headerlink" title="八 、void 类型（不是任何类型）"></a><font size="4" color="skyblue">八 、void 类型（不是任何类型）</font></h1><p><strong>void</strong> 与 <strong>any</strong> 刚好相反 ，表示不是任何类型 ，一般出现在函数中 ，用来标记函数没有返回值 ：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">abc</span>(<span class="params"> n : <span class="built_in">number</span> </span>):<span class="title">void</span></span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log( n )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>void 类型对应的值有两个 ：</p>
+<ul>
+<li>undefined</li>
+<li>null</li>
+</ul>
+<h1 id="九-、null-和-undefined-类型"><a href="#九-、null-和-undefined-类型" class="headerlink" title="九 、null 和 undefined 类型"></a><font size="4" color="skyblue">九 、null 和 undefined 类型</font></h1><p>默认情况 null 和 undefined 是所有类型的子类 ，比如 :</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> n1:Null = <span class="number">123</span> ;</span><br><span class="line"><span class="keyword">const</span> n2:Undefined = <span class="string">'123'</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意</strong> 这是因为默认情况下编译选项 <strong>strictNullChecks</strong> 为 false ，但是为了避免一些奇怪的问题出现 ，还是建议设置为 true （编译选项设置的内容在文章末尾） ，并使用精准的类型去标注 。</p>
+<p>如果一个变量的值为 <code>null</code> 和 <code>undefined</code> ，可以像下面这样使用 ，ts 会自动根据 <code>if/else</code> 推导出正确的类型 ：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这是 ‘ 联合数据类型 ’ ，在 ‘ 高级类型中 ’ 会进行讲解 ，表示 n 可能是 undefined 也可能是 number </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> num:<span class="literal">undefined</span>|<span class="built_in">number</span>;</span><br><span class="line"><span class="keyword">if</span>( <span class="built_in">Math</span>.random() &gt; <span class="number">0.5</span> ) num = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">if</span>( <span class="literal">undefined</span> !== num ) &#123;</span><br><span class="line">    num ++</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="十-、never-类型（永不存在的值的类型）"><a href="#十-、never-类型（永不存在的值的类型）" class="headerlink" title="十 、never 类型（永不存在的值的类型）"></a><font size="4" color="skyblue">十 、never 类型（永不存在的值的类型）</font></h1><p><strong>never</strong> 表示不可达 ，不存在 ，出错的<br>function error():never{<br>    throw ‘出错了！’;<br>}</p>
+<h1 id="十-、Object-类型）"><a href="#十-、Object-类型）" class="headerlink" title="十 、Object 类型）"></a><font size="4" color="skyblue">十 、Object 类型）</font></h1><p><strong>Object</strong> 表示非原始类型 ，也就是除了 <strong>Number</strong> / <strong>String</strong> / <strong>Boolean</strong> / <strong>Symbol</strong> / <strong>Null</strong> / <strong>Undefined</strong> 之外的数据类型 ：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> o:<span class="built_in">Object</span> = []</span><br><span class="line"><span class="keyword">let</span> p:<span class="built_in">Object</span> = &#123; a: <span class="number">1</span>, b: <span class="number">2</span> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>但是，<strong>实际开发过程中基本不用 Object 类型</strong> ，因为他标注的非常不具体 ，一般都用 <strong>interface（接口）</strong> 来标注更具体的对象类型 。</p>
+<h1 id="十一-、Object-类型）"><a href="#十一-、Object-类型）" class="headerlink" title="十一 、Object 类型）"></a><font size="4" color="skyblue">十一 、Object 类型）</font></h1><h1 id="tsconfig-json"><a href="#tsconfig-json" class="headerlink" title="tsconfig.json"></a><font size="4" color="skyblue">tsconfig.json</font></h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// tsconfig.json</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">"compilerOptions"</span>: &#123;</span><br><span class="line">        <span class="comment">// 不报告执行不到的代码错误。</span></span><br><span class="line">        <span class="string">"allowUnreachableCode"</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="comment">// 必须标注为null类型,才可以赋值为null</span></span><br><span class="line">        <span class="string">"strictNullChecks"</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="comment">// 严格模式, 强烈建议开启</span></span><br><span class="line">        <span class="string">"strict"</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="comment">// 支持别名导入:</span></span><br><span class="line">        <span class="comment">// import * as React from "react"</span></span><br><span class="line">        <span class="string">"esModuleInterop"</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="comment">// 目标js的版本</span></span><br><span class="line">        <span class="string">"target"</span>: <span class="string">"es5"</span>,</span><br><span class="line">        <span class="comment">// 目标代码的模块结构版本</span></span><br><span class="line">        <span class="string">"module"</span>: <span class="string">"es6"</span>,</span><br><span class="line">        <span class="comment">// 在表达式和声明上有隐含的 any类型时报错。</span></span><br><span class="line">        <span class="string">"noImplicitAny"</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="comment">// 删除注释</span></span><br><span class="line">        <span class="string">"removeComments"</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="comment">// 保留 const和 enum声明</span></span><br><span class="line">        <span class="string">"preserveConstEnums"</span>: <span class="literal">false</span>,</span><br><span class="line">        <span class="comment">// 生成sourceMap    </span></span><br><span class="line">        <span class="string">"sourceMap"</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="comment">// 目标文件所在路径</span></span><br><span class="line">        <span class="string">"outDir"</span>: <span class="string">"./lib"</span>,</span><br><span class="line">        <span class="comment">// 编译过程中需要引入的库文件的列表</span></span><br><span class="line">        <span class="string">"lib"</span>: [</span><br><span class="line">            <span class="string">"dom"</span>,</span><br><span class="line">            <span class="string">"es7"</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="comment">// 额外支持解构/forof等功能</span></span><br><span class="line">        <span class="string">"downlevelIteration"</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="comment">// 是否生成声明文件</span></span><br><span class="line">        <span class="string">"declaration"</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="comment">// 声明文件路径</span></span><br><span class="line">        <span class="string">"declarationDir"</span>: <span class="string">"./lib"</span>,</span><br><span class="line">        <span class="comment">// 此处设置为node,才能解析import xx from 'xx'</span></span><br><span class="line">        <span class="string">"moduleResolution"</span>: <span class="string">"node"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 入口文件</span></span><br><span class="line">    <span class="string">"include"</span>: [</span><br><span class="line">        <span class="string">"src/main.ts"</span></span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></font></font>
+    </div>
+</article>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            Loong
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/head.png" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"><p>This is Loong’s blog</p>
+</p>
+        </div>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    <aside id="sidebar-hot_posts">
+    <div class="panel panel-gal hot hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-fire"></i>
+            最热文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/12/30/TypeScript%E9%AB%98%E7%BA%A7-1/">TypeScript 基础 - 基础数据类型</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/12/08/TypeScript%E5%9F%BA%E7%A1%80-2/">TypeScript 基础 - 基础数据类型</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/11/27/TypeScript%E5%9F%BA%E7%A1%80-1/">TypeScript 基础 - 初体验</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/11/23/Vue%20%E5%9F%BA%E7%A1%80-2/">VueX 相关问题汇总</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/11/09/%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7-03/">防抖与节流</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/10/25/%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7-02/">时间处理</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/10/19/%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7-01/">数组去重</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/10/05/Vue%20%E5%9F%BA%E7%A1%80-1/">Vue基础</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/10/04/JavaScript%E5%9F%BA%E7%A1%80-6/">JavaScript基础 - 作用域</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/10/03/JavaScript%E5%9F%BA%E7%A1%80-5/">JavaScript基础 - 数组</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-rand_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            随机文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/09/13/JavaScript%E5%9F%BA%E7%A1%80-1/">JavaScript基础 - 数据类型及类型转换</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/09/14/JavaScript%E5%9F%BA%E7%A1%80-2/">JavaScript基础 - 运算符</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/09/15/JavaScript%E5%9F%BA%E7%A1%80-3/">JavaScript基础 - 流程控制语句</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/09/28/JavaScript%E5%9F%BA%E7%A1%80-4/">JavaScript基础 - 对象</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/10/05/Vue%20%E5%9F%BA%E7%A1%80-1/">Vue基础</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/10/03/JavaScript%E5%9F%BA%E7%A1%80-5/">JavaScript基础 - 数组</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/10/04/JavaScript%E5%9F%BA%E7%A1%80-6/">JavaScript基础 - 作用域</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/11/23/Vue%20%E5%9F%BA%E7%A1%80-2/">VueX 相关问题汇总</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/11/09/%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7-03/">防抖与节流</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/11/27/TypeScript%E5%9F%BA%E7%A1%80-1/">TypeScript 基础 - 初体验</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2019/12/08/TypeScript%E5%9F%BA%E7%A1%80-2/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2019/12/08/TypeScript%E5%9F%BA%E7%A1%80-2/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2019/12/08/TypeScript%E5%9F%BA%E7%A1%80-2/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/JavaScript/" style="font-size: 12.760396045602445px;" class="tag-cloud-link">JavaScript</a>
+    
+    <a href="/tags/WebStorm/" style="font-size: 9.011985445808925px;" class="tag-cloud-link">WebStorm</a>
+    
+    <a href="/tags/Git/" style="font-size: 13.830209801737581px;" class="tag-cloud-link">Git</a>
+    
+    <a href="/tags/VsCode/" style="font-size: 15.270417140369531px;" class="tag-cloud-link">VsCode</a>
+    
+    <a href="/tags/Vue/" style="font-size: 10.75240116082908px;" class="tag-cloud-link">Vue</a>
+    
+    <a href="/tags/TypeScript/" style="font-size: 9.716464310147632px;" class="tag-cloud-link">TypeScript</a>
+    
+</div>
+                
+                
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="http://www.ruanyifeng.com/blog/" target="_blank">阮一峰博客</a>
+    </li>
+    
+    <li>
+        <a href="https://developer.mozilla.org/zh-CN/" target="_blank">MDN官网♂</a>
+    </li>
+    
+</div>
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="/" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="/" target="_blank">Coding</a>
+    </li>
+    
+    <li>
+        <a href="/" target="_blank">知乎</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2019 Loong Powered by <a href="https://hexo.io/"
+            target="_blank">Hexo</a>.&nbsp;Theme by <a href="/" target="_blank">Loong</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'png',
+      maxCount: '11'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+<script src="/js/oni.js"></script>
+
+
+
+<script>
+    window.hot_posts_count = '10'
+    // window.use_leancloud = 'true'
+</script>
+
+<script src="/js/comment/leancloud.js"></script>
+
+
+
+</html>

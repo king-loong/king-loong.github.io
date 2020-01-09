@@ -13,7 +13,7 @@
   
   
   
-  <title>tags: WebStorm | Loong</title>
+  <title>TypeScript 基础 - 初体验 | Loong</title>
   <link href="https://xiao-long.club" rel="prefetch" />
 
 
@@ -240,19 +240,38 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    <article class="article well article-body" id="article-tag">
+                    
+<article class="article well article-body" id="article">
     <div class="breadcrumb">
         <i class="fa fa-home"></i>
         <a href="https://xiao-long.club">Loong</a>
         >
-        <span>标签</span>
+        <span>TypeScript 基础 - 初体验</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/tags/WebStorm/index.html">WebStorm</a>
+                <a href="/2019/11/27/TypeScript%E5%9F%BA%E7%A1%80-1/">TypeScript 基础 - 初体验</a>
             </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/TypeScript/">TypeScript</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2019-11-27
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-eye"></i>
+            </span>
+            
         </div>
     </div>
     <!-- 小型设备详细文章 -->
@@ -260,21 +279,59 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/tags/WebStorm/index.html">WebStorm</a>
+                    <a href="/2019/11/27/TypeScript%E5%9F%BA%E7%A1%80-1/">TypeScript 基础 - 初体验</a>
                 </h4>
             </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2019-11-27
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/TypeScript/">TypeScript</a>
+                
+                
+                
+                <i class="fa fa-eye"></i>
+                
+            </p>
         </center>
     </div>
-    <div class="content-article" style="margin-top: 30px;">
-        <div class="alert alert-info" style="font-size: 14px; line-height: 2; font-weight: bold;">
-            
-            <a href="/2019/09/26/%E5%B8%B8%E7%94%A8%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7-1/">常用工具配置 eslintrc.js</a>
-            <br>
-            
-            
-        </div>
+    <div class="content-article">
+        <p><a href="https://juejin.im/post/5d19ad6de51d451063431864" target="_blank" rel="noopener">参考安装</a></p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -g typescript   <span class="comment">// 安装编译器到全局.</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="安装配置"><a href="#安装配置" class="headerlink" title="安装配置"></a>安装配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm init  &#x2F;&#x2F;初始化项目</span><br><span class="line"></span><br><span class="line">npm install typescript tslint -g   &#x2F;&#x2F; 安装typescript语法就检查</span><br></pre></td></tr></table></figure>
+
+<p><strong>安装过程中报错</strong><br>vscode如何解决该问题\lib 未指向有效的 tsserver 安装。将禁用 TypeScript 语言<br><img src="https://img-bbs.csdn.net/upload/201702/22/1487752120_392312.jpg" alt="报错"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">按上图切换到目录 typescript  然后 npm uninstall typescript   安装完毕就可以解决问题了</span><br></pre></td></tr></table></figure>
+<h3 id="初始化-TypeScript-项目"><a href="#初始化-TypeScript-项目" class="headerlink" title="初始化 TypeScript 项目"></a>初始化 TypeScript 项目</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tsc --init</span><br></pre></td></tr></table></figure>
+
+<h3 id="开始写代码"><a href="#开始写代码" class="headerlink" title="开始写代码"></a>开始写代码</h3><p><strong>生成 js</strong></p>
+<ol>
+<li>建立一个文件夹, 在里面新建一个hello.ts文件, 注意扩展名是ts.</li>
+<li>用vscode打开hello.ts文件.</li>
+<li>输入如下代码, 让我们体验下ts:</li>
+</ol>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> A &#123;</span><br><span class="line">    a:<span class="built_in">number</span>,</span><br><span class="line">    b:<span class="built_in">string</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> obj:A = &#123;a:<span class="number">123</span>,b:<span class="string">'456'</span>&#125;;</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>命令行进入文件夹, 执行命令</li>
+</ol>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx tsc hello.ts</span><br></pre></td></tr></table></figure>
+
+<p>好了我们可以看下文件内部多了一个hello.js, 打开看看:</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123; a: <span class="number">123</span>, b: <span class="string">'456'</span> &#125;;</span><br></pre></td></tr></table></figure>
+
+<p>代码中的”类型注解”不见了 ,我们的ts被编译成js了, 是不是很神奇.</p>
+<p><strong>错误提示</strong></p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> A &#123;</span><br><span class="line">    a:<span class="built_in">number</span>,</span><br><span class="line">    b:<span class="built_in">string</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 错误, 会提示b的类型错误, 应该为string类型</span></span><br><span class="line"><span class="keyword">let</span> obj:A = &#123;a:<span class="number">123</span>,b:<span class="number">456</span>&#125;;</span><br></pre></td></tr></table></figure>
     </div>
 </article>
+
+
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
     <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
@@ -420,13 +477,19 @@
             
             <li class="list-group-item">
                 <span class="post-title">
+                    <a href="/2019/09/15/JavaScript%E5%9F%BA%E7%A1%80-3/">JavaScript基础 - 流程控制语句</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
                     <a href="/2019/09/28/JavaScript%E5%9F%BA%E7%A1%80-4/">JavaScript基础 - 对象</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/09/28/%E5%B8%B8%E7%94%A8%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7-2/">Git 相关指令</a>
+                    <a href="/2019/09/26/%E5%B8%B8%E7%94%A8%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7-1/">常用工具配置 eslintrc.js</a>
                 </span>
             </li>
             
@@ -438,7 +501,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/10/03/JavaScript%E5%9F%BA%E7%A1%80-5/">JavaScript基础 - 数组</a>
+                    <a href="/2019/10/04/JavaScript%E5%9F%BA%E7%A1%80-6/">JavaScript基础 - 作用域</a>
                 </span>
             </li>
             
@@ -450,19 +513,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/11/09/%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7-03/">防抖与节流</a>
+                    <a href="/2019/10/25/%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7-02/">时间处理</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
                     <a href="/2019/12/08/TypeScript%E5%9F%BA%E7%A1%80-2/">TypeScript 基础 - 基础数据类型</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/12/30/TypeScript%E9%AB%98%E7%BA%A7-1/">TypeScript 基础 - 基础数据类型</a>
                 </span>
             </li>
             
@@ -477,17 +534,17 @@
 
                 
                 <li>
-                    <a href="/tags/WebStorm/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2019/11/27/TypeScript%E5%9F%BA%E7%A1%80-1/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/tags/WebStorm/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/2019/11/27/TypeScript%E5%9F%BA%E7%A1%80-1/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/tags/WebStorm/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2019/11/27/TypeScript%E5%9F%BA%E7%A1%80-1/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -495,17 +552,17 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/JavaScript/" style="font-size: 13.514868536792228px;" class="tag-cloud-link">JavaScript</a>
+    <a href="/tags/JavaScript/" style="font-size: 9.046259696873271px;" class="tag-cloud-link">JavaScript</a>
     
-    <a href="/tags/WebStorm/" style="font-size: 8.315594535410671px;" class="tag-cloud-link">WebStorm</a>
+    <a href="/tags/WebStorm/" style="font-size: 13.585747473346295px;" class="tag-cloud-link">WebStorm</a>
     
-    <a href="/tags/Git/" style="font-size: 9.013695488090304px;" class="tag-cloud-link">Git</a>
+    <a href="/tags/Git/" style="font-size: 14.661365416210733px;" class="tag-cloud-link">Git</a>
     
-    <a href="/tags/VsCode/" style="font-size: 15.481880305670767px;" class="tag-cloud-link">VsCode</a>
+    <a href="/tags/VsCode/" style="font-size: 11.345908751664144px;" class="tag-cloud-link">VsCode</a>
     
-    <a href="/tags/Vue/" style="font-size: 13.562458019274436px;" class="tag-cloud-link">Vue</a>
+    <a href="/tags/Vue/" style="font-size: 18.390524503670303px;" class="tag-cloud-link">Vue</a>
     
-    <a href="/tags/TypeScript/" style="font-size: 9.52747696058471px;" class="tag-cloud-link">TypeScript</a>
+    <a href="/tags/TypeScript/" style="font-size: 18.671141349315313px;" class="tag-cloud-link">TypeScript</a>
     
 </div>
                 
