@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="author" content="Loong">
+  
+  <meta name="description" content="This is Loong&#39;s blog">
+  
+  
+  
+  
+  
+  
+  <title>VueX 相关问题汇总 | Loong</title>
+  <link href="https://xiao-long.club" rel="prefetch" />
+
+
+  <link rel="icon" href="/img/favicon.ico">
+
+
+  
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<script src="/js/jquery.min.js"></script>
+
+  
+<script src="/js/bootstrap.min.js"></script>
+
+  
+<script src="/js/aos.js"></script>
+
+  
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+  
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+  <style type="text/css">
+    @media (max-width: 768px) {
+      body {
+        background-color: #f0f0f0;
+        background: url('/imgs/0.gif');
+        background-attachment: fixed;
+      }
+    }
+  </style>
+  
+  <script src="//cdn1.lncld.net/static/js/3.4.2/av-min.js"></script>
+  <script>
+    AV.init({
+      appId: 'W2ku69yN9SKf3epFkbiNxPKM-gzGzoHsz',
+      appKey: 'r7h4cIu0z8FMOdzVfYKFd9M2'
+    })
+  </script>
+  
+  <script type="text/javascript">
+    if (document.images) {
+      var avatar = new Image();
+      avatar.src = '/imgs%20/%20head.png'
+      var previews = 'http://img.netbian.com/file/2019/1129/30d0db11e8ee1973e50799103388a1d4.jpg,http://img.netbian.com/file/2019/1127/faa3728c8a225f771e19c586e9172ab4.jpg,http://img.netbian.com/file/2019/1121/5e4911c7c44d251ee030cfafe3660394.jpg,http://img.netbian.com/file/2019/1116/86cc490738933ccf0a257b84f46ff147.jpg,http://img.netbian.com/file/2019/1114/56ce022d46a49e1feefec0a068b4fd1a.jpg,http://img.netbian.com/file/2019/1103/1d9396fcbfdb116c8d454d8a23738cf4.jpg,http://img.netbian.com/file/2019/1009/126c8c3e5fb96ee24c08cbf85f032f20.jpg,http://img.netbian.com/file/2019/0808/806ae4d57d34e7439f8c3750ac6152f7.jpg,http://img.netbian.com/file/2019/0808/4122714ca71cbb6d15be63d48613c9c7.jpg,http://img.netbian.com/file/2019/0808/93edf31ea97515998a66c64b48dd1d7a.jpg,http://img.netbian.com/file/2019/0806/d422ec90522c5b81c8d27d8e478fd728.jpg,http://img.netbian.com/file/2019/0802/8deb6aee66ceab43b4d51622f2eac79a.jpg,http://img.netbian.com/file/2019/0722/f8698935e8986b33669141d92ce33639.jpg,http://img.netbian.com/file/2019/0601/157c575065bd500f406c5236f7bbe5a5.jpg,http://img.netbian.com/file/2019/0418/4e3b73418a72771cd7d9dd744918d8c8.jpg,http://img.netbian.com/file/2019/0529/c7f3778a6fd8bfb157d3cb6ada90646a.jpg,http://img.netbian.com/file/2019/0527/6b351528fb75f737f606a235498e2a9a.jpg,http://img.netbian.com/file/2018/0315/1b43a2d12152d91d2053f32e1c73ef3c.jpg'.split(',')
+      var previewsPreLoad = []
+      for (var i = 0; i < length; i++) {
+        previewsPreLoad.push(new Image())
+        previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs%20/%20preview' + previews[i]
+      }
+    }
+  </script>
+<meta name="generator" content="Hexo 4.1.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>大</span></li>
+        <li><span>隐</span></li>
+        <li><span>隐</span></li>
+        <li><span>于</span></li>
+        <li><span>世</span></li>
+        <li><span>！</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <div class="gal-menu gal-dropdown">
+    <div class="circle" id="gal">
+        <div class="ring">
+            <a href="https://xiao-long.club" class="menuItem" style="left: 50%; top: 15%;">首页</a>
+            
+            <a class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
+            
+            <a href="/archives" class="menuItem" style="left: 80.3109%; top: 67.5%;">归档</a>
+            <a href="/about" class="menuItem" style="left: 50%; top: 85%;">关于</a>
+            <a href="/message" class="menuItem" style="left: 19.6891%; top: 67.5%;">留言板</a>
+
+            
+            <a class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
+            
+        </div>
+        <audio id="audio" src="/imgs/oni.mp3"></audio>
+    </div>
+</div>
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="https://xiao-long.club">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">Loong&#39;s blog</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">基础知识</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/">工具使用</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/">框架学习</a>
+                        </li>
+                        
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/JavaScript/">JavaScript</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/WebStorm/">WebStorm</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/Git/">Git</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/VsCode/">VsCode</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/Vue/">Vue</a>
+                        </li>
+                        
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="https://xiao-long.club">Loong</a>
+        >
+        <span>VueX 相关问题汇总</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2019/10/05/Vue%20%E5%9F%BA%E7%A1%80-2/">VueX 相关问题汇总</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/Vue/">Vue</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2019-10-05
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-eye"></i>
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2019/10/05/Vue%20%E5%9F%BA%E7%A1%80-2/">VueX 相关问题汇总</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2019-10-05
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/Vue/">Vue</a>
+                
+                
+                
+                <i class="fa fa-eye"></i>
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <p><a href="https://juejin.im/post/5dba91e4518825647e4ef18b" target="_blank" rel="noopener">参考资料</a></p>
+<h1 id="Vue-X"><a href="#Vue-X" class="headerlink" title=" Vue X "></a><font size="5" color="Blue"> Vue X </font></h1><h2 id="什么是-VueX-？"><a href="#什么是-VueX-？" class="headerlink" title=" 什么是 VueX ？"></a><font size="3" color="LightSlateBlue"> 什么是 VueX ？</font></h2><p>VueX 是专门为 Vue.js 应用程序开发的状态管理工具。它采用 ==集中式存储管理应用== 所有组件的状态；更改状态的唯一方式是提交 ==mutation== ，例如： <code>this.$store.commit(&#39;SET_VIDEO_PAUSE,video_pause,SET_VIDEO_PAUSE</code> 为 ==mutation==属性中定义方法。</p>
+<h2 id="VueX-解决了什么问题-？"><a href="#VueX-解决了什么问题-？" class="headerlink" title=" VueX 解决了什么问题 ？"></a><font size="3" color="LightSlateBlue"> VueX 解决了什么问题 ？</font></h2><p>解决了两个问题：</p>
+<ul>
+<li>多个组件依赖于统一状态时，对于多层嵌套的组件传值将会非常繁琐，并且对于兄弟组件间的状态传递无能为力。</li>
+<li>来自不同组件的行为需要变更同一状态。以往采用父子组件直接引用或者通过事件来变更和同步状态的多份拷贝。以上的这些模式非常脆弱，通常会导致无法维护的代码。</li>
+</ul>
+<h2 id="什么时候用-VueX-？"><a href="#什么时候用-VueX-？" class="headerlink" title=" 什么时候用 VueX ？"></a><font size="3" color="LightSlateBlue"> 什么时候用 VueX ？</font></h2><p>当项目遇到以下两种情况时：</p>
+<ul>
+<li>多个组件依赖于同一状态时</li>
+<li>来自不同组件的行为需要变更同一状态</li>
+</ul>
+<h2 id="VueX-的-5-个核心属性是什么-？"><a href="#VueX-的-5-个核心属性是什么-？" class="headerlink" title=" VueX 的 5 个核心属性是什么 ？"></a><font size="3" color="LightSlateBlue"> VueX 的 5 个核心属性是什么 ？</font></h2><p>分别是：==state== / ==getter== / ==mutation== / ==action== / ==module==</p>
+<h2 id="VueX-中状态储存在哪里，怎么改变它-？"><a href="#VueX-中状态储存在哪里，怎么改变它-？" class="headerlink" title=" VueX 中状态储存在哪里，怎么改变它 ？"></a><font size="3" color="LightSlateBlue"> VueX 中状态储存在哪里，怎么改变它 ？</font></h2><p>储存在  ==state== 中 ， 改变VueX中的状态唯一途径就是 <code>显示的提交（commit）mutaion</code></p>
+<h2 id="VueX-中状态是对象，使用时候需要注意什么-？"><a href="#VueX-中状态是对象，使用时候需要注意什么-？" class="headerlink" title=" VueX 中状态是对象，使用时候需要注意什么 ？"></a><font size="3" color="LightSlateBlue"> VueX 中状态是对象，使用时候需要注意什么 ？</font></h2><p>因为对象是引用类型，浅拷贝后，依旧会影响原 <code>state</code> 中的状态改变 ， 这是不被允许的；所以要进行深拷贝后在修改。</p>
+<h2 id="如何在组件中批量使用-VueX-的-state-状态-？"><a href="#如何在组件中批量使用-VueX-的-state-状态-？" class="headerlink" title=" 如何在组件中批量使用 VueX 的 state 状态 ？"></a><font size="3" color="LightSlateBlue"> 如何在组件中批量使用 VueX 的 state 状态 ？</font></h2><p>使用 ==mapState== 辅助函数，利用对象展开运算符将 <code>state</code> 混入 <code>computed</code> 对象中</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; mapState &#125; <span class="keyword">from</span> <span class="string">'vuex'</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    computed : &#123;</span><br><span class="line">        ...mapState ( [ <span class="string">'price'</span> , <span class="string">'number'</span> ] )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Vuex-中要从-state-派生一些状态出来-，-且多个组件使用它-，-该怎么做-？"><a href="#Vuex-中要从-state-派生一些状态出来-，-且多个组件使用它-，-该怎么做-？" class="headerlink" title=" Vuex 中要从 state 派生一些状态出来 ， 且多个组件使用它 ， 该怎么做 ？"></a><font size="3" color="LightSlateBlue"> Vuex 中要从 state 派生一些状态出来 ， 且多个组件使用它 ， 该怎么做 ？</font></h2><p>使用 ==getter== 属性，相当于 Vue 中的计算属性 ==computed== ，只有原状态改变派生状态才会发生改变。</p>
+<p>==getter== 接收两个参数，第一个参数是 ==state== ，第二个参数是 ==getters==<code>(可以用来访问其他 getter )</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store ( &#123;</span><br><span class="line">    state : &#123;</span><br><span class="line">        price : <span class="number">10</span>,</span><br><span class="line">        number : <span class="number">10</span>,</span><br><span class="line">        discount :<span class="number">0.7</span></span><br><span class="line">    &#125;,</span><br><span class="line">    getters : &#123;</span><br><span class="line">        total : <span class="function"><span class="params">state</span> =&gt;</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> state.price * state.number</span><br><span class="line">        &#125;,</span><br><span class="line">        discountTotal : <span class="function">(<span class="params"> state , getters </span>)=&gt;</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> state.discount * getters.total</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125; )</span><br></pre></td></tr></table></figure>
+
+<p>然后在组件在中可以用计算属性 ==computed== 通过 <code>this.$store.getters.total</code> 这样来访问这些派生转态</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">computed :&#123;</span><br><span class="line">    total ()&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.$store.getters.total</span><br><span class="line">    &#125;,</span><br><span class="line">    discountTotal ()&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.$store.getters.discounTotal</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="怎么通过-getter-来实现在组件内可以通过特定条件来获取state的状态-？"><a href="#怎么通过-getter-来实现在组件内可以通过特定条件来获取state的状态-？" class="headerlink" title=" 怎么通过 getter 来实现在组件内可以通过特定条件来获取state的状态 ？"></a><font size="3" color="LightSlateBlue"> 怎么通过 getter 来实现在组件内可以通过特定条件来获取state的状态 ？</font></h2><p>通过让 ==getter== 返回一个函数 ， 来实现给 ==getter== 传参 。 然后通过参数来进行判断从而获取 ==state==中满足要求的状态。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">    state:&#123;</span><br><span class="line">        todos :[</span><br><span class="line">            &#123; <span class="attr">id</span> : <span class="number">1</span> , <span class="attr">text</span> : <span class="string">'....'</span> , <span class="attr">done</span> :<span class="string">'true'</span>&#125;,</span><br><span class="line">            &#123; <span class="attr">id</span> : <span class="number">2</span> , <span class="attr">text</span> : <span class="string">'....'</span> , <span class="attr">done</span> :<span class="string">'false'</span>&#125;,</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    getters:&#123;</span><br><span class="line">        getTodoById:<span class="function">(<span class="params"> state </span>) =&gt;</span> <span class="function">(<span class="params"> id </span>) =&gt;</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> state.todos.find(<span class="function"><span class="params">todo</span>=&gt;</span>todo.id === id)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>然后在组件中可以使用计算属性 ==computed== 通过 <code>this.$store.getters.getTodoById(2)</code> 这样来访问这些派生转态。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">computed : &#123;</span><br><span class="line">    getTodoById()&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.$store.getters.getTodoById</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br><span class="line">mounted()&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.getTodoById(<span class="number">2</span>).id)  <span class="comment">// false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="如何在组件中批量使用-Vuex-的-getter-属性-？"><a href="#如何在组件中批量使用-Vuex-的-getter-属性-？" class="headerlink" title=" 如何在组件中批量使用 Vuex 的 getter 属性 ？"></a><font size="3" color="LightSlateBlue"> 如何在组件中批量使用 Vuex 的 getter 属性 ？</font></h2><p>使用 ==mapGetters== 辅助函数，利用对象展开运算符将 ==getter== 混入 ==computed== 对象中</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; mapGetters &#125; <span class="keyword">from</span> <span class="string">'vuex'</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    computed :&#123;</span><br><span class="line">        ...mapGetters(</span><br><span class="line">            myTotal : <span class="string">'total'</span>,</span><br><span class="line">            myDiscountTotal : <span class="string">'discountTotal'</span></span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="在-Vuex-的-state-中有状态-number-表示货物数量，在组件中怎么改变它-？"><a href="#在-Vuex-的-state-中有状态-number-表示货物数量，在组件中怎么改变它-？" class="headerlink" title=" 在 Vuex 的 state 中有状态 number 表示货物数量，在组件中怎么改变它 ？"></a><font size="3" color="LightSlateBlue"> 在 Vuex 的 state 中有状态 number 表示货物数量，在组件中怎么改变它 ？</font></h2><p>首先在 ==mutations== 中注册一个 ==mutation==( 谬忒神思 )</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">    state :&#123;</span><br><span class="line">        number :<span class="number">10</span></span><br><span class="line">    &#125;,</span><br><span class="line">    mutations :&#123;</span><br><span class="line">        SET_NUMBER( state , data )&#123;</span><br><span class="line">            state.number = data</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>在组件中使用  <code>this.$store.commit</code> 提取 ==mutation== ，改变 ==number== 的状态</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.$store.commit( <span class="string">'SET_NUMBER'</span> , <span class="number">20</span> )</span><br></pre></td></tr></table></figure>
+
+<h2 id="在-Vuex-中使用-mutation-要注意什么-？"><a href="#在-Vuex-中使用-mutation-要注意什么-？" class="headerlink" title=" 在 Vuex 中使用 mutation 要注意什么 ？"></a><font size="3" color="LightSlateBlue"> 在 Vuex 中使用 mutation 要注意什么 ？</font></h2><p>==mutation 必须是同步函数==</p>
+<h2 id="在组件中一次提交多个-mutation-，怎么写使用更方便-？"><a href="#在组件中一次提交多个-mutation-，怎么写使用更方便-？" class="headerlink" title=" 在组件中一次提交多个 mutation ，怎么写使用更方便 ？"></a><font size="3" color="LightSlateBlue"> 在组件中一次提交多个 mutation ，怎么写使用更方便 ？</font></h2><p>使用 mapMutations 辅助函数 ，在组件中这么使用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">methods :&#123;</span><br><span class="line">    ...mapMutations(&#123;</span><br><span class="line">        setNumber : <span class="string">"SET_NUMBER"</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Vuex-中-action-和-mutation-有什么区别-？"><a href="#Vuex-中-action-和-mutation-有什么区别-？" class="headerlink" title=" Vuex 中 action 和 mutation 有什么区别 ？"></a><font size="3" color="LightSlateBlue"> Vuex 中 action 和 mutation 有什么区别 ？</font></h2><ul>
+<li>==action== 提交的是 ==mutation== ，而不是直接变更状态 。  ==mutation== 可以直接变更状态。</li>
+<li>==action== 可以包含任意异步操作 ，==mutation==只能同步操作。</li>
+<li>提交方式不同 ， ==action== 是用 <code>this.$store.dispatch(&#39;ACTION_NAME,data&#39;)</code> 来提交 。 ==mutation== 是用 <code>this.$store.commit(&#39;SET_NUMBER&#39;,10)</code> 来提交。</li>
+<li>接收参数不同，==mutation== 第一个参数是 ==state== ，而 ==action== 第一个参数是 ==context== ，其包含了</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    state ,       <span class="comment">// 等同于 ' store.state ' , 若在弄快中则为局部状态</span></span><br><span class="line">    rootState ,   <span class="comment">// 等同于 ' store.state ' , 只存在于模块中</span></span><br><span class="line">    commit ,      <span class="comment">// 等同于 ' store.commit ' </span></span><br><span class="line">    dispatch ,    <span class="comment">// 等同于 ' store.dispatch '</span></span><br><span class="line">    getters ,     <span class="comment">// 等同于 ' store.getters '</span></span><br><span class="line">    rootGetters   <span class="comment">// 等同于 ' store.gettres ' ,只存在于模块中</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Vuex-中-action-和-mutation-有什么相同点-？"><a href="#Vuex-中-action-和-mutation-有什么相同点-？" class="headerlink" title=" Vuex 中 action 和 mutation 有什么相同点 ？"></a><font size="3" color="LightSlateBlue"> Vuex 中 action 和 mutation 有什么相同点 ？</font></h2><p>第二个参数都可以接收外部提交时传来的参数。</p>
+<p><code>this.$store.dispatch( &#39;ACTION_NAME&#39; , data )</code></p>
+<p><code>this.$store.commit( &quot;SET_NUMBER&quot; , data)</code></p>
+<h2 id="在组件中多次提交同一个-action-，怎么写更方便-？"><a href="#在组件中多次提交同一个-action-，怎么写更方便-？" class="headerlink" title=" 在组件中多次提交同一个 action ，怎么写更方便 ？"></a><font size="3" color="LightSlateBlue"> 在组件中多次提交同一个 action ，怎么写更方便 ？</font></h2><p>使用 ==mapAction== 辅助函数，在组件中这么使用 ：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; mapAction &#125; <span class="keyword">from</span> <span class="string">'vuex'</span></span><br><span class="line">methods :&#123;</span><br><span class="line">    ...mapAction(&#123;</span><br><span class="line">        setNumber : <span class="string">'SET_NUMBER'</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Vuex-中-action-通常是异步的-，-那么如何知道-action-什么时候结束-？"><a href="#Vuex-中-action-通常是异步的-，-那么如何知道-action-什么时候结束-？" class="headerlink" title=" Vuex 中 action 通常是异步的 ， 那么如何知道 action 什么时候结束 ？"></a><font size="3" color="LightSlateBlue"> Vuex 中 action 通常是异步的 ， 那么如何知道 action 什么时候结束 ？</font></h2><p>在 ==action== 函数中返回 ==Promise== ，然后再提交的时候用 ==then== 处理</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">action :&#123;</span><br><span class="line">    SET_NUMBER_A( &#123; commit &#125; , data)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params"> resolve , reject </span>)=&gt;</span>&#123;</span><br><span class="line">            setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">                conmmit( <span class="string">'SET_NUMBER'</span> , <span class="number">10</span>)</span><br><span class="line">            &#125;,<span class="number">2000</span>)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">this</span>.$store.dispatch(<span class="string">'SET_NUMBER_A'</span>).then(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    .......</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Vuex-中有两个-action-，分别是-actionA-和-actionB-，其内部都是异步操作，在-actionB-要提交-actionA-，需要在-actionA-处理结束只有再处理其他操作-，-怎么实现-？"><a href="#Vuex-中有两个-action-，分别是-actionA-和-actionB-，其内部都是异步操作，在-actionB-要提交-actionA-，需要在-actionA-处理结束只有再处理其他操作-，-怎么实现-？" class="headerlink" title=" Vuex 中有两个 action ，分别是 actionA 和 actionB ，其内部都是异步操作，在 actionB 要提交 actionA ，需要在 actionA 处理结束只有再处理其他操作 ， 怎么实现 ？"></a><font size="3" color="LightSlateBlue"> Vuex 中有两个 action ，分别是 actionA 和 actionB ，其内部都是异步操作，在 actionB 要提交 actionA ，需要在 actionA 处理结束只有再处理其他操作 ， 怎么实现 ？</font></h2><p>利用 ES6 的 ==async== 和 ==await== 来实现。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">actions:&#123;</span><br><span class="line">    <span class="keyword">async</span> actionA(&#123; commit &#125;)&#123;</span><br><span class="line">        ......</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">async</span> actionB(&#123; commit &#125;)&#123;</span><br><span class="line">        <span class="keyword">await</span> dispatch ( <span class="string">'actionA'</span> )   <span class="comment">// 等待 actionA 完成</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="有用过-Vuex-模块吗-？-为什么要用-？-怎么使用-？"><a href="#有用过-Vuex-模块吗-？-为什么要用-？-怎么使用-？" class="headerlink" title=" 有用过 Vuex 模块吗 ？ 为什么要用 ？ 怎么使用 ？ "></a><font size="3" color="LightSlateBlue"> 有用过 Vuex 模块吗 ？ 为什么要用 ？ 怎么使用 ？ </font></h2><p>有 ， 因为使用单一状态树 ，应用的所有状态会集中到一个比较大的对象 。当应用变得非常复杂时 ，==store== 对象就可能变得非常臃肿 ，不利于维护 。所以将 ==store== 分割成模块（==module==）。每个模块拥有自己的 ==stare== 、==mutation== 、==action== 、==getters== ；甚至是嵌套子模块，从上至下进行同样方式分割 。</p>
+<p>在 ==module== 文件新建 moduleA.js 和 moduleB.js 文件，在文件中写入 ↓  ↓  ↓</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> state = &#123;</span><br><span class="line">    ....</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> getters = &#123;</span><br><span class="line">    ....</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> mutations = &#123;</span><br><span class="line">    ....</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> actions = &#123;</span><br><span class="line">    ....</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    state,</span><br><span class="line">    getters,</span><br><span class="line">    mutations,</span><br><span class="line">    actions</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后在 index.js 中引入模块</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span>;</span><br><span class="line"><span class="keyword">import</span> Vuex <span class="keyword">from</span> <span class="string">'vuex'</span>;</span><br><span class="line">Vue.use(Vuex)</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> moduleA <span class="keyword">from</span> <span class="string">'./module/moduleA'</span></span><br><span class="line"><span class="keyword">import</span> moduleB <span class="keyword">from</span> <span class="string">'./module/moduleB'</span></span><br><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">    modules:&#123;</span><br><span class="line">        moduleA,</span><br><span class="line">        moduleB</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> store</span><br></pre></td></tr></table></figure>
+
+<h2 id="在模块中-，getter-和-mutation-接收的第一参数-state-，是全局的还是模块的-？"><a href="#在模块中-，getter-和-mutation-接收的第一参数-state-，是全局的还是模块的-？" class="headerlink" title="在模块中 ，getter 和 mutation 接收的第一参数 state ，是全局的还是模块的 ？"></a><font size="3" color="LightSlateBlue">在模块中 ，getter 和 mutation 接收的第一参数 state ，是全局的还是模块的 ？</font></h2><p>第一个参数 ==state== 是模块的 ==state== ，也就是局部的 ==state==</p>
+<h2 id="在模块中-，-getter-、mutation-、action-中如何访问全局的-state-和-getter-？"><a href="#在模块中-，-getter-、mutation-、action-中如何访问全局的-state-和-getter-？" class="headerlink" title="在模块中 ， getter 、mutation 、action 中如何访问全局的 state 和 getter ？"></a><font size="3" color="LightSlateBlue">在模块中 ， getter 、mutation 、action 中如何访问全局的 state 和 getter ？</font></h2><ul>
+<li>在 ==getter== 中可以通过第三个参数 ==rootState== 访问到全局的 ==state== ，可以通过第四个参数 ==rootGetters== 访问到全局 ==getters== 。</li>
+<li>在 ==mutation== 中不可以访问全局的 ==state== 和 ==getter== ，只能访问到局部的 ==state== 。</li>
+<li>在 ==action== 中第一参数 ==context== 中的 <code>context.rootState</code> 访问到全局的 ==state== ，<code>context.rootGetters</code> 访问全局的 ==getter== 。</li>
+</ul>
+<h2 id="在组件中怎么访问-Vuex-模块中的-getter-和-state-，怎么提交-mutation-和-action-？"><a href="#在组件中怎么访问-Vuex-模块中的-getter-和-state-，怎么提交-mutation-和-action-？" class="headerlink" title="在组件中怎么访问 Vuex 模块中的 getter 和 state ，怎么提交 mutation 和 action ？ "></a><font size="3" color="LightSlateBlue">在组件中怎么访问 Vuex 模块中的 getter 和 state ，怎么提交 mutation 和 action ？ </font></h2><ul>
+<li>直接通过 <code>this.$store.getters</code> 和 <code>this.$store.state</code> 来访问模块中的 ==getter== 和 ==state== 。</li>
+<li>直接通过 <code>this.$store.commit(&#39;mutationA&#39; , data)</code> 提交模块中的 ==mutation== 。</li>
+<li>直接通过 <code>this.$store.dispatch(&#39;actionA&#39; , data)</code> 提交模块中的 ==action== 。</li>
+</ul>
+<h2 id="用过-Vuex-模块的命名空间吗-？-为什么使用-，怎么使用-？"><a href="#用过-Vuex-模块的命名空间吗-？-为什么使用-，怎么使用-？" class="headerlink" title="用过 Vuex 模块的命名空间吗 ？ 为什么使用 ，怎么使用 ？"></a><font size="3" color="LightSlateBlue">用过 Vuex 模块的命名空间吗 ？ 为什么使用 ，怎么使用 ？</font></h2><p>默认情况下 ，模块内部的 ==action== 、==mutation== 和 ==getter== 是注册在全局命名空间 ，如果多个模块中 ==action== 、==mutation== 的命名都一样，那么提交 ==mutation== 、==action== 时 ，将会触发所有模块中命名相同的 ==mutation== 、==action== 。</p>
+<p>这样有太多耦合， 如果要使你的模块具有更高的封装度和复用性，你可以通过添加 ==namespaced : true== 的方式使其成为带命名空间的模块</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    namespaced: <span class="literal">true</span>,</span><br><span class="line">    state,</span><br><span class="line">    getters,</span><br><span class="line">    mutations,</span><br><span class="line">    actions</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="怎么在带命名空间的模块内提交全局的-mutation-和-action-？"><a href="#怎么在带命名空间的模块内提交全局的-mutation-和-action-？" class="headerlink" title="怎么在带命名空间的模块内提交全局的 mutation 和 action ？"></a><font size="3" color="LightSlateBlue">怎么在带命名空间的模块内提交全局的 mutation 和 action ？</font></h2><p>将 <code>{ root: true}</code> 作为第三个参数传给 ==dispatch== 或 ==commit== 即可</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.$store.dispatch(<span class="string">'actionA'</span>, <span class="literal">null</span>, &#123; <span class="attr">root</span>: <span class="literal">true</span> &#125;)</span><br><span class="line"><span class="keyword">this</span>.$store.commit(<span class="string">'mutationA'</span>, <span class="literal">null</span>, &#123; <span class="attr">root</span>: <span class="literal">true</span> &#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="如何在带命名空间的模块内注册全局的-action-？"><a href="#如何在带命名空间的模块内注册全局的-action-？" class="headerlink" title="如何在带命名空间的模块内注册全局的 action ？"></a><font size="3" color="LightSlateBlue">如何在带命名空间的模块内注册全局的 action ？</font></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">actions: &#123;</span><br><span class="line">    actionA: &#123;</span><br><span class="line">        root: <span class="literal">true</span>,</span><br><span class="line">        handler ( context , data )&#123;</span><br><span class="line">            .....</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="组件中怎么提交-modules-中的-moduleA-和-mutationA"><a href="#组件中怎么提交-modules-中的-moduleA-和-mutationA" class="headerlink" title="组件中怎么提交 modules 中的 moduleA 和 mutationA ?"></a><font size="3" color="LightSlateBlue">组件中怎么提交 modules 中的 moduleA 和 mutationA ?</font></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.$store.commit(<span class="string">'moduleA/mutationA'</span>, data)</span><br></pre></td></tr></table></figure>
+
+<h2 id="怎么使用-mapStates-mapActions-mapMutations-这些函数来绑定带命名空间的模块-？"><a href="#怎么使用-mapStates-mapActions-mapMutations-这些函数来绑定带命名空间的模块-？" class="headerlink" title="怎么使用 mapStates / mapActions / mapMutations 这些函数来绑定带命名空间的模块 ？"></a><font size="3" color="LightSlateBlue">怎么使用 mapStates / mapActions / mapMutations 这些函数来绑定带命名空间的模块 ？</font></h2><p>首先使用 ==createNamespacedHelpers== 创建基于某个命名空间辅助函数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createNamespacedHelpers &#125; <span class="keyword">from</span> <span class="string">'vuex'</span></span><br><span class="line"><span class="keyword">const</span> &#123; mapState , mapActions &#125; = createNamespacedHelpers(<span class="string">'moduleA'</span>)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    computed: &#123;</span><br><span class="line">        <span class="comment">// 在 module/moduleA 中查找</span></span><br><span class="line">        ...mapState(&#123;</span><br><span class="line">            a: <span class="function"><span class="params">state</span> =&gt;</span> state.a,</span><br><span class="line">            b: <span class="function"><span class="params">state</span> =&gt;</span> state.b</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">        <span class="comment">// 在 module/moduleA 中查找</span></span><br><span class="line">        ...mapActions([</span><br><span class="line">            <span class="string">'actionA'</span>,</span><br><span class="line">            <span class="string">'actionB'</span></span><br><span class="line">        ])</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Vuex-插件用过吗-？-怎么用简单介绍一下"><a href="#Vuex-插件用过吗-？-怎么用简单介绍一下" class="headerlink" title="Vuex 插件用过吗 ？ 怎么用简单介绍一下"></a><font size="3" color="LightSlateBlue">Vuex 插件用过吗 ？ 怎么用简单介绍一下</font></h2><p>Vuex 插件就是一个函数， 它接收 ==store== 作为唯一参数。 在 Vuex.Store 构造器选项 plugins 引入。 在 state/plugin.js 中写入</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">createPlugin</span>(<span class="params">param</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="params">store</span> =&gt;</span>&#123;</span><br><span class="line">        ....</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后在 state/index.js 文件中写入</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> createPlugin <span class="keyword">from</span> <span class="string">'./plugin.js'</span></span><br><span class="line"><span class="keyword">const</span> plugin = createPlugin()</span><br><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  plugins: [myPlugin]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="在-Vuex-插件中怎么监听组件中提交-mutation-和action-？"><a href="#在-Vuex-插件中怎么监听组件中提交-mutation-和action-？" class="headerlink" title="在 Vuex 插件中怎么监听组件中提交 mutation 和action ？"></a><font size="3" color="LightSlateBlue">在 Vuex 插件中怎么监听组件中提交 mutation 和action ？</font></h2><ul>
+<li>用 Vue.Store 的实例方法 <code>subscribe</code> 监听组件中提交 <code>mutation</code></li>
+<li>用 Vue.Store 的实例方法 <code>subscribeAction</code> 监听组件中提交 ==action== 在==store/plugin.js== 文件中写入</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span>  <span class="function"><span class="keyword">function</span> <span class="title">createPlugin</span>(<span class="params">param</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="params">store</span> =&gt;</span> &#123;</span><br><span class="line">        store.subscribe(<span class="function">(<span class="params">mutation, state</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(mutation.type)<span class="comment">//是那个mutation</span></span><br><span class="line">            <span class="built_in">console</span>.log(mutation.payload)</span><br><span class="line">            <span class="built_in">console</span>.log(state)</span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="comment">// store.subscribeAction((action, state) =&gt; &#123;</span></span><br><span class="line">        <span class="comment">//     console.log(action.type)//是那个action</span></span><br><span class="line">        <span class="comment">//     console.log(action.payload)//提交action的参数</span></span><br><span class="line">        <span class="comment">// &#125;)</span></span><br><span class="line">        store.subscribeAction(&#123;</span><br><span class="line">            before: <span class="function">(<span class="params">action, state</span>) =&gt;</span> &#123;<span class="comment">//提交action之前</span></span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">`before action <span class="subst">$&#123;action.type&#125;</span>`</span>)</span><br><span class="line">            &#125;,</span><br><span class="line">            after: <span class="function">(<span class="params">action, state</span>) =&gt;</span> &#123;<span class="comment">//提交action之后</span></span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">`after action <span class="subst">$&#123;action.type&#125;</span>`</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后在store/index.js文件中写入</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> createPlugin <span class="keyword">from</span> <span class="string">'./plugin.js'</span></span><br><span class="line"><span class="keyword">const</span> plugin = createPlugin()</span><br><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  plugins: [myPlugin]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="在v-model上怎么用Vuex中state的值-？"><a href="#在v-model上怎么用Vuex中state的值-？" class="headerlink" title="在v-model上怎么用Vuex中state的值 ？"></a><font size="3" color="LightSlateBlue">在v-model上怎么用Vuex中state的值 ？</font></h2><p>需要通过computed计算属性来转换。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;input v-model=<span class="string">"message"</span>&gt;</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line">computed: &#123;</span><br><span class="line">    message: &#123;</span><br><span class="line">        <span class="keyword">get</span> () &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.$store.state.message</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="keyword">set</span> (value) &#123;</span><br><span class="line">            <span class="keyword">this</span>.$store.commit(<span class="string">'updateMessage'</span>, value)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+</article>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            Loong
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/head.png" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"><p>This is Loong’s blog</p>
+</p>
+        </div>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    <aside id="sidebar-hot_posts">
+    <div class="panel panel-gal hot hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-fire"></i>
+            最热文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/11/09/%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7-03/">防抖与节流</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/10/25/%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7-02/">时间处理</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/10/19/%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7-01/">数组去重</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/10/05/Vue%20%E5%9F%BA%E7%A1%80-1/">Vue基础</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/10/05/Vue%20%E5%9F%BA%E7%A1%80-2/">VueX 相关问题汇总</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/10/04/JavaScript%E5%9F%BA%E7%A1%80-6/">JavaScript基础 - 作用域</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/10/03/JavaScript%E5%9F%BA%E7%A1%80-5/">JavaScript基础 - 数组</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/09/28/%E5%B8%B8%E7%94%A8%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7-2/">Git 相关指令</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/09/28/JavaScript%E5%9F%BA%E7%A1%80-4/">JavaScript基础 - 对象</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/09/26/%E5%B8%B8%E7%94%A8%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7-1/">常用工具配置 eslintrc.js</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-rand_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            随机文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/09/13/JavaScript%E5%9F%BA%E7%A1%80-1/">JavaScript基础 - 数据类型及类型转换</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/09/14/JavaScript%E5%9F%BA%E7%A1%80-2/">JavaScript基础 - 运算符</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/09/15/JavaScript%E5%9F%BA%E7%A1%80-3/">JavaScript基础 - 流程控制语句</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/09/28/JavaScript%E5%9F%BA%E7%A1%80-4/">JavaScript基础 - 对象</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/09/28/%E5%B8%B8%E7%94%A8%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7-2/">Git 相关指令</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/10/05/Vue%20%E5%9F%BA%E7%A1%80-1/">Vue基础</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/10/03/JavaScript%E5%9F%BA%E7%A1%80-5/">JavaScript基础 - 数组</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/10/04/JavaScript%E5%9F%BA%E7%A1%80-6/">JavaScript基础 - 作用域</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/10/05/Vue%20%E5%9F%BA%E7%A1%80-2/">VueX 相关问题汇总</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/11/09/%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7-03/">防抖与节流</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2019/10/05/Vue%20%E5%9F%BA%E7%A1%80-2/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2019/10/05/Vue%20%E5%9F%BA%E7%A1%80-2/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2019/10/05/Vue%20%E5%9F%BA%E7%A1%80-2/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/JavaScript/" style="font-size: 9.421481771199712px;" class="tag-cloud-link">JavaScript</a>
+    
+    <a href="/tags/WebStorm/" style="font-size: 17.19737441020958px;" class="tag-cloud-link">WebStorm</a>
+    
+    <a href="/tags/Git/" style="font-size: 8.90291564807607px;" class="tag-cloud-link">Git</a>
+    
+    <a href="/tags/VsCode/" style="font-size: 10.294829231736902px;" class="tag-cloud-link">VsCode</a>
+    
+    <a href="/tags/Vue/" style="font-size: 19.591605899817477px;" class="tag-cloud-link">Vue</a>
+    
+</div>
+                
+                
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="http://www.ruanyifeng.com/blog/" target="_blank">阮一峰博客</a>
+    </li>
+    
+    <li>
+        <a href="https://developer.mozilla.org/zh-CN/" target="_blank">MDN官网♂</a>
+    </li>
+    
+</div>
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="/" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="/" target="_blank">Coding</a>
+    </li>
+    
+    <li>
+        <a href="/" target="_blank">知乎</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2019 Loong Powered by <a href="https://hexo.io/"
+            target="_blank">Hexo</a>.&nbsp;Theme by <a href="/" target="_blank">Loong</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'png',
+      maxCount: '11'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+<script src="/js/oni.js"></script>
+
+
+
+<script>
+    window.hot_posts_count = '10'
+    // window.use_leancloud = 'true'
+</script>
+
+<script src="/js/comment/leancloud.js"></script>
+
+
+
+</html>

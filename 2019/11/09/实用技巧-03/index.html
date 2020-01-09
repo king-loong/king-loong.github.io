@@ -13,7 +13,7 @@
   
   
   
-  <title>JavaScript基础 - 数据类型及类型转换 | Loong</title>
+  <title>防抖与节流 | Loong</title>
   <link href="https://xiao-long.club" rel="prefetch" />
 
 
@@ -238,13 +238,13 @@
         <i class="fa fa-home"></i>
         <a href="https://xiao-long.club">Loong</a>
         >
-        <span>JavaScript基础 - 数据类型及类型转换</span>
+        <span>防抖与节流</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/2019/09/13/JavaScript%E5%9F%BA%E7%A1%80-1/">JavaScript基础 - 数据类型及类型转换</a>
+                <a href="/2019/11/09/%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7-03/">防抖与节流</a>
             </h1>
         </div>
         <div class="tag-article">
@@ -257,7 +257,7 @@
             </span>
             
             <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2019-09-13
+                <i class="fa fa-calendar"></i> 2019-11-09
             </span>
             
             <span class="label label-gal">
@@ -271,11 +271,11 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/2019/09/13/JavaScript%E5%9F%BA%E7%A1%80-1/">JavaScript基础 - 数据类型及类型转换</a>
+                    <a href="/2019/11/09/%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7-03/">防抖与节流</a>
                 </h4>
             </div>
             <p>
-                <i class="fa fa-calendar"></i> 2019-09-13
+                <i class="fa fa-calendar"></i> 2019-11-09
             </p>
             <p>
                 
@@ -291,148 +291,44 @@
         </center>
     </div>
     <div class="content-article">
-        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>简单数据类型（值类型）：</p>
-<ul>
-<li>String</li>
-<li>Number</li>
-<li>Boolean</li>
-</ul>
-<p>特殊数据类型</p>
-<ul>
-<li>Null （type of 出来是 Object）</li>
-<li>Undefined</li>
-</ul>
-<p>引用数据类型</p>
-<ul>
-<li>Object</li>
-<li>Array</li>
-<li>Function</li>
-</ul>
-<h1 id="二、数据类型介绍"><a href="#二、数据类型介绍" class="headerlink" title="二、数据类型介绍"></a>二、数据类型介绍</h1><h2 id="2-1-String（字符串类型）"><a href="#2-1-String（字符串类型）" class="headerlink" title="2.1 String（字符串类型）"></a>2.1 String（字符串类型）</h2><ul>
-<li><p>在 <code>JavaScript</code> 中字符串需要使用单引号/双引号 <code>&quot;&quot; / &#39;&#39;</code> 引起来使用（不可以讲单双引号混合使用）</p>
-</li>
-<li><p>引号内不能嵌套使用，如：双引号内继续使用双引号</p>
-</li>
-<li><p>在字符串内可以使用 <code>\</code> 反斜杠进行特殊字符转义</p>
-</li>
-<li><p>ES6 新增模板语法 <code></code> 反引号</p>
-<ul>
-<li><p>在反引号内可以调用变量</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">'Jerry'</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">`hello <span class="subst">$&#123;name&#125;</span>`</span></span><br><span class="line"><span class="built_in">console</span>.log(str) -&gt; hello Jerry</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="2-2-Number-数值类型"><a href="#2-2-Number-数值类型" class="headerlink" title="2.2 Number (数值类型)"></a>2.2 Number (数值类型)</h2><p>JavaScript 中所有数值都是Number类型，包括整数和浮点（小数）<br>    *  可以使用 “语法 ： typeof 变量” 来检查数据类型<br>        <em>typeof只能检查基础数据类型</em><br>    *  使用 typeof 来检查Infinity 和 NaN  返回的都是Number</p>
-<p>JS 中可以表示的最大值 Number.MAX_VSLUE<br>    * 如果使用的Number的数字超过最大值，输出 Infinity 表示正无穷大</p>
-<p>JS 中可以表示的最小值 Number.MIN_VSLUE<br>JS 中整数的运算基本可以保证精确<br>JS 进行浮点数（小数）进行运算可能得到一个不精确的结果 </p>
-<h2 id="1-3-Boolean（布尔）"><a href="#1-3-Boolean（布尔）" class="headerlink" title="1.3 Boolean（布尔）"></a>1.3 Boolean（布尔）</h2><p>Boolean 布尔值只有两个</p>
-<ul>
-<li>true - 表示“ 真 ” 。  <em>计算机中存值为：1</em></li>
-<li>false - 表示“ 假 ”。  <em>计算机中存值为：0</em></li>
-</ul>
-<h2 id="1-4-Null（空值）"><a href="#1-4-Null（空值）" class="headerlink" title="1.4 Null（空值）"></a>1.4 Null（空值）</h2><p>Null 类型的值只有一个，就是 null</p>
-<ul>
-<li>null 专门用来表示一个为空的对象</li>
-<li>用 typeof 检查 null 值时，会返回一个object （Bug）</li>
-</ul>
-<h2 id="1-5-Undefined（未定义）"><a href="#1-5-Undefined（未定义）" class="headerlink" title="1.5 Undefined（未定义）"></a>1.5 Undefined（未定义）</h2><p>类型只有一个，就是undefined</p>
-<ul>
-<li>当一个变量声明了，但并没有给这个变量赋值 ，它的值就是undefined</li>
-<li>用 typeof 检查 undefined 时也会返回一个 undefined</li>
-</ul>
-<h1 id="二、类型转换"><a href="#二、类型转换" class="headerlink" title="二、类型转换"></a>二、类型转换</h1><p>强制类型转换</p>
-<ul>
-<li>指讲一个数据类型强制转换为其他数据类型</li>
-<li>类型转主要指 将其他数据类型转化为：String/Number/Boolean</li>
-</ul>
-<h2 id="2-1-将其他数据类型转化为-String（字符串）"><a href="#2-1-将其他数据类型转化为-String（字符串）" class="headerlink" title="2.1 将其他数据类型转化为 String（字符串）"></a>2.1 将其他数据类型转化为 String（字符串）</h2><hr>
+        <p>[toc]</p>
+<h1 id="防抖与节流"><a href="#防抖与节流" class="headerlink" title="防抖与节流"></a>防抖与节流</h1><h2 id="一、什么是防抖"><a href="#一、什么是防抖" class="headerlink" title="一、什么是防抖"></a>一、什么是防抖</h2><p>防抖函数原理 ： 在事件被触发n秒后在执行回调，如果在这n秒内又被触发，则重新计时。<br>将防抖函数想象为拍照过程中，类似于手机摄像常用的防抖；使用户拍出来的照片没有虚影。</p>
 <ol>
-<li><strong>转换方法一 ：调用被转换数据类型的 .toString() 方法</strong>  </li>
+<li>防抖函数 <code>debounce</code> 的功能就相当于帮你判定什么时候按下快门。</li>
+<li><code>fn</code> 相当于快门</li>
+<li><code>threshhold</code> ( 阈值 ) 就相当于人体感知稳定所经历的时间</li>
+<li>只有稳定之后才会按下快门，执行 <code>fn</code> ; 也就是说一旦间隔 <code>threshhold</code> 有一次抖动都会重新判定稳定。</li>
+<li>如果 <code>threshhold</code> 间隔时间内一直稳定不下来，第一次触发 <code>threshhold</code> 毫秒之后 <code>fn</code> 不会被执行，同理一直不稳定， <code>fn</code>永远不会被执行（假如死循环）</li>
 </ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>;  </span><br><span class="line">a = a.toString()  </span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> a) <span class="comment">//打印出来的属性类型就是 string（字符串）</span></span><br><span class="line">   </span><br><span class="line">  * 该方法不会影响到原变量，它会将转换的结果返回</span><br><span class="line">  * ！注意 ！：<span class="literal">null</span> 和 <span class="literal">undefined</span> 这两个值都没有 .toString()  方法</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 抖动之后执行函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">fn,threshhold</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>( !fn <span class="keyword">instanceof</span> <span class="built_in">Function</span> )&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>( <span class="string">'Expected a function'</span> )</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> timer = <span class="literal">null</span> <span class="comment">// 定时器</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">...args</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(timer) clearTimeout( timer ); <span class="comment">//取消之前的任务</span></span><br><span class="line">        timer = setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">            fn.apply( <span class="keyword">this</span>, args )  <span class="comment">// 执行 fn 函数</span></span><br><span class="line">        &#125;,threshhold)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 抖动之前先执行一次函数，再进行防止抖动</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">fn,threshhold</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>( !fn <span class="keyword">instanceof</span> <span class="built_in">Function</span>)&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Expectend a function'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> timer = <span class="literal">null</span> </span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">...args</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>( timer ) clearTimeout( timer );</span><br><span class="line">        <span class="keyword">let</span> callNow = !timer</span><br><span class="line">        timer = setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">            timer = <span class="literal">null</span></span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="keyword">if</span>(callNow) fn.apply( <span class="keyword">this</span>, args )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>代码解析：</strong></p>
+<p><code>debounce</code>就相当于判断什么时候按下快门；其中传入的参数 <code>fn</code> 相当于快门，<code>threshhold</code> 相当于人挺感知到平稳的时间。如果连续调用 <code>debounce</code> 间隔时间小于 <code>threshhold</code> ,那么定时器将被清除重置 <code>cleatTimeout(timer)</code>;最终在时间间隔大于 <code>threshhold</code> 时执行 <code>fn.apply( this, args )</code> 相当于手不抖时按下快门。</p>
+<h2 id="二、什么是节流"><a href="#二、什么是节流" class="headerlink" title="二、什么是节流"></a>二、什么是节流</h2><p>节流可以理解为限流；当单行道交通拥堵的时候，会遇到两种情况，其一红绿灯限制车辆的通行；其二交警到现场根据实际情况调整通行；这就是节流。同理由于单行道只能通过一辆车；所以节流只执行第一次传入的函数，后面传进来的都不执行。</p>
+<p><strong>节流的两种方式：</strong></p>
+<ol>
+<li>第二次触发距离第一次时间超过threshhold，则第二次会立即执行</li>
+<li>threshhold间隔内函数fn无论触发多少次，第一次触发到threshholdms后都是只执行一次</li>
+</ol>
+<p><strong>通过定时器实现( 固定时间放行 )</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">throttle(fn, threshhold)&#123;</span><br><span class="line">    <span class="keyword">if</span>(!fn <span class="keyword">instanceof</span> <span class="built_in">Function</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">'Expected a function'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> timer = <span class="literal">null</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!timer)&#123;</span><br><span class="line">            timer =setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">                timer = <span class="literal">null</span> </span><br><span class="line">                fn.apply( <span class="keyword">this</span> )</span><br><span class="line">            &#125;,threshhold)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<ol>
-<li><strong>转换方法二 ：调用 String（）函数，并将被转换的数据作为参数传递给函数</strong>  </li>
-</ol>
-<p>对于Number 和 Boolean 实际上就是调用的 .toString()的方法<br>但是对于 null 和 undefined ，就不会调用 .toString()的方法，它会直接将null转换为“null”（字符串null）</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">调用<span class="built_in">String</span>（）函数来进行转化为字符串  </span><br><span class="line"><span class="keyword">var</span> a = <span class="number">123</span>    </span><br><span class="line">    <span class="built_in">String</span>(a) ;</span><br></pre></td></tr></table></figure>
+<p><strong>通过实践间隔实现</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">fn, threshhold</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!fn <span class="keyword">instanceof</span> <span class="built_in">Function</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">'Expected a function'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> limited = <span class="literal">false</span>;  <span class="comment">// 节流阀标志位</span></span><br><span class="line">    <span class="keyword">let</span> start = <span class="built_in">Date</span>.now();</span><br><span class="line">    threshhold = threshhold || <span class="number">500</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">...args</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">let</span> current = <span class="built_in">Date</span>.now();</span><br><span class="line">        limited = limited &amp;&amp; current- start &lt; threshhold</span><br><span class="line">        <span class="keyword">if</span>(!limited) &#123;</span><br><span class="line">                fn.apply(<span class="keyword">this</span>,args);</span><br><span class="line">                limited = <span class="literal">true</span>;</span><br><span class="line">                start = <span class="built_in">Date</span>.now();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="2-2-将其他数据类型转化为-Number（数字）"><a href="#2-2-将其他数据类型转化为-Number（数字）" class="headerlink" title="2.2 将其他数据类型转化为 Number（数字）"></a>2.2 将其他数据类型转化为 Number（数字）</h2><ol>
-<li><strong>转换方法一 ：使用Number（）函数</strong> </li>
-</ol>
-<p><strong>– 字符串 —&gt; 数字</strong></p>
-<ol>
-<li><p>如果是纯数字的字符串，则直接将其转换为数字</p>
-</li>
-<li><p>如果字符串中有非数字的内容 ， 则会转换为 NaN   </p>
-</li>
-<li><p>如果字符串是个空字符串或者全是空格的字符串，则转为“ 0 ”</p>
-<p>纯数字字符串：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">  <span class="keyword">var</span> a = <span class="string">"456"</span>   </span><br><span class="line">  a = <span class="built_in">Number</span>(a)    </span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">typeof</span> a)  <span class="comment">// 打印类型为 number   </span></span><br><span class="line"><span class="string">``</span><span class="string">`js</span></span><br><span class="line"><span class="string">  含有非数字类型：   </span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>js</span><br><span class="line">  <span class="keyword">var</span> a = <span class="string">"456asd"</span>   </span><br><span class="line">      a = <span class="built_in">Number</span>(a)    </span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">typeof</span> a)  <span class="comment">// 打印类型为 NaN </span></span><br><span class="line"><span class="string">``</span><span class="string">`        </span></span><br><span class="line"><span class="string">  含有非数字类型：  </span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>js</span><br><span class="line">  <span class="keyword">var</span> a = <span class="string">"456asd"</span>   </span><br><span class="line">      a = <span class="built_in">Number</span>(a)    </span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">typeof</span> a)  <span class="comment">// 打印类型为 NaN</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<p><strong>– 布尔 —&gt; 数字</strong></p>
-<ol>
-<li>true 转成 ：1 ；</li>
-<li>false 转出 ： 0 ；</li>
-</ol>
-<p><strong>– null —&gt; 数字</strong></p>
-<ol>
-<li>null 转成 ： 0 ；</li>
-</ol>
-<p><strong>– undefined —&gt; 数字</strong><br>        1. undefined 转成 ： NaN ；</p>
-<ol start="2">
-<li><p><strong>转换方法二 ：使用函数【parseInt（）—整形】和【parseFloat（）—浮点】</strong>  </p>
-<p> <em>— 这种方式专门用来对付字符串</em><br> <em>— parseInt() 把一个字符串转换为一个整数</em><br> <em>— parseFloat（）把一个字符串转换为一个浮点数</em>   </p>
+<p><strong>代码解析：</strong><br>通过 <code>limited</code> 确认当前是否限流；第一次默认是不限流，第二次执行时开始限流；当两次时间相减 <code>current- start</code> 超过 <code>threshhold</code> 时间间隔；才会重新执行 <code>fn.apply(this,args);</code></p>
+<h2 id="三、防抖与节流的对比"><a href="#三、防抖与节流的对比" class="headerlink" title="三、防抖与节流的对比"></a>三、防抖与节流的对比</h2><p><strong>相同点：</strong></p>
 <ul>
-<li>调用parseInt()函数将 a 转化为Number<ul>
-<li>parseInt()函数可以将一个字符串中有效的整数内容取出来 ,然后转换为Number。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">"120px"</span>    </span><br><span class="line">    a =  <span class="built_in">parseInt</span>( a );</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">typeof</span> a)  <span class="comment">// 打印类型为 Number     </span></span><br><span class="line">    <span class="built_in">console</span>.log( a )    <span class="comment">// 120</span></span><br></pre></td></tr></table></figure>
-
-</li>
+<li>其实本质上都是为了节省程序的性能（防止高频函数调用）</li>
+<li>借助了闭包的特性来缓存变量（状态）</li>
+<li>都可以使用setTimeout实现</li>
 </ul>
-</li>
-</ul>
-</li>
-</ol>
-<p><strong>调用parseFloat（）函数将 a 转化为Number</strong></p>
-<p>parseFloat（）和parseInt()类似，不同的是他可以获取到有效的小数    </p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">"120.12512px"</span>    </span><br><span class="line">    a =  <span class="built_in">parseInt</span>( a );</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">typeof</span> a)  <span class="comment">// 打印类型为 Number     </span></span><br><span class="line">    <span class="built_in">console</span>.log( a )    <span class="comment">// 120.12512</span></span><br></pre></td></tr></table></figure>
-
-<p><em>如果对非String使用parseInt（）和parseFloat（），会先将其转换为String ，再进行数据类型的转化</em></p>
-<ol start="3">
-<li><p><strong>其他进制的数字</strong></p>
-<p>在 JS 中，如果需要表示 16 进制的数字，则需要以 0x 开头 ；<br>输出的时候都会转化为十进制</p>
+<p><strong>区别：</strong></p>
 <ul>
-<li>如果需要表示八进制的数字 ， 则需要以 0 开头 ；    </li>
-<li>如果需要表示二进制的数字 ， 则需要以 ob 开头。（存在不兼容）       <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 像“ 070 ”这样的字符串，有些浏览器会当做八进制进行解析，有些当做十进制解析   </span></span><br><span class="line"><span class="comment">// 可以在parseInt（）中传递第二个参数，来指定数字的 进制类型</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="string">"070"</span> ;</span><br><span class="line">    a =  <span class="built_in">parseInt</span>( a ， <span class="number">10</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">typeof</span> a)  <span class="comment">// 打印类型为 Number     </span></span><br><span class="line">    <span class="built_in">console</span>.log( a )    <span class="comment">// 70</span></span><br></pre></td></tr></table></figure>
-
-</li>
+<li>使用防抖，可能n个threshhold时间间隔之后fn也没执行，但是使用节流触发的threshhold间隔内有且只执行一次</li>
+<li>同样threshhold间隔内连续触发，防抖只执行一次，而节流会执行两次，只是在不同的threshhold周期内</li>
+<li>侧重点不同，防抖侧重于稳定只能执行一次，而节流强调限周期内次数，即执行频率，不限制所有时间内的总次数</li>
 </ul>
-</li>
-</ol>
-<h2 id="2-3-将其他数据类型转化为-Boolean（布尔）"><a href="#2-3-将其他数据类型转化为-Boolean（布尔）" class="headerlink" title="2.3 将其他数据类型转化为  Boolean（布尔）"></a>2.3 将其他数据类型转化为  Boolean（布尔）</h2><ol>
-<li><p><strong>转换方法一 ：使用Boolean（）函数</strong> </p>
-<ul>
-<li><p>– 数字 —&gt; 布尔     </p>
-<pre><code>除了 0 和 NaN ，其余的全是 true</code></pre></li>
-<li><p>– 字符串 —&gt; 布尔     </p>
-<pre><code>除了空字符串，其余都是 true</code></pre></li>
-<li><p>– null 和 undefined —&gt; 布尔     </p>
-<pre><code>null 和 undefined 转换为布尔全是 false</code></pre></li>
-<li><p>– object —&gt; 布尔     </p>
-<pre><code>Object（对象）转换为布尔全是 true </code></pre></li>
-</ul>
-</li>
-</ol>
-<h2 id="三、栈区与堆区"><a href="#三、栈区与堆区" class="headerlink" title="三、栈区与堆区"></a>三、栈区与堆区</h2><hr>
-<ol>
-<li>值类型存放在栈区</li>
-<li>复杂数据类型存放在堆区，栈中存堆的地址</li>
-</ol>
-
+<h2 id="四、封装"><a href="#四、封装" class="headerlink" title="四、封装"></a>四、封装</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这个是用来获取当前时间戳的</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">now</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> +<span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 防抖函数，返回函数连续调用时，空闲时间必须大于或等于 wait，func 才会执行</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * @param  &#123;function&#125; func        回调函数</span></span><br><span class="line"><span class="comment"> * @param  &#123;number&#125;   wait        表示时间窗口的间隔</span></span><br><span class="line"><span class="comment"> * @param  &#123;boolean&#125;  immediate   设置为ture时，是否立即调用函数</span></span><br><span class="line"><span class="comment"> * @return &#123;function&#125;             返回客户调用函数</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span> (<span class="params">func, wait = <span class="number">50</span>, immediate = true</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> timer, context, args</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 延迟执行函数</span></span><br><span class="line">  <span class="keyword">const</span> later = <span class="function"><span class="params">()</span> =&gt;</span> setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 延迟函数执行完毕，清空缓存的定时器序号</span></span><br><span class="line">    timer = <span class="literal">null</span></span><br><span class="line">    <span class="comment">// 延迟执行的情况下，函数会在延迟函数中执行</span></span><br><span class="line">    <span class="comment">// 使用到之前缓存的参数和上下文</span></span><br><span class="line">    <span class="keyword">if</span> (!immediate) &#123;</span><br><span class="line">      func.apply(context, args)</span><br><span class="line">      context = args = <span class="literal">null</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, wait)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 这里返回的函数是每次实际调用的函数</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">...params</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 如果没有创建延迟执行函数（later），就创建一个</span></span><br><span class="line">    <span class="keyword">if</span> (!timer) &#123;</span><br><span class="line">      timer = later()</span><br><span class="line">      <span class="comment">// 如果是立即执行，调用函数</span></span><br><span class="line">      <span class="comment">// 否则缓存参数和调用上下文</span></span><br><span class="line">      <span class="keyword">if</span> (immediate) &#123;</span><br><span class="line">        func.apply(<span class="keyword">this</span>, params)</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        context = <span class="keyword">this</span></span><br><span class="line">        args = params</span><br><span class="line">      &#125;</span><br><span class="line">    <span class="comment">// 如果已有延迟执行函数（later），调用的时候清除原来的并重新设定一个</span></span><br><span class="line">    <span class="comment">// 这样做延迟函数会重新计时</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      clearTimeout(timer)</span><br><span class="line">      timer = later()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 </article>
 
@@ -570,12 +466,6 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/09/13/JavaScript%E5%9F%BA%E7%A1%80-1/">JavaScript基础 - 数据类型及类型转换</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
                     <a href="/2019/09/14/JavaScript%E5%9F%BA%E7%A1%80-2/">JavaScript基础 - 运算符</a>
                 </span>
             </li>
@@ -594,13 +484,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/10/05/Vue%20%E5%9F%BA%E7%A1%80-1/">Vue基础</a>
+                    <a href="/2019/09/28/%E5%B8%B8%E7%94%A8%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7-2/">Git 相关指令</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/10/03/JavaScript%E5%9F%BA%E7%A1%80-5/">JavaScript基础 - 数组</a>
+                    <a href="/2019/10/05/Vue%20%E5%9F%BA%E7%A1%80-1/">Vue基础</a>
                 </span>
             </li>
             
@@ -628,6 +518,12 @@
                 </span>
             </li>
             
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/11/09/%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7-03/">防抖与节流</a>
+                </span>
+            </li>
+            
         </ul>
     </div>
 </aside>
@@ -639,17 +535,17 @@
 
                 
                 <li>
-                    <a href="/2019/09/13/JavaScript%E5%9F%BA%E7%A1%80-1/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2019/11/09/%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7-03/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/2019/09/13/JavaScript%E5%9F%BA%E7%A1%80-1/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/2019/11/09/%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7-03/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/2019/09/13/JavaScript%E5%9F%BA%E7%A1%80-1/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2019/11/09/%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7-03/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -657,15 +553,15 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/JavaScript/" style="font-size: 15.765363933057369px;" class="tag-cloud-link">JavaScript</a>
+    <a href="/tags/JavaScript/" style="font-size: 19.25774060488047px;" class="tag-cloud-link">JavaScript</a>
     
-    <a href="/tags/WebStorm/" style="font-size: 15.036591661868425px;" class="tag-cloud-link">WebStorm</a>
+    <a href="/tags/WebStorm/" style="font-size: 9.056317282488713px;" class="tag-cloud-link">WebStorm</a>
     
-    <a href="/tags/Git/" style="font-size: 10.32428075074078px;" class="tag-cloud-link">Git</a>
+    <a href="/tags/Git/" style="font-size: 11.91987854189351px;" class="tag-cloud-link">Git</a>
     
-    <a href="/tags/VsCode/" style="font-size: 12.169620511023489px;" class="tag-cloud-link">VsCode</a>
+    <a href="/tags/VsCode/" style="font-size: 12.963774932282648px;" class="tag-cloud-link">VsCode</a>
     
-    <a href="/tags/Vue/" style="font-size: 19.72892175979494px;" class="tag-cloud-link">Vue</a>
+    <a href="/tags/Vue/" style="font-size: 8.950825559684056px;" class="tag-cloud-link">Vue</a>
     
 </div>
                 

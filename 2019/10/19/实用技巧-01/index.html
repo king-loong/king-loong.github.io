@@ -13,7 +13,7 @@
   
   
   
-  <title>关于我 | Loong</title>
+  <title>数组去重 | Loong</title>
   <link href="https://xiao-long.club" rel="prefetch" />
 
 
@@ -217,7 +217,7 @@
                 
                 
                 
-                <li class="current">
+                <li class="">
                     <a href="/about">
                         <i class="fa fa-user"></i>关于我
                     </a>
@@ -232,21 +232,38 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    <!-- 搜索页面(尽可能接近ZanBlog搜索功能) -->
-
-
+                    
 <article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="https://xiao-long.club">Loong</a>
+        >
+        <span>数组去重</span>
+    </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/about/index.html">关于我</a>
+                <a href="/2019/10/19/%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7-01/">数组去重</a>
             </h1>
         </div>
         <div class="tag-article">
+            
             <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2019-06-12
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/JavaScript/">JavaScript</a>
+                
             </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2019-10-19
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-eye"></i>
+            </span>
+            
         </div>
     </div>
     <!-- 小型设备详细文章 -->
@@ -254,22 +271,33 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/about/index.html">关于我</a>
+                    <a href="/2019/10/19/%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7-01/">数组去重</a>
                 </h4>
             </div>
             <p>
-                <i class="fa fa-calendar"></i> 2019-06-12
+                <i class="fa fa-calendar"></i> 2019-10-19
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/JavaScript/">JavaScript</a>
+                
+                
+                
+                <i class="fa fa-eye"></i>
+                
             </p>
         </center>
     </div>
     <div class="content-article">
-        <p><font color="blue" size="5"><strong>一名努力的前端菜鸟</strong></font></p>
-<p><font color="blue" size="5"><strong>欢迎加入前端学不动大家庭</strong></font></p>
-<p><font color="skyblue" size="3"><strong>邮箱：<a href="mailto:longlonghezi@gmail.com">longlonghezi@gmail.com</a></strong></font></p>
+        <h2 id="1、对象去重"><a href="#1、对象去重" class="headerlink" title="1、对象去重"></a>1、对象去重</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> list = [</span><br><span class="line">    &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">a</span>: <span class="number">1</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">a</span>: <span class="number">2</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">id</span>: <span class="number">3</span>, <span class="attr">a</span>: <span class="number">3</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">a</span>: <span class="number">4</span> &#125;,</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> result = list.reduce(<span class="function">(<span class="params">acc, cur</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> ids = acc.map(<span class="function"><span class="params">item</span> =&gt;</span> item.id)</span><br><span class="line">    <span class="built_in">console</span>.log(ids)</span><br><span class="line">    <span class="keyword">return</span> ids.includes(cur.id) ? acc : [...acc, cur]</span><br><span class="line">&#125;, [])</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(result)<span class="comment">// -&gt; [ &#123; id: 1, a: 1&#125;, &#123;id: 2, a: 2&#125;, &#123;id: 3, a: 3&#125; ]</span></span><br></pre></td></tr></table></figure>
 
+<h2 id="2、Set方法去重"><a href="#2、Set方法去重" class="headerlink" title="2、Set方法去重"></a>2、Set方法去重</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> num = [<span class="number">2</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">6</span>, <span class="number">3</span>, <span class="number">7</span>, <span class="number">7</span>, <span class="number">1</span>, <span class="number">9</span>, <span class="number">0</span>]</span><br><span class="line"><span class="keyword">const</span> result = <span class="built_in">Array</span>.from(<span class="keyword">new</span> <span class="built_in">Set</span>(num)).sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> a - b</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(result) <span class="comment">// [0, 1, 2, 3, 4, 6, 7, 9]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3、-For循环嵌套"><a href="#3、-For循环嵌套" class="headerlink" title="3、 For循环嵌套"></a>3、 For循环嵌套</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> num = [<span class="number">2</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">6</span>, <span class="number">3</span>, <span class="number">7</span>, <span class="number">7</span>, <span class="number">1</span>, <span class="number">9</span>, <span class="number">0</span>]</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; num.length; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = i+<span class="number">1</span>; j &lt; num.length; j++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (num[i] === num[j]) &#123;</span><br><span class="line">            num.splice(j, <span class="number">1</span>)</span><br><span class="line">            j--</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(num) <span class="comment">// [2, 1, 4, 6, 3, 7, 9, 0]</span></span><br></pre></td></tr></table></figure>
     </div>
 </article>
-
 
 
                 </div>
@@ -423,12 +451,6 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/09/28/JavaScript%E5%9F%BA%E7%A1%80-4/">JavaScript基础 - 对象</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
                     <a href="/2019/09/26/%E5%B8%B8%E7%94%A8%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7-1/">常用工具配置 eslintrc.js</a>
                 </span>
             </li>
@@ -441,13 +463,19 @@
             
             <li class="list-group-item">
                 <span class="post-title">
+                    <a href="/2019/10/05/Vue%20%E5%9F%BA%E7%A1%80-1/">Vue基础</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
                     <a href="/2019/10/03/JavaScript%E5%9F%BA%E7%A1%80-5/">JavaScript基础 - 数组</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/10/04/JavaScript%E5%9F%BA%E7%A1%80-6/">JavaScript基础 - 作用域</a>
+                    <a href="/2019/10/05/Vue%20%E5%9F%BA%E7%A1%80-2/">VueX 相关问题汇总</a>
                 </span>
             </li>
             
@@ -474,17 +502,17 @@
 
                 
                 <li>
-                    <a href="/about/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2019/10/19/%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7-01/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/about/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/2019/10/19/%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7-01/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/about/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2019/10/19/%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7-01/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -492,15 +520,15 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/JavaScript/" style="font-size: 18.070439275984015px;" class="tag-cloud-link">JavaScript</a>
+    <a href="/tags/JavaScript/" style="font-size: 16.372991679172234px;" class="tag-cloud-link">JavaScript</a>
     
-    <a href="/tags/WebStorm/" style="font-size: 19.88832767963665px;" class="tag-cloud-link">WebStorm</a>
+    <a href="/tags/WebStorm/" style="font-size: 8.457581297263731px;" class="tag-cloud-link">WebStorm</a>
     
-    <a href="/tags/Git/" style="font-size: 16.64652572892762px;" class="tag-cloud-link">Git</a>
+    <a href="/tags/Git/" style="font-size: 16.11380684898583px;" class="tag-cloud-link">Git</a>
     
-    <a href="/tags/VsCode/" style="font-size: 8.093411349231276px;" class="tag-cloud-link">VsCode</a>
+    <a href="/tags/VsCode/" style="font-size: 9.47127780906738px;" class="tag-cloud-link">VsCode</a>
     
-    <a href="/tags/Vue/" style="font-size: 16.254803711005376px;" class="tag-cloud-link">Vue</a>
+    <a href="/tags/Vue/" style="font-size: 15.571168057617989px;" class="tag-cloud-link">Vue</a>
     
 </div>
                 
